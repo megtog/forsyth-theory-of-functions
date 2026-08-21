@@ -22,6 +22,7 @@ await mkdir(outputDirectory, { recursive: true });
 await Promise.all([
   cp(path.join(projectDirectory, "index.html"), path.join(outputDirectory, "index.html")),
   cp(path.join(projectDirectory, "section-25.html"), path.join(outputDirectory, "section-25.html")),
+  cp(path.join(projectDirectory, "assets"), path.join(outputDirectory, "assets"), { recursive: true }),
   cp(path.join(projectDirectory, "vendor", "mathjax"), path.join(outputDirectory, "vendor", "mathjax"), { recursive: true }),
   writeFile(path.join(outputDirectory, "_headers"), "/\n  X-Content-Type-Options: nosniff\n", "utf8"),
 ]);
@@ -31,5 +32,13 @@ for (const page of ["index.html", "section-25.html"]) {
   if (!html.includes("./vendor/mathjax/tex-svg.js")) {
     throw new Error(`Published ${page} is missing its local MathJax reference.`);
   }
+}
+
+const sectionHtml = await readFile(path.join(outputDirectory, "section-25.html"), "utf8");
+for (const asset of ["section-25-fig-8.jpg", "section-25-fig-9.jpg"]) {
+  if (!sectionHtml.includes(`./assets/${asset}`)) {
+    throw new Error(`Published section-25.html is missing its ${asset} reference.`);
+  }
+  await readFile(path.join(outputDirectory, "assets", asset));
 }
 console.log("Built Cloudflare Pages artifact in dist/.");

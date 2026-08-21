@@ -13,6 +13,7 @@ site.
 
 - `contents.md` is the canonical chapter-level transcription and page source.
 - `section-25.md` is the canonical transcription of §25.
+- `assets/` contains figures used by the transcriptions.
 - `index.html` and `section-25.html` are generated pages; do not edit them directly.
 - `styles.css` controls the generated reading page.
 - `vendor/mathjax/` contains a fixed local MathJax runtime, allowing the page

@@ -81,6 +81,8 @@ being $e^{-x^2+y^2}$, tends towards zero when $y$ remains finite; and therefore
 the preceding rectangle can be extended towards infinity in the direction of
 the axis of $x$, the side $b$ of the rectangle remaining unaltered.
 
+![Fig. 8. Rectangular contour with vertices A, B, B-prime, and A-prime, extending from x equals negative a to x equals a and from y equals zero to y equals b.](./assets/section-25-fig-8.jpg)
+
 Along $A'A$, we have $z=x$: so that the value of the integral along the part
 $A'A$ of the boundary is
 
@@ -230,6 +232,8 @@ that it is made up of:—
    infinitesimally small;
 3. the diameter of $C_3$ along the axis of $x$ excepting those ultimately
    infinitesimal portions which are the diameters of $c_1$ and of $c_2$.
+
+![Fig. 9. Upper semicircular contour C3 with small semicircular indentations c2 and c1 around negative one and zero.](./assets/section-25-fig-9.jpg)
 
 The subject of integration is uniform within the area thus enclosed although
 it is not uniform over the whole plane. We shall take that value of $z^{n-1}$
