@@ -1,0 +1,16 @@
+{
+  "name": "forsyth-theory-of-functions",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "node scripts/build.mjs",
+    "build:pages": "node scripts/build-pages.mjs",
+    "vendor:mathjax": "node scripts/vendor-mathjax.mjs",
+    "check": "node scripts/build.mjs --check && node scripts/check-source.mjs"
+  },
+  "devDependencies": {
+    "markdown-it": "14.1.0",
+    "mathjax": "4.1.3"
+  }
+}

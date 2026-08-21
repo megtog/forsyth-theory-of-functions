@@ -3,9 +3,10 @@
 *A. R. Forsyth, **Theory of Functions of a Complex Variable**, third edition
 (1918).* Page numbers below are the book's printed page numbers.
 
-> **Transcription note:** This is a cleaned chapter-level transcription of the
-> printed contents. It is intended as a navigation aid; the page scans remain
-> authoritative for individual section descriptions and mathematical notation.
+> **Canonical source note:** This Markdown file is the editable source for the
+> generated reading page. It is a cleaned chapter-level transcription of the
+> printed contents; page scans remain authoritative for individual section
+> descriptions and mathematical notation.
 
 ## Chapters
 

@@ -9,10 +9,24 @@ directory. This repository will hold curated material derived from that source,
 such as corrected transcriptions, notes, exercises, and a future static reading
 site.
 
-## Status
+## Working files
 
-The repository is intentionally initialized as a minimal scaffold. No book
-content has been copied into it yet.
+- `contents.md` is the canonical chapter-level transcription and page source.
+- `index.html` is generated from `contents.md`; do not edit it directly.
+- `styles.css` controls the generated reading page.
+- `vendor/mathjax/` contains a fixed local MathJax runtime, allowing the page
+  to render TeX without a CDN.
 
-See [the table of contents](contents.md) for a chapter-level guide to the
-book.
+## Build
+
+Requires Node.js 22 and npm:
+
+```bash
+npm ci --no-audit
+npm run vendor:mathjax
+npm run build
+npm run check
+```
+
+`npm run build:pages` writes a Cloudflare Pages-ready release to `dist/`.
+The generated page can also be opened directly from `file://`.

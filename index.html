@@ -1,0 +1,294 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="A reading guide to A. R. Forsyth's Theory of Functions of a Complex Variable">
+  <title>Forsyth — Theory of Functions of a Complex Variable</title>
+  <style>
+:root {
+  color-scheme: light;
+  --paper: #fffdf8;
+  --page: #f1eee5;
+  --ink: #1f2825;
+  --muted: #59645e;
+  --line: #d8d1c3;
+  --accent: #8b3930;
+  --accent-dark: #65271f;
+  --secondary: #1d625c;
+  --content-width: 52rem;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 18px;
+  line-height: 1.75;
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; scroll-padding-top: 1.5rem; }
+body { margin: 0; color: var(--ink); background: var(--page); }
+a { color: var(--secondary); text-underline-offset: 0.16em; }
+
+.skip-link {
+  position: fixed; top: 0.5rem; left: 0.5rem; z-index: 2; padding: 0.4rem 0.7rem;
+  color: white; background: var(--accent-dark); transform: translateY(-150%);
+}
+.skip-link:focus { transform: translateY(0); }
+
+.book-header { padding: 4rem max(2rem, calc((100vw - 72rem) / 2)); background: var(--paper); border-bottom: 1px solid var(--line); }
+.eyebrow { margin: 0 0 0.7rem; color: var(--secondary); font: 650 0.78rem/1.3 system-ui, sans-serif; letter-spacing: 0.05em; text-transform: uppercase; }
+h1 { max-width: 48rem; margin: 0; font-size: clamp(2.1rem, 5vw, 3.6rem); font-weight: 600; line-height: 1.15; }
+.subtitle { margin: 1rem 0 0; color: var(--accent); font-size: 1.1rem; }
+
+.reader-layout { display: grid; grid-template-columns: 11rem minmax(0, var(--content-width)); gap: 3rem; justify-content: center; align-items: start; padding: 2.5rem 2rem 5rem; }
+.chapter-nav { position: sticky; top: 1.5rem; color: var(--muted); font: 0.8rem/1.45 system-ui, sans-serif; }
+.chapter-nav p { margin: 0 0 0.75rem; color: var(--ink); font-weight: 700; }
+.chapter-nav ol { margin: 0; padding: 0; list-style: none; }
+.chapter-nav li + li { margin-top: 0.35rem; }
+.chapter-nav a { color: inherit; text-decoration: none; }
+.chapter-nav a:hover, .chapter-nav a:focus-visible { color: var(--accent); text-decoration: underline; }
+
+.content { min-width: 0; padding: 2.75rem clamp(1.5rem, 5vw, 4rem) 4rem; background: var(--paper); border-top: 3px solid var(--ink); box-shadow: 0 0.75rem 2.5rem rgb(34 34 29 / 9%); }
+.content > :first-child { margin-top: 0; }
+.content h1 { font-size: 2rem; }
+.content h2 { margin: 3rem 0 1rem; padding-top: 0.6rem; border-top: 1px solid var(--line); color: var(--accent-dark); font-size: 1.45rem; line-height: 1.25; }
+.content p, .content li { max-width: 44rem; }
+.content blockquote { margin: 1.5rem 0; padding: 0.8rem 1.1rem; border-left: 0.25rem solid var(--secondary); background: #f1f6f3; color: #3d4c46; }
+.content table { width: 100%; border-collapse: collapse; font-size: 0.9rem; line-height: 1.45; }
+.content th, .content td { padding: 0.65rem 0.7rem; border-bottom: 1px solid var(--line); text-align: left; vertical-align: top; }
+.content th { color: var(--accent-dark); font-family: system-ui, sans-serif; font-size: 0.75rem; letter-spacing: 0.03em; text-transform: uppercase; }
+.content td:nth-child(1), .content td:nth-child(3), .content td:nth-child(4) { white-space: nowrap; }
+.display-math { overflow-x: auto; margin: 1.25rem 0; text-align: center; }
+footer { padding: 1.5rem 2rem 3rem; color: var(--muted); font: 0.78rem/1.5 system-ui, sans-serif; text-align: center; }
+footer p { margin: 0 auto; max-width: 45rem; }
+
+@media (max-width: 760px) {
+  :root { font-size: 17px; }
+  .book-header { padding: 2.5rem 1.25rem; }
+  .reader-layout { display: block; padding: 1.25rem 0 3rem; }
+  .chapter-nav { position: static; margin: 0 1.25rem 1.25rem; }
+  .chapter-nav ol { display: flex; flex-wrap: wrap; gap: 0.35rem 0.8rem; }
+  .chapter-nav li + li { margin-top: 0; }
+  .content { padding: 2rem 1.25rem 3rem; box-shadow: none; }
+  .content table { display: block; overflow-x: auto; }
+}
+
+@media print {
+  body { background: white; }
+  .skip-link, .chapter-nav { display: none; }
+  .reader-layout { display: block; padding: 0; }
+  .content { border-top: 1pt solid black; box-shadow: none; }
+}
+
+  </style>
+  <script>
+    window.MathJax = {
+      svg: { fontCache: "local" },
+      options: {
+        enableMenu: true,
+        menuOptions: { settings: { enrich: false, speech: false, braille: false, assistiveMml: true } }
+      }
+    };
+  </script>
+  <script defer src="./vendor/mathjax/tex-svg.js"></script>
+</head>
+<body>
+  <a class="skip-link" href="#contents">Skip to contents</a>
+  <header class="book-header">
+    <p class="eyebrow">A. R. Forsyth · Third edition · 1918</p>
+    <h1><em>Theory of Functions of a Complex Variable</em></h1>
+    <p class="subtitle">A working reading guide and transcription project</p>
+  </header>
+  <div class="reader-layout">
+    <nav class="chapter-nav" aria-label="Page sections">
+      <p>On this page</p>
+      <ol>
+        <li><a href="#chapters">Chapters</a></li>
+<li><a href="#supplementary-material">Supplementary material</a></li>
+<li><a href="#forsyth-s-suggested-first-course">Forsyth's suggested first course</a></li>
+      </ol>
+    </nav>
+    <main id="contents" class="content">
+<h1>Contents</h1>
+<p><em>A. R. Forsyth, <strong>Theory of Functions of a Complex Variable</strong>, third edition
+(1918).</em> Page numbers below are the book's printed page numbers.</p>
+<blockquote>
+<p><strong>Canonical source note:</strong> This Markdown file is the editable source for the
+generated reading page. It is a cleaned chapter-level transcription of the
+printed contents; page scans remain authoritative for individual section
+descriptions and mathematical notation.</p>
+</blockquote>
+<h2 id="chapters">Chapters</h2>
+<table>
+<thead>
+<tr>
+<th>Chapter</th>
+<th>Title</th>
+<th style="text-align:right">Sections</th>
+<th style="text-align:right">Begins</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>I</td>
+<td>General Introduction</td>
+<td style="text-align:right">1–13</td>
+<td style="text-align:right">1</td>
+</tr>
+<tr>
+<td>II</td>
+<td>Integration of Uniform Functions</td>
+<td style="text-align:right">14–25</td>
+<td style="text-align:right">20</td>
+</tr>
+<tr>
+<td>III</td>
+<td>Expansion of Functions in Series of Powers</td>
+<td style="text-align:right">26–36</td>
+<td style="text-align:right">50</td>
+</tr>
+<tr>
+<td>IV</td>
+<td>Uniform Functions, Particularly Those without Essential Singularities</td>
+<td style="text-align:right">37–48</td>
+<td style="text-align:right">72</td>
+</tr>
+<tr>
+<td>V</td>
+<td>Transcendental Integral Functions</td>
+<td style="text-align:right">49–61</td>
+<td style="text-align:right">90</td>
+</tr>
+<tr>
+<td>VI</td>
+<td>Functions with a Limited Number of Essential Singularities</td>
+<td style="text-align:right">62–71</td>
+<td style="text-align:right">115</td>
+</tr>
+<tr>
+<td>VII</td>
+<td>Functions with Unlimited Essential Singularities, and Expansion in Series of Functions</td>
+<td style="text-align:right">72–88</td>
+<td style="text-align:right">134</td>
+</tr>
+<tr>
+<td>VIII</td>
+<td>Multiform Functions</td>
+<td style="text-align:right">89–99</td>
+<td style="text-align:right">178</td>
+</tr>
+<tr>
+<td>IX</td>
+<td>Periods of Definite Integrals, and Periodic Functions in General</td>
+<td style="text-align:right">100–110</td>
+<td style="text-align:right">214</td>
+</tr>
+<tr>
+<td>X</td>
+<td>Uniform Simply-Periodic and Doubly-Periodic Functions</td>
+<td style="text-align:right">111–119</td>
+<td style="text-align:right">250</td>
+</tr>
+<tr>
+<td>XI</td>
+<td>Doubly-Periodic Functions of the Second Order</td>
+<td style="text-align:right">120–135</td>
+<td style="text-align:right">286</td>
+</tr>
+<tr>
+<td>XII</td>
+<td>Pseudo-Periodic Functions</td>
+<td style="text-align:right">136–148</td>
+<td style="text-align:right">320</td>
+</tr>
+<tr>
+<td>XIII</td>
+<td>Functions Possessing an Algebraical Addition-Theorem</td>
+<td style="text-align:right">149–156</td>
+<td style="text-align:right">344</td>
+</tr>
+<tr>
+<td>XIV</td>
+<td>Connectivity of Surfaces</td>
+<td style="text-align:right">157–170</td>
+<td style="text-align:right">359</td>
+</tr>
+<tr>
+<td>XV</td>
+<td>Riemann's Surfaces</td>
+<td style="text-align:right">171–191</td>
+<td style="text-align:right">382</td>
+</tr>
+<tr>
+<td>XVI</td>
+<td>Algebraic Functions and Their Integrals</td>
+<td style="text-align:right">192–211</td>
+<td style="text-align:right">416</td>
+</tr>
+<tr>
+<td>XVII</td>
+<td>Schwarz's Proof of the Existence-Theorem</td>
+<td style="text-align:right">212–229</td>
+<td style="text-align:right">455</td>
+</tr>
+<tr>
+<td>XVIII</td>
+<td>Applications of the Existence-Theorem</td>
+<td style="text-align:right">230–252</td>
+<td style="text-align:right">498</td>
+</tr>
+<tr>
+<td>XIX</td>
+<td>Conformal Representation: Introductory</td>
+<td style="text-align:right">253–261</td>
+<td style="text-align:right">602</td>
+</tr>
+<tr>
+<td>XX</td>
+<td>Conformal Representation: General Theory</td>
+<td style="text-align:right">262–280</td>
+<td style="text-align:right">653</td>
+</tr>
+<tr>
+<td>XXI</td>
+<td>Groups of Linear Substitutions</td>
+<td style="text-align:right">281–296</td>
+<td style="text-align:right">715</td>
+</tr>
+<tr>
+<td>XXII</td>
+<td>Automorphic Functions</td>
+<td style="text-align:right">297–311</td>
+<td style="text-align:right">753</td>
+</tr>
+</tbody>
+</table>
+<h2 id="supplementary-material">Supplementary material</h2>
+<ul>
+<li><strong>Supplementary Notes: Abel's Theorem</strong>
+<ul>
+<li>I. Proof of Abel's Theorem in general, with examples — p. 579</li>
+<li>II. Application to normal elementary integrals of the three kinds on a Riemann's surface — p. 590</li>
+<li>III. Expression of a sum of integrals as a sum of <em>p</em> integrals with an additive function — p. 598</li>
+</ul>
+</li>
+<li><strong>Note: Some Applications of Conformal Representation to Mathematical Physics</strong>
+<ul>
+<li>Hydrodynamics — p. 639</li>
+<li>Electrostatics — p. 646</li>
+<li>Conduction of heat — p. 649</li>
+</ul>
+</li>
+<li><strong>Miscellaneous examples</strong> — p. 794</li>
+<li><strong>Glossary of technical terms</strong> — p. 829</li>
+<li><strong>Index</strong> — p. 833</li>
+</ul>
+<h2 id="forsyth-s-suggested-first-course">Forsyth's suggested first course</h2>
+<p>For a first reading, Forsyth recommends Chapters I–V, then Chapter XIX,
+followed by Chapters VIII–XI, and then Chapters XIV–XVI and XVIII.</p>
+
+    </main>
+  </div>
+  <footer>
+    <p>Generated locally from the repository's canonical Markdown source. Page scans are authoritative for individual entries and mathematical notation.</p>
+  </footer>
+</body>
+</html>
