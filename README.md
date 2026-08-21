@@ -13,3 +13,6 @@ site.
 
 The repository is intentionally initialized as a minimal scaffold. No book
 content has been copied into it yet.
+
+See [the table of contents](contents.md) for a chapter-level guide to the
+book.
