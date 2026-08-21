@@ -6,9 +6,21 @@ import MarkdownIt from "markdown-it";
 
 const scriptDirectory = path.dirname(fileURLToPath(import.meta.url));
 const projectDirectory = path.resolve(scriptDirectory, "..");
-const sourcePath = path.join(projectDirectory, "contents.md");
 const stylesheetPath = path.join(projectDirectory, "styles.css");
-const outputPath = path.join(projectDirectory, "index.html");
+const pages = [
+  {
+    source: "contents.md",
+    output: "index.html",
+    title: "Forsyth — Theory of Functions of a Complex Variable",
+    description: "A reading guide to A. R. Forsyth's Theory of Functions of a Complex Variable",
+  },
+  {
+    source: "section-25.md",
+    output: "section-25.html",
+    title: "Forsyth — §25. Examples",
+    description: "A transcription of §25 from A. R. Forsyth's Theory of Functions of a Complex Variable",
+  },
+];
 
 function escapeHtml(value) {
   return value
@@ -21,6 +33,14 @@ function escapeHtml(value) {
 function protectMath(markdown) {
   const expressions = [];
   let protectedMarkdown = markdown.replace(
+    /\$\$([\s\S]*?)\$\$/g,
+    (_, expression) => {
+      const index = expressions.push({ display: true, expression: expression.trim() }) - 1;
+      return `MATHDISPLAYPLACEHOLDER${index}END`;
+    },
+  );
+
+  protectedMarkdown = protectedMarkdown.replace(
     /\\\[([\s\S]*?)\\\]/g,
     (_, expression) => {
       const index = expressions.push({ display: true, expression: expression.trim() }) - 1;
@@ -66,7 +86,7 @@ function addHeadingIds(html) {
   return { headings: ids, html: withIds };
 }
 
-function createHtml(content, stylesheet, headings) {
+function createHtml(content, stylesheet, headings, { title, description }) {
   const navigation = headings
     .map(({ id, text }) => `<li><a href="#${id}">${text}</a></li>`)
     .join("\n");
@@ -76,8 +96,8 @@ function createHtml(content, stylesheet, headings) {
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="A reading guide to A. R. Forsyth's Theory of Functions of a Complex Variable">
-  <title>Forsyth — Theory of Functions of a Complex Variable</title>
+  <meta name="description" content="${escapeHtml(description)}">
+  <title>${escapeHtml(title)}</title>
   <style>
 ${stylesheet}
   </style>
@@ -118,20 +138,24 @@ ${content}
 `;
 }
 
-const [source, stylesheet] = await Promise.all([
-  readFile(sourcePath, "utf8"),
-  readFile(stylesheetPath, "utf8"),
-]);
-const { headings, html: content } = addHeadingIds(renderMarkdown(source));
-const output = createHtml(content, stylesheet, headings);
+const stylesheet = await readFile(stylesheetPath, "utf8");
+const generatedPages = await Promise.all(pages.map(async (page) => {
+  const source = await readFile(path.join(projectDirectory, page.source), "utf8");
+  const { headings, html: content } = addHeadingIds(renderMarkdown(source));
+  return { ...page, html: createHtml(content, stylesheet, headings, page) };
+}));
 
 if (process.argv.includes("--check")) {
-  const existing = await readFile(outputPath, "utf8");
-  if (existing !== output) {
-    throw new Error("index.html is out of date; run npm run build.");
+  for (const page of generatedPages) {
+    const existing = await readFile(path.join(projectDirectory, page.output), "utf8");
+    if (existing !== page.html) {
+      throw new Error(`${page.output} is out of date; run npm run build.`);
+    }
+    console.log(`${page.output} is current.`);
   }
-  console.log("index.html is current.");
 } else {
-  await writeFile(outputPath, output, "utf8");
-  console.log("Built index.html from contents.md.");
+  await Promise.all(generatedPages.map((page) =>
+    writeFile(path.join(projectDirectory, page.output), page.html, "utf8"),
+  ));
+  console.log(`Built ${generatedPages.map((page) => page.output).join(" and ")}.`);
 }

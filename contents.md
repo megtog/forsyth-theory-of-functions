@@ -61,7 +61,7 @@
 | 20–22 | The integral $\frac{1}{2\pi i}\int \frac{f(z)}{z-a}\,dz$, round a curve enclosing $a$, is $f(a)$ when $f(z)$ is a holomorphic function within the curve; and the integral $\frac{1}{2\pi i}\int \frac{f(z)}{(z-a)^{n+1}}\,dz$ is $\frac{1}{n!}\frac{d^n f(a)}{da^n}$. Superior limit for the modulus of the $n$th derivative of $f(a)$ in terms of the modulus of $f(a)$ | 31 |
 | 23 | The path of integration of a meromorphic function cannot be deformed across a pole without changing the value of the integral | 39 |
 | 24 | The integral of any function (i) round a very small circle, (ii) round a very large circle, (iii) round a circle which encloses all its infinities and all its branch-points | 40 |
-| 25 | Examples | 43 |
+| 25 | [Examples](./section-25.html) | 43 |
 
 ### Chapter III
 

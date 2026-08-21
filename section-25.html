@@ -1,0 +1,555 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="A transcription of §25 from A. R. Forsyth's Theory of Functions of a Complex Variable">
+  <title>Forsyth — §25. Examples</title>
+  <style>
+:root {
+  color-scheme: light;
+  --paper: #fffdf8;
+  --page: #f1eee5;
+  --ink: #1f2825;
+  --muted: #59645e;
+  --line: #d8d1c3;
+  --accent: #8b3930;
+  --accent-dark: #65271f;
+  --secondary: #1d625c;
+  --content-width: 52rem;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 18px;
+  line-height: 1.75;
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; scroll-padding-top: 1.5rem; }
+body { margin: 0; color: var(--ink); background: var(--page); }
+a { color: var(--secondary); text-underline-offset: 0.16em; }
+
+.skip-link {
+  position: fixed; top: 0.5rem; left: 0.5rem; z-index: 2; padding: 0.4rem 0.7rem;
+  color: white; background: var(--accent-dark); transform: translateY(-150%);
+}
+.skip-link:focus { transform: translateY(0); }
+
+.book-header { padding: 4rem max(2rem, calc((100vw - 72rem) / 2)); background: var(--paper); border-bottom: 1px solid var(--line); }
+.eyebrow { margin: 0 0 0.7rem; color: var(--secondary); font: 650 0.78rem/1.3 system-ui, sans-serif; letter-spacing: 0.05em; text-transform: uppercase; }
+h1 { max-width: 48rem; margin: 0; font-size: clamp(2.1rem, 5vw, 3.6rem); font-weight: 600; line-height: 1.15; }
+.subtitle { margin: 1rem 0 0; color: var(--accent); font-size: 1.1rem; }
+
+.reader-layout { display: grid; grid-template-columns: 11rem minmax(0, var(--content-width)); gap: 3rem; justify-content: center; align-items: start; padding: 2.5rem 2rem 5rem; }
+.chapter-nav { position: sticky; top: 1.5rem; color: var(--muted); font: 0.8rem/1.45 system-ui, sans-serif; }
+.chapter-nav p { margin: 0 0 0.75rem; color: var(--ink); font-weight: 700; }
+.chapter-nav ol { margin: 0; padding: 0; list-style: none; }
+.chapter-nav li + li { margin-top: 0.35rem; }
+.chapter-nav a { color: inherit; text-decoration: none; }
+.chapter-nav a:hover, .chapter-nav a:focus-visible { color: var(--accent); text-decoration: underline; }
+
+.content { min-width: 0; padding: 2.75rem clamp(1.5rem, 5vw, 4rem) 4rem; background: var(--paper); border-top: 3px solid var(--ink); box-shadow: 0 0.75rem 2.5rem rgb(34 34 29 / 9%); }
+.content > :first-child { margin-top: 0; }
+.content h1 { font-size: 2rem; }
+.content h2 { margin: 3rem 0 1rem; padding-top: 0.6rem; border-top: 1px solid var(--line); color: var(--accent-dark); font-size: 1.45rem; line-height: 1.25; }
+.content p, .content li { max-width: 44rem; }
+.content blockquote { margin: 1.5rem 0; padding: 0.8rem 1.1rem; border-left: 0.25rem solid var(--secondary); background: #f1f6f3; color: #3d4c46; }
+.content table { width: 100%; border-collapse: collapse; font-size: 0.9rem; line-height: 1.45; }
+.content th, .content td { padding: 0.65rem 0.7rem; border-bottom: 1px solid var(--line); text-align: left; vertical-align: top; }
+.content th { color: var(--accent-dark); font-family: system-ui, sans-serif; font-size: 0.75rem; letter-spacing: 0.03em; text-transform: uppercase; }
+.content td:nth-child(1), .content td:nth-child(3), .content td:nth-child(4) { white-space: nowrap; }
+.display-math { overflow-x: auto; margin: 1.25rem 0; text-align: center; }
+footer { padding: 1.5rem 2rem 3rem; color: var(--muted); font: 0.78rem/1.5 system-ui, sans-serif; text-align: center; }
+footer p { margin: 0 auto; max-width: 45rem; }
+
+@media (max-width: 760px) {
+  :root { font-size: 17px; }
+  .book-header { padding: 2.5rem 1.25rem; }
+  .reader-layout { display: block; padding: 1.25rem 0 3rem; }
+  .chapter-nav { position: static; margin: 0 1.25rem 1.25rem; }
+  .chapter-nav ol { display: flex; flex-wrap: wrap; gap: 0.35rem 0.8rem; }
+  .chapter-nav li + li { margin-top: 0; }
+  .content { padding: 2rem 1.25rem 3rem; box-shadow: none; }
+  .content table { display: block; overflow-x: auto; }
+}
+
+@media print {
+  body { background: white; }
+  .skip-link, .chapter-nav { display: none; }
+  .reader-layout { display: block; padding: 0; }
+  .content { border-top: 1pt solid black; box-shadow: none; }
+}
+
+  </style>
+  <script>
+    window.MathJax = {
+      svg: { fontCache: "local" },
+      options: {
+        enableMenu: true,
+        menuOptions: { settings: { enrich: false, speech: false, braille: false, assistiveMml: true } }
+      }
+    };
+  </script>
+  <script defer src="./vendor/mathjax/tex-svg.js"></script>
+</head>
+<body>
+  <a class="skip-link" href="#contents">Skip to contents</a>
+  <header class="book-header">
+    <p class="eyebrow">A. R. Forsyth · Third edition · 1918</p>
+    <h1><em>Theory of Functions of a Complex Variable</em></h1>
+    <p class="subtitle">A working reading guide and transcription project</p>
+  </header>
+  <div class="reader-layout">
+    <nav class="chapter-nav" aria-label="Page sections">
+      <p>On this page</p>
+      <ol>
+        <li><a href="#ex-1">Ex. 1</a></li>
+<li><a href="#ex-2">Ex. 2</a></li>
+<li><a href="#ex-3">Ex. 3</a></li>
+<li><a href="#ex-4">Ex. 4</a></li>
+<li><a href="#ex-5">Ex. 5</a></li>
+<li><a href="#ex-6">Ex. 6</a></li>
+<li><a href="#ex-7">Ex. 7</a></li>
+<li><a href="#ex-8">Ex. 8</a></li>
+<li><a href="#ex-9">Ex. 9</a></li>
+<li><a href="#ex-10">Ex. 10</a></li>
+<li><a href="#ex-11">Ex. 11</a></li>
+<li><a href="#ex-12">Ex. 12</a></li>
+<li><a href="#ex-13">Ex. 13</a></li>
+<li><a href="#ex-14">Ex. 14</a></li>
+<li><a href="#ex-15">Ex. 15</a></li>
+<li><a href="#ex-16">Ex. 16</a></li>
+      </ol>
+    </nav>
+    <main id="contents" class="content">
+<h1>§25. Examples</h1>
+<p><em>Printed pages 43–49. Mathematical notation has been transcribed as TeX; the
+wording follows the scan, with line wrapping normalized.</em></p>
+<p>The further consideration of integrals of functions, that do not possess the
+character of uniformity over the whole area included by the curve of
+integration, will be deferred until Chap. IX. Some examples of the theorems
+proved in the present chapter will now be given.</p>
+<h2 id="ex-1">Ex. 1</h2>
+<p>It is sufficient merely to mention the indefinite integrals (that is, integrals
+from an arbitrary point to a point \(z\)) of rational integral functions of the
+variable. After the preceding explanations it is evident that they follow the
+same laws as integrals of similar functions of real variables.</p>
+<h2 id="ex-2">Ex. 2</h2>
+<p>Consider the integral</p>
+<div class="display-math">\[
+\int \frac{dz}{(z-a)^{n+1}},
+\]</div>
+<p>taken round a simple curve.</p>
+<p>When \(n\) is 0, the value of the integral is zero if the curve do not include the
+point \(a\), and it is \(2\pi i\) if the curve include the point \(a\).</p>
+<p>When \(n\) is a positive integer, the value of the integral is zero if the curve
+do not include the point \(a\) (by §17); and the value of the integral is still
+zero if the curve do include the point \(a\) (by §22, for the function \(f(z)\) of
+the text is 1 and all its derivatives are zero). Hence the value of the integral
+round any curve, which does not pass through \(a\), is zero.</p>
+<p>We can now at once deduce, by §20, the result that, <em>if a holomorphic function be
+constant along any simple closed curve within its region, it is constant over
+the whole area within the curve.</em> For let \(t\) be any point within the curve, \(z\)
+any point on it, and \(C\) the constant value of the function for all the points
+\(z\); then</p>
+<div class="display-math">\[
+\phi(t)=\frac{1}{2\pi i}\int\frac{\phi(z)}{z-t}\,dz,
+\]</div>
+<p>the integral being taken round the curve, so that</p>
+<div class="display-math">\[
+\phi(t)=\frac{C}{2\pi i}\int\frac{dz}{z-t}=C,
+\]</div>
+<p>since the point \(t\) lies within the curve.</p>
+<h2 id="ex-3">Ex. 3</h2>
+<p>The integral</p>
+<div class="display-math">\[
+\frac{1}{2\pi i}\int f'(z)\log\frac{z+1}{z-1}\,dz
+\]</div>
+<p>is taken round a circle, centre the origin and radius greater than unity; and
+the function \(f(z)\) is holomorphic everywhere within the circle. Prove that the
+value of the integral is</p>
+<div class="display-math">\[
+f(1)-f(-1).
+\]</div>
+<h2 id="ex-4">Ex. 4</h2>
+<p>Consider the integral \(\int e^{-z^2}\,dz\).</p>
+<p>In any finite part of the plane, the function \(e^{-z^2}\) is holomorphic;
+therefore (§17) the integral round the boundary of a rectangle (fig. 8), bounded
+by the lines \(x=\pm a\), \(y=0\), \(y=b\), is zero: and this boundary can be extended,
+provided the deformation remain in the region where the function is
+holomorphic. Now as \(a\) tends towards infinity, the modulus of \(e^{-z^2}\),
+being \(e^{-x^2+y^2}\), tends towards zero when \(y\) remains finite; and therefore
+the preceding rectangle can be extended towards infinity in the direction of
+the axis of \(x\), the side \(b\) of the rectangle remaining unaltered.</p>
+<p>Along \(A'A\), we have \(z=x\): so that the value of the integral along the part
+\(A'A\) of the boundary is</p>
+<div class="display-math">\[
+\int_{-a}^{a}e^{-x^2}\,dx.
+\]</div>
+<p>Along \(AB\), we have \(z=a+iy\), so that the value of the integral along the part
+\(AB\) is</p>
+<div class="display-math">\[
+i\int_0^b e^{-(a+iy)^2}\,dy.
+\]</div>
+<p>Along \(BB'\), we have \(z=x+ib\), so that the value of the integral along the part
+\(BB'\) is</p>
+<div class="display-math">\[
+\int_a^{-a}e^{-(x+ib)^2}\,dx.
+\]</div>
+<p>Along \(B'A'\), we have \(z=-a+iy\), so that the value of the integral along the
+part \(B'A'\) is</p>
+<div class="display-math">\[
+i\int_b^0 e^{-(-a+iy)^2}\,dy.
+\]</div>
+<p>The second of these portions of the integral is
+\(e^{-a^2}\cdot i\cdot\int_0^b e^{y^2-2ayi}\,dy\), which is easily seen to be zero
+when the (real) quantity \(a\) is infinite.</p>
+<p>Similarly the fourth of these portions is zero.</p>
+<p>Hence as the complete integral is zero, we have, on passing to the limit,</p>
+<div class="display-math">\[
+\int_{-\infty}^{\infty}e^{-x^2}\,dx
++\int_{\infty}^{-\infty}e^{-x^2-2ibx+b^2}\,dx=0,
+\]</div>
+<p>whence</p>
+<div class="display-math">\[
+e^{b^2}\int_{-\infty}^{\infty}e^{-x^2-2ibx}\,dx
+=\int_{-\infty}^{\infty}e^{-x^2}\,dx=\pi^{1/2},
+\]</div>
+<p>or</p>
+<div class="display-math">\[
+\int_{-\infty}^{\infty}e^{-x^2}(\cos 2bx-i\sin 2bx)\,dx
+=\pi^{1/2}e^{-b^2};
+\]</div>
+<p>and therefore, on equating real parts, we obtain the well-known result</p>
+<div class="display-math">\[
+\int_{-\infty}^{\infty}e^{-x^2}\cos 2bx\,dx
+=\pi^{1/2}e^{-b^2}.
+\]</div>
+<p>This is only one of numerous examples[^1] in which the theorems in the text can
+be applied to obtain the values of definite integrals with real limits and real
+variables.</p>
+<h2 id="ex-5">Ex. 5</h2>
+<p>By taking the integral \(\int e^{-z^2}\,dz\) along the perimeter of a sector of a
+circle between the radii of a circle given \(\theta=0\), \(\theta=\frac14\pi\), and
+the intercepted part of the circumference of radius \(r\) which is ultimately
+increased without limit, establish the value \((\frac18\pi)^{1/2}\) for each of
+Fresnel's integrals</p>
+<div class="display-math">\[
+\int_0^\infty\cos u^2\,du,\qquad
+\int_0^\infty\sin u^2\,du.
+\]</div>
+<h2 id="ex-6">Ex. 6</h2>
+<p>Prove that, when \(a^2+b^2&lt;1\), the value of the integral</p>
+<div class="display-math">\[
+\int_0^{2\pi}\frac{\alpha\cos x+\beta\sin x+\gamma}
+{a\cos x+b\sin x+1}\,dx,
+\]</div>
+<p>for real values of \(x\) within the range, is</p>
+<div class="display-math">\[
+\frac{2\pi}{(1-a^2-b^2)^{1/2}}
+\left\{\gamma-\frac{a\alpha+b\beta}{(1-a^2-b^2)^{1/2}+1}\right\}.
+\]</div>
+<h2 id="ex-7">Ex. 7</h2>
+<p>Evaluate the following integrals by the process of contour integration:—</p>
+<div class="display-math">\[
+\text{(i)}\quad
+\int_{-\infty}^{\infty}\frac{\cos ax}{(x^2+1)(x^2+4)}\,dx,
+\quad\text{where $a$ is real};
+\]</div>
+<div class="display-math">\[
+\text{(ii)}\quad
+\int_0^\infty\frac{\cos ax-\cos bx}{x^2}\,dx;
+\]</div>
+<div class="display-math">\[
+\text{(iii)}\quad
+\int_{-\infty}^{\infty}\frac{e^{ax}-e^{bx}}{1-e^x}\,dx,
+\]</div>
+<p>where \(a\) and \(b\) are real and lie between 0 and 1;</p>
+<div class="display-math">\[
+\text{(iv)}\quad
+\int_{-\infty}^{\infty}\frac{e^{ax}}{1+e^x}\,dx,
+\quad\text{where $0&lt;a&lt;1$}.
+\]</div>
+<h2 id="ex-8">Ex. 8</h2>
+<p>Consider the integral</p>
+<div class="display-math">\[
+\int\frac{z^{n-1}}{1+z}\,dz,
+\]</div>
+<p>where \(n\) is a real positive quantity less than unity.</p>
+<p>The only infinities of the subject of integration are the origin and the point
+\(-1\); the branch-points are the origin and \(z=\infty\). Everywhere else in the
+plane the function behaves like a holomorphic function; and, therefore, when we
+take any simple closed curve enclosing neither the origin nor the point \(-1\),
+the integral of the function round that curve is zero.</p>
+<p>Choose the curve, so that it lies on the positive side of the axis of \(x\) and
+that it is made up of:—</p>
+<ol>
+<li>a semicircle \(C_3\) (fig. 9), centre the origin and radius \(R\) which is made to
+increase indefinitely;</li>
+<li>two semicircles, \(c_1\) and \(c_2\), with their centres at 0 and \(-1\)
+respectively, and with radii \(r\) and \(r'\), which ultimately are made
+infinitesimally small;</li>
+<li>the diameter of \(C_3\) along the axis of \(x\) excepting those ultimately
+infinitesimal portions which are the diameters of \(c_1\) and of \(c_2\).</li>
+</ol>
+<p>The subject of integration is uniform within the area thus enclosed although
+it is not uniform over the whole plane. We shall take that value of \(z^{n-1}\)
+which has its argument equal to \((n-1)\theta\), where \(\theta\) is the argument of
+\(z\).</p>
+<p>The integral round the boundary is made up of four parts.</p>
+<p><strong>(a) The integral round \(C_3\).</strong> The value of
+\(z\cdot\frac{z^{n-1}}{1+z}\), as \(|z|\) increases indefinitely, tends uniformly to
+the limit zero; hence, as the radius of the semicircle is increased
+indefinitely, the integral round \(C_3\) vanishes (§24, II., Note).</p>
+<p><strong>(b) The integral round \(c_1\).</strong> The value of
+\(z\cdot\frac{z^{n-1}}{1+z}\), as \(|z|\) diminishes indefinitely, tends uniformly
+to the limit zero; hence as the radius of the semicircle is diminished
+indefinitely, the integral round \(c_1\) vanishes (§24, I., Note).</p>
+<p><strong>(c) The integral round \(c_2\).</strong> The value of
+\((1+z)\frac{z^{n-1}}{1+z}\), as \(|1+z|\) diminishes indefinitely for points in the
+area, tends uniformly to the limit \((-1)^{n-1}\), i.e., to the limit
+\(e^{(n-1)\pi i}\). Hence this part of the integral is</p>
+<div class="display-math">\[
+e^{(n-1)\pi i}\int\frac{dz}{1+z},
+\]</div>
+<p>being taken in the direction indicated by the arrow round \(c_2\), the
+infinitesimal semicircle. Evidently \(\frac{dz}{1+z}=i\,d\theta\) and the limits
+are \(\pi\) to 0, so that this part of the whole integral is</p>
+<div class="display-math">\[
+e^{(n-1)\pi i}\int_\pi^0 i\,d\theta
+=-i\pi e^{(n-1)\pi i}=i\pi e^{n\pi i}.
+\]</div>
+<p><strong>(d) The integral along the axis of \(x\).</strong> The parts at \(-1\) and at 0 which
+form the diameters of the small semicircles are to be omitted; so that the value
+is</p>
+<div class="display-math">\[
+\left\{\int_{-\infty}^{-1-r'}+\int_{-1+r'}^{-r}+\int_r^\infty\right\}
+\frac{x^{n-1}}{1+x}\,dx.
+\]</div>
+<p>This is what Cauchy calls the principal value of the integral</p>
+<div class="display-math">\[
+\int_{-\infty}^{\infty}\frac{x^{n-1}}{1+x}\,dx.
+\]</div>
+<p>Since the whole integral is zero, we have</p>
+<div class="display-math">\[
+i\pi e^{n\pi i}+\int_{-\infty}^{\infty}\frac{x^{n-1}}{1+x}\,dx=0.
+\]</div>
+<p>Let</p>
+<div class="display-math">\[
+P=\int_0^\infty\frac{x^{n-1}}{1+x}\,dx,qquad
+P'=\int_{-\infty}^0\frac{x^{n-1}}{1+x}\,dx,
+\]</div>
+<p>and</p>
+<div class="display-math">\[
+Q=\int_0^\infty\frac{x^{n-1}}{1-x}\,dx,
+\]</div>
+<p>principal values being taken in each case. Then, taking account of the
+arguments, we have</p>
+<div class="display-math">\[
+P'=\int_0^\infty\frac{(-x)^{n-1}}{1-x}\,dx
+=(-1)^{n-1}\int_0^\infty\frac{x^{n-1}}{1-x}\,dx
+=e^{(n-1)\pi i}Q.
+\]</div>
+<p>Since \(i\pi e^{n\pi i}+P+P'=0\), we have</p>
+<div class="display-math">\[
+P-e^{n\pi i}Q=-i\pi e^{n\pi i},
+\]</div>
+<p>so that</p>
+<div class="display-math">\[
+P-Q\cos n\pi=\pi\sin n\pi,\qquad
+Q\sin n\pi=\pi\cos n\pi.
+\]</div>
+<p>Hence</p>
+<div class="display-math">\[
+\int_0^\infty\frac{x^{n-1}}{1+x}\,dx=P=\pi\cosec n\pi,
+\]</div>
+<div class="display-math">\[
+\int_0^\infty\frac{x^{n-1}}{1-x}\,dx=Q=\pi\cot n\pi.
+\]</div>
+<h2 id="ex-9">Ex. 9</h2>
+<p>In the same way it may be proved that</p>
+<div class="display-math">\[
+\int_{-\infty}^{\infty}\frac{\cos ax}{1+x^{2n}}\,dx
+=-i\frac{\pi}{n}\sum_{r=1}^n\omega^{2r-1}e^{ai\omega^{2r-1}},
+\]</div>
+<p>where \(n\) is an integer, \(a\) is positive and \(\omega\) is \(e^{i\pi/(2n)}\).</p>
+<h2 id="ex-10">Ex. 10</h2>
+<p>By considering the integral \(\int e^{-z}z^{n-1}\,dz\) round the contour of the
+sector of a circle of radius \(r\), bounded by the radii \(\theta=0\), \(\theta=\alpha\),
+where \(\alpha\) is less than \(\frac12\pi\) and \(n\) is positive, it may be proved
+that</p>
+<div class="display-math">\[
+\int_0^\infty
+\left\{r^{n-1}e^{-r\cos\alpha}\cos(\beta+r\sin\alpha)\right\}\,dr
+=\Gamma(n)\cos(\beta+n\alpha),
+\]</div>
+<p>on proceeding to the limit when \(r\) is made infinite. (Briot and Bouquet.)</p>
+<h2 id="ex-11">Ex. 11</h2>
+<p>By considering the integral
+\(\int(z^2-1)^m z^{-\alpha i-m-1}\,dz\), taken round a semicircle, prove that</p>
+<div class="display-math">\[
+\int_0^\pi\sin^m\theta\,e^{\alpha\theta}\,d\theta
+=\frac{\pi e^{\frac12\pi\alpha}\Pi(m)}
+{2^m\Pi(\frac12m+\frac12\alpha i)\Pi(\frac12m-\frac12\alpha i)},
+\]</div>
+<p>provided the real part of \(m\) is greater than \(-1\).</p>
+<p>Similarly deduce the value of</p>
+<div class="display-math">\[
+\int_0^\pi\sin^m\theta\cos^n\theta\,e^{\alpha\theta}\,d\theta,
+\]</div>
+<p>where the real parts of \(m\) and \(n\) are each greater than \(-1\), from a
+consideration of the integral</p>
+<div class="display-math">\[
+\int(z^2-1)^m(z^2+1)^n z^{-\alpha i-m-n-1}\,dz,
+\]</div>
+<p>taken round a semicircle.</p>
+<p>(Many of the results stated in de Haan, <em>Nouvelles tables d'intégrales
+définies</em>, can be obtained in a similar manner.)</p>
+<h2 id="ex-12">Ex. 12</h2>
+<p>Consider the integral</p>
+<div class="display-math">\[
+\int\frac{dz}{z^n-1},
+\]</div>
+<p>where \(n\) is an integer. The subject of integration is meromorphic: it has for
+its poles (each of which is simple) the \(n\) points \(\omega^r\) for
+\(r=0,1,\ldots,n-1\), where \(\omega\) is a primitive \(n\)th root of unity; and it
+has no other infinities and no branch-points. Moreover the value of
+\(\frac{z}{z^n-1}\), as \(|z|\) increases indefinitely, tends uniformly to the limit
+zero; hence (§24, III.) the value of the integral, taken round a circle centre
+the origin and radius \(&gt;1\), is zero.</p>
+<p>This result can be derived by means of Corollary II. in §19. Surround each of
+the poles with an infinitesimal circle having the pole for centre; then the
+integral round the circle of radius \(&gt;1\) is equal to the sum of the values of
+the integral round the infinitesimal circles. The value round the circle having
+\(\omega^r\) for its centre is, by §20,</p>
+<div class="display-math">\[
+2\pi i\left(\text{limit of }\frac{z-\omega^r}{z^n-1},
+\text{ when }z=\omega^r\right)
+=\frac{2\pi i}{n}\omega^{n-r}.
+\]</div>
+<p>Hence the integral round the large circle</p>
+<div class="display-math">\[
+=\frac{2\pi i}{n}\sum_{r=0}^{n-1}\omega^{n-r}=0.
+\]</div>
+<h2 id="ex-13">Ex. 13</h2>
+<p>By considering the integral</p>
+<div class="display-math">\[
+\int\frac{e^{azi}}{z^3+1}\,dz,
+\]</div>
+<p>taken round a semicircle, prove that</p>
+<div class="display-math">\[
+\int_{-\infty}^{\infty}\frac{\cos ax}{1+x^3}\,dx
+=\frac{\pi}{3}\sin a,
+\qquad
+\int_{-\infty}^{\infty}\frac{\sin ax}{1+x^3}\,dx
+=\frac{\pi}{3}\cos a,
+\]</div>
+<p>provided \(a\) is positive.</p>
+<h2 id="ex-14">Ex. 14</h2>
+<p>Taking as the definition of Bernoulli's numbers that they are the coefficients
+in the expansion</p>
+<div class="display-math">\[
+\frac{1}{e^x-1}-\frac1x+\frac12
+=\sum_{m=1}^\infty(-1)^{m-1}\frac{B_m}{(2m)!}x^{2m-1},
+\]</div>
+<p>prove (by contour integration) that</p>
+<div class="display-math">\[
+B_m=\frac{2(2m)!}{(2\pi)^{2m}}\sum_{n=1}^\infty\frac{1}{n^{2m}}.
+\]</div>
+<p>In the same way, obtain expressions for the coefficients, in the expansion in
+powers of \(x\), of the quantity</p>
+<div class="display-math">\[
+\frac{e^{xy}}{e^x-1}.
+\]</div>
+<p>(Hermite.)</p>
+<h2 id="ex-15">Ex. 15</h2>
+<p>In all the preceding examples, the poles that have occurred have been simple:
+but the results proved in §21 enable us to obtain the integrals of functions
+which have multiple poles within an area. As an instance, consider the integral</p>
+<div class="display-math">\[
+\int\frac{dz}{(1+z^2)^{n+1}}
+\]</div>
+<p>round any curve which includes the point \(i\) but not the point \(-i\), these
+points being the two poles of the subject of integration, each of multiplicity
+\(n+1\).</p>
+<p>We have seen that</p>
+<div class="display-math">\[
+f^{(n)}(a)=\frac{n!}{2\pi i}\int\frac{f(z)}{(z-a)^{n+1}}\,dz,
+\]</div>
+<p>where \(f(z)\) is holomorphic throughout the region bounded by the curve round
+which the integral is taken.</p>
+<p>In the present case \(a\) is \(i\), and \(f(z)=\frac{1}{(z+i)^{n+1}}\); so that</p>
+<div class="display-math">\[
+f^{(n)}(z)=\frac{(2n)!}{n!}\frac{(-1)^n}{(z+i)^{2n+1}},
+\]</div>
+<p>and therefore</p>
+<div class="display-math">\[
+f^{(n)}(i)=\frac{(2n)!}{n!}\frac{(-1)^n}{(2i)^{2n+1}}
+=-\frac{(2n)!}{n!}2^{-2n-1}i.
+\]</div>
+<p>Hence we have</p>
+<div class="display-math">\[
+\int\frac{dz}{(1+z^2)^{n+1}}
+=\frac{2\pi i}{n!}f^{(n)}(i)
+=\frac{(2n)!}{n!n!}\frac{\pi}{2^{2n}}.
+\]</div>
+<p>In the case of the integral of a function round a simple curve which contains
+several of its poles, we first (§20) resolve the integral into the sum of the
+integrals round simple curves each containing only one of the points, and then
+determine each of the latter integrals as above.</p>
+<p>Another method, that is sometimes possible, makes use of the expression of the
+uniform function in partial fractions. After Ex. 2, we need retain only those
+fractions which are of the form \(A/(z-a)\): the integral of such a fraction is
+\(2\pi iA\), and the value of the whole integral is therefore \(2\pi i\sum A\). It
+is thus sufficient to obtain the coefficients of the inverse first powers which
+arise when the function is expressed in partial fractions corresponding to each
+pole. Such a coefficient \(A\), being the coefficient of \(1/(z-a)\) in the
+expansion of the function, is called by Cauchy the <em>residue</em> of the function
+relative to the point.</p>
+<p>For example,</p>
+<div class="display-math">\[
+\frac{1}{(z^3+1)^2}
+=\frac29\left\{\frac1{z+1}+\frac{\omega}{z+\omega}
++\frac{\omega^2}{z+\omega^2}\right\}
++\frac19\left\{\frac1{(z+1)^2}+\frac{\omega^2}{(z+\omega)^2}
++\frac{\omega}{(z+\omega^2)^2}\right\},
+\]</div>
+<p>so that the residues relative to the points \(-1\), \(-\omega\), \(-\omega^2\) are
+\(\frac29\), \(\frac29\omega\), \(\frac29\omega^2\) respectively. Hence if we take a
+semicircle, of radius \(&gt;1\) and centre the origin with its diameter along the
+axis of \(y\), so as to lie on the positive side of the axis of \(y\), the area
+between the semi-circumference and the diameter includes the two points
+\(-\omega\) and \(-\omega^2\); and therefore the value of</p>
+<div class="display-math">\[
+\int\frac{dz}{(z^3+1)^2},
+\]</div>
+<p>taken along the semi-circumference and the diameter, is</p>
+<div class="display-math">\[
+2\pi i\left(\frac29\omega+\frac29\omega^2\right);
+\]</div>
+<p>that is, the value is \(-\frac49\pi i\).</p>
+<h2 id="ex-16">Ex. 16</h2>
+<p>Let \(u\) denote</p>
+<div class="display-math">\[
+\int_{(C')}\int_{(C)}\frac{f(z,z')}{zz'-1}\,dz\,dz',
+\]</div>
+<p>\(f\) being a rational integral function \(\sum A_{mn}z^m z'^n\) of the complex
+variables \(z\), \(z'\), the integrations being taken in the positive sense round
+the closed contours \(C\), \(C'\), of which \(C\) is a circle of unit radius with its
+centre at the origin. Shew that \(u=0\) if \(C'\) lies wholly inside \(C\), or if \(C\)
+and \(C'\) lie wholly outside one another, and that
+\(u=-4\pi^2\sum A_{mm}\) (\(m=0,1,2,\ldots\)) if \(C'\) completely surrounds \(C\).
+Discuss also the value of \(u\) if \(C'\) is a circle passing through the points
+\(\pm i\) but not coinciding with \(C\), and \(f(z,z')=f(-z,-z')\).</p>
+<p>(Math. Trip., Part II., 1898.)</p>
+<p><strong>Note.</strong> For further applications of Cauchy's theory of residues, together
+with many references to Cauchy's own results, Lindelöf's monograph <em>Le calcul
+des résidus</em> (Gauthier-Villars, 1905) may be consulted.</p>
+<p>[^1]: See Briot and Bouquet, <em>Théorie des fonctions elliptiques</em> (2nd ed.),
+pp. 141 et sqq., from which examples 4 and 8 are taken.</p>
+
+    </main>
+  </div>
+  <footer>
+    <p>Generated locally from the repository's canonical Markdown source. Page scans are authoritative for individual entries and mathematical notation.</p>
+  </footer>
+</body>
+</html>
