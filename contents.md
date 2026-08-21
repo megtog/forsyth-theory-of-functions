@@ -47,7 +47,7 @@
 | 6, 7 | The idea of complex functionality adopted, with the conditions necessary and sufficient to ensure functional dependence | 6 |
 | 8 | Riemann's definition of functionality | 8 |
 | 9 | A functional relation between two complex variables establishes the geometrical property of conformal representation of their planes | 10 |
-| 10, 11 | Relations between the real and the imaginary parts of a function of $z$; with examples | 12 |
+| 10, 11 | Relations between the real and the imaginary parts of a function of $z$; with [examples](./section-11.html) | 12 |
 | 12, 13 | Definitions and illustrations of the terms monogenic, uniform, multiform, branch, branch-point, holomorphic, zero, pole, meromorphic | 15 |
 
 ### Chapter II

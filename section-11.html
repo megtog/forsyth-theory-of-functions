@@ -1,0 +1,318 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="A transcription of §11 from A. R. Forsyth's Theory of Functions of a Complex Variable">
+  <title>Forsyth — §11. Example of Riemann's definition</title>
+  <style>
+:root {
+  color-scheme: light;
+  --paper: #fffdf8;
+  --page: #f1eee5;
+  --ink: #1f2825;
+  --muted: #59645e;
+  --line: #d8d1c3;
+  --accent: #8b3930;
+  --accent-dark: #65271f;
+  --secondary: #1d625c;
+  --content-width: 52rem;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 18px;
+  line-height: 1.75;
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; scroll-padding-top: 1.5rem; }
+body { margin: 0; color: var(--ink); background: var(--page); }
+a { color: var(--secondary); text-underline-offset: 0.16em; }
+
+.skip-link {
+  position: fixed; top: 0.5rem; left: 0.5rem; z-index: 2; padding: 0.4rem 0.7rem;
+  color: white; background: var(--accent-dark); transform: translateY(-150%);
+}
+.skip-link:focus { transform: translateY(0); }
+
+.book-header { padding: 4rem max(2rem, calc((100vw - 72rem) / 2)); background: var(--paper); border-bottom: 1px solid var(--line); }
+.eyebrow { margin: 0 0 0.7rem; color: var(--secondary); font: 650 0.78rem/1.3 system-ui, sans-serif; letter-spacing: 0.05em; text-transform: uppercase; }
+h1 { max-width: 48rem; margin: 0; font-size: clamp(2.1rem, 5vw, 3.6rem); font-weight: 600; line-height: 1.15; }
+.subtitle { margin: 1rem 0 0; color: var(--accent); font-size: 1.1rem; }
+
+.reader-layout { display: grid; grid-template-columns: 11rem minmax(0, var(--content-width)); gap: 3rem; justify-content: center; align-items: start; padding: 2.5rem 2rem 5rem; }
+.chapter-nav { position: sticky; top: 1.5rem; color: var(--muted); font: 0.8rem/1.45 system-ui, sans-serif; }
+.chapter-nav p { margin: 0 0 0.75rem; color: var(--ink); font-weight: 700; }
+.chapter-nav ol { margin: 0; padding: 0; list-style: none; }
+.chapter-nav li + li { margin-top: 0.35rem; }
+.chapter-nav a { color: inherit; text-decoration: none; }
+.chapter-nav a:hover, .chapter-nav a:focus-visible { color: var(--accent); text-decoration: underline; }
+
+.content { min-width: 0; padding: 2.75rem clamp(1.5rem, 5vw, 4rem) 4rem; background: var(--paper); border-top: 3px solid var(--ink); box-shadow: 0 0.75rem 2.5rem rgb(34 34 29 / 9%); }
+.content > :first-child { margin-top: 0; }
+.content h1 { font-size: 2rem; }
+.content h2 { margin: 3rem 0 1rem; padding-top: 0.6rem; border-top: 1px solid var(--line); color: var(--accent-dark); font-size: 1.45rem; line-height: 1.25; }
+.content p, .content li { max-width: 44rem; }
+.content blockquote { margin: 1.5rem 0; padding: 0.8rem 1.1rem; border-left: 0.25rem solid var(--secondary); background: #f1f6f3; color: #3d4c46; }
+.content img { display: block; max-width: 100%; height: auto; margin: 1.5rem auto; }
+.content table { width: 100%; border-collapse: collapse; font-size: 0.9rem; line-height: 1.45; }
+.content th, .content td { padding: 0.65rem 0.7rem; border-bottom: 1px solid var(--line); text-align: left; vertical-align: top; }
+.content th { color: var(--accent-dark); font-family: system-ui, sans-serif; font-size: 0.75rem; letter-spacing: 0.03em; text-transform: uppercase; }
+.content td:nth-child(1), .content td:nth-child(3), .content td:nth-child(4) { white-space: nowrap; }
+.display-math { overflow-x: auto; margin: 1.25rem 0; text-align: center; }
+footer { padding: 1.5rem 2rem 3rem; color: var(--muted); font: 0.78rem/1.5 system-ui, sans-serif; text-align: center; }
+footer p { margin: 0 auto; max-width: 45rem; }
+
+@media (max-width: 760px) {
+  :root { font-size: 17px; }
+  .book-header { padding: 2.5rem 1.25rem; }
+  .reader-layout { display: block; padding: 1.25rem 0 3rem; }
+  .chapter-nav { position: static; margin: 0 1.25rem 1.25rem; }
+  .chapter-nav ol { display: flex; flex-wrap: wrap; gap: 0.35rem 0.8rem; }
+  .chapter-nav li + li { margin-top: 0; }
+  .content { padding: 2rem 1.25rem 3rem; box-shadow: none; }
+  .content table { display: block; overflow-x: auto; }
+}
+
+@media print {
+  body { background: white; }
+  .skip-link, .chapter-nav { display: none; }
+  .reader-layout { display: block; padding: 0; }
+  .content { border-top: 1pt solid black; box-shadow: none; }
+}
+
+  </style>
+  <script>
+    window.MathJax = {
+      svg: { fontCache: "local" },
+      options: {
+        enableMenu: true,
+        menuOptions: { settings: { enrich: false, speech: false, braille: false, assistiveMml: true } }
+      }
+    };
+  </script>
+  <script defer src="./vendor/mathjax/tex-svg.js"></script>
+</head>
+<body>
+  <a class="skip-link" href="#contents">Skip to contents</a>
+  <header class="book-header">
+    <p class="eyebrow">A. R. Forsyth · Third edition · 1918</p>
+    <h1><em>Theory of Functions of a Complex Variable</em></h1>
+    <p class="subtitle">A working reading guide and transcription project</p>
+  </header>
+  <div class="reader-layout">
+    <nav class="chapter-nav" aria-label="Page sections">
+      <p>On this page</p>
+      <ol>
+        <li><a href="#ex-1">Ex. 1</a></li>
+<li><a href="#ex-2">Ex. 2</a></li>
+<li><a href="#ex-3">Ex. 3</a></li>
+<li><a href="#ex-4">Ex. 4</a></li>
+<li><a href="#ex-5">Ex. 5</a></li>
+<li><a href="#ex-6">Ex. 6</a></li>
+<li><a href="#ex-7">Ex. 7</a></li>
+<li><a href="#ex-8">Ex. 8</a></li>
+      </ol>
+    </nav>
+    <main id="contents" class="content">
+<h1>§11. Example of Riemann's definition</h1>
+<p><em>Printed pages 13–15 (scans 0041–0043). Mathematical notation has been
+transcribed as TeX; the wording follows the scan, with line wrapping
+normalized.</em></p>
+<p>Conversely, when \(w\) is explicitly given as a function of \(z\) and it is
+divided into its real and its imaginary parts, these parts individually
+satisfy the foregoing conditions attaching to \(u\) and \(v\). Thus \(\log r\), where
+\(r\) is the distance of a point \(z\) from a point \(a\), is the real part of
+\(\log(z-a)\); it therefore satisfies the equation</p>
+<div class="display-math">\[
+\frac{\partial^2u}{\partial x^2}+\frac{\partial^2u}{\partial y^2}=0.
+\]</div>
+<p>Again, \(\phi\), the angular coordinate of \(z\) relative to the same point \(a\),
+is the real part of \(-i\log(z-a)\) and satisfies the same equation: the more
+usual form of \(\phi\) being \(\tan^{-1}\{(y-y_0)/(x-x_0)\}\), where
+\(a=x_0+iy_0\). Again, if a point \(z\) be distant \(r\) from \(a\) and \(r'\) from \(b\),
+then \(\log(r/r')\), being the real part of \(\log\{(z-a)/(z-b)\}\), is a solution
+of the same equation.</p>
+<p>The following example, the result of which will be useful subsequently[^1],
+uses the property that the value of the derivative is independent of the
+differential element.</p>
+<p>Consider a function</p>
+<div class="display-math">\[
+u+iv=w=\log\frac{z-c}{z-c'},
+\]</div>
+<p>where \(c'\) is the inverse of \(c\) with regard to a circle, centre the origin
+\(O\) and radius \(R\). Then</p>
+<div class="display-math">\[
+u=\log\left|\frac{z-c}{z-c'}\right|;
+\]</div>
+<p>so the curves, \(u=\text{constant}\), are circles. Let (fig. 4) \(Oc=r\),
+\(\angle xOc=a\), so that</p>
+<div class="display-math">\[
+c=re^{ai},\qquad c'=\frac{R^2}{r}e^{ai};
+\]</div>
+<p>then if</p>
+<div class="display-math">\[
+\left|\frac{z-c}{z-c'}\right|=\frac rR\lambda,
+\]</div>
+<p>the values of \(\lambda\) for points in the interior of the circle of radius \(R\)
+vary from zero, when the circle \(u=\text{constant}\) is the point \(c\), to unity,
+when the circle \(u=\text{constant}\) is the circle of radius \(R\). Let the point
+\(K(=\theta e^{ai})\) be the centre of the circle determined by a value of
+\(\lambda\), and let its radius be \(\rho(=\tfrac12MN)\). Then since</p>
+<div class="display-math">\[
+\frac{cM}{c'M}=\frac rR\lambda=\frac{cN}{c'N},
+\]</div>
+<p>we have</p>
+<div class="display-math">\[
+\frac{r+\rho-\theta}{\dfrac{R^2}{r}+\rho-\theta}
+=\frac rR\lambda
+=\frac{\theta+\rho-r}{\dfrac{R^2}{r}-\theta-\rho},
+\]</div>
+<p>whence</p>
+<div class="display-math">\[
+\rho=\frac{\lambda R(R^2-r^2)}{R^2-r^2\lambda^2},
+\qquad
+\theta=\frac{R^2r(1-\lambda^2)}{R^2-r^2\lambda^2}.
+\]</div>
+<p><img src="./assets/section-11-fig-4.jpg" alt="Fig. 4. The circle \(u=\mathrm{constant}\), with points \(O\), \(K\), \(c\), \(c'\),
+\(M\), \(N\), and \(z\)."></p>
+<p>Now if \(dn\) be an element of the normal drawn inwards at \(z\) to the circle
+\(NzM\), we have</p>
+<div class="display-math">\[
+\begin{aligned}
+dz&amp;=dx+i\,dy=-dn\cos\psi-i\,dn\sin\psi\\
+  &amp;=-e^{i\psi}dn,
+\end{aligned}
+\]</div>
+<p>where \(\psi(=\angle zKx')\) is the argument of \(z\) relative to the centre of
+the circle. Hence, since</p>
+<div class="display-math">\[
+\frac{dw}{dz}=\frac1{z-c}-\frac1{z-c'},
+\]</div>
+<p>we have</p>
+<div class="display-math">\[
+\frac{du}{dn}+i\frac{dv}{dn}
+=\frac{dw}{dn}
+=\left(\frac1{z-c'}-\frac1{z-c}\right)e^{\psi i}.
+\]</div>
+<p>But</p>
+<div class="display-math">\[
+z=\theta e^{ai}+\rho e^{\psi i},
+\]</div>
+<p>so that</p>
+<div class="display-math">\[
+z-c=\frac{\lambda(R^2-r^2)}{R^2-r^2\lambda^2}
+\left(Re^{\psi i}-\lambda re^{ai}\right),
+\]</div>
+<p>and</p>
+<div class="display-math">\[
+z-c'=\frac Rr\frac{R^2-r^2}{R^2-r^2\lambda^2}
+\left(\lambda re^{\psi i}-Re^{ai}\right);
+\]</div>
+<p>and therefore</p>
+<div class="display-math">\[
+\frac{du}{dn}+i\frac{dv}{dn}
+=\frac{R^2-r^2\lambda^2}{R^2-r^2}e^{\psi i}
+\left\{
+\frac{r}{R}\frac1{\lambda re^{\psi i}-Re^{ai}}
+-\frac1\lambda\frac1{Re^{\psi i}-\lambda re^{ai}}
+\right\}.
+\]</div>
+<p>Hence, equating the real parts, it follows that</p>
+<div class="display-math">\[
+\frac{du}{dn}
+=-\frac{(R^2-r^2\lambda^2)^2}
+{\lambda R(R^2-r^2)\{R^2-2Rr\lambda\cos(\psi-a)+\lambda^2r^2\}},
+\]</div>
+<p>the differential element \(dn\) being drawn inwards from the circumference of
+the circle.</p>
+<p>The application of this method is evidently effective when the curves
+\(u=\text{constant}\), arising from a functional expression of \(w\) in terms of
+\(z\), are a family of non-intersecting algebraical curves.</p>
+<h2 id="ex-1">Ex. 1</h2>
+<p>Prove that, if \(z_1\) and \(z_2\) denote two complex variables,</p>
+<div class="display-math">\[
+|z_1+z_2|\leq|z_1|+|z_2|,
+\qquad
+|z_1-z_2|\geq|z_1|-|z_2|.
+\]</div>
+<h2 id="ex-2">Ex. 2</h2>
+<p>Find the values of \(u\) and \(v\) when \(w\) is defined as a function of \(z\) in the
+following cases:—</p>
+<div class="display-math">\[
+\begin{aligned}
+\text{(i)}\quad&amp;z=(w+i)^2;\\
+\text{(ii)}\quad&amp;z=(1+\cos w)e^{wi};\\
+\text{(iii)}\quad&amp;\frac{1-(1-z)^{1/2}}{1+(1-z)^{1/2}}=e^w,\quad w^2,\quad\log w.
+\end{aligned}
+\]</div>
+<p>In each case, trace the curves \(u=a\), \(v=c\), regarded as loci in the plane of
+\(x\), \(y\).</p>
+<h2 id="ex-3">Ex. 3</h2>
+<p>Show that \(x^2-y^2-2ixy\) is not a function of \(z\); and that</p>
+<div class="display-math">\[
+x^3-3xy^2+i(3x^2y-y^3)+ax
+\]</div>
+<p>is a function of \(z\) only when \(a=0\).</p>
+<h2 id="ex-4">Ex. 4</h2>
+<p>Show that a possible value of \(u\) is</p>
+<div class="display-math">\[
+(x-y)(x^2+4xy+y^2),
+\]</div>
+<p>and determine the associated value of \(w\) in terms of \(z\).</p>
+<p>Determine also the value of \(w\) in terms of \(z\) when the preceding expression
+is the value of \(u-v\).</p>
+<h2 id="ex-5">Ex. 5</h2>
+<p>Find the value of \(v\), and of \(w\) in terms of \(z\), when</p>
+<div class="display-math">\[
+u=\frac{\sin x}{\cosh y-\cos x}.
+\]</div>
+<h2 id="ex-6">Ex. 6</h2>
+<p>Prove that, when \(x\) and \(y\) are regarded as functions of \(u\) and \(v\) (with the
+foregoing notation), the relations</p>
+<div class="display-math">\[
+\frac{\partial x}{\partial u}=\frac{\partial y}{\partial v},
+\qquad
+\frac{\partial x}{\partial v}=-\frac{\partial y}{\partial u},
+\]</div>
+<div class="display-math">\[
+\frac{\partial^2x}{\partial u^2}+\frac{\partial^2x}{\partial v^2}=0,
+\qquad
+\frac{\partial^2y}{\partial u^2}+\frac{\partial^2y}{\partial v^2}=0,
+\]</div>
+<p>are satisfied.</p>
+<h2 id="ex-7">Ex. 7</h2>
+<p>Show that, if \(A\) and \(B\) are any two fixed points in a plane; if \(P\) is any
+variable point \((x,y)\), and if \(\theta\) denotes the angle \(APB\), then</p>
+<div class="display-math">\[
+\frac{\partial^2\theta}{\partial x^2}
++\frac{\partial^2\theta}{\partial y^2}=0.
+\]</div>
+<p>Construct the function of \(z\), \(=x+iy\), of which \(\theta\) is the real part,
+and also the function of \(z\) of which \(i\theta\) is the imaginary part.</p>
+<h2 id="ex-8">Ex. 8</h2>
+<p>Given \(\lambda\), a function of \(x\) and \(y\); show that \(\phi(\lambda)\) can be
+the real part of a function of \(z\) if the quantity</p>
+<div class="display-math">\[
+\left(
+\frac{\partial^2\lambda}{\partial x^2}
++\frac{\partial^2\lambda}{\partial y^2}
+\right)
+\mathbin{\div}
+\left\{
+\left(\frac{\partial\lambda}{\partial x}\right)^2
++\left(\frac{\partial\lambda}{\partial y}\right)^2
+\right\}
+\]</div>
+<p>is expressible in terms of \(\lambda\) alone.</p>
+<p>Verify that the condition is satisfied when
+\(\lambda=x+(x^2+y^2)^{1/2}\); and obtain the function of \(z\) which has
+\(\phi(\lambda)\) for its real part.</p>
+<p>[^1]: In §217, in connection with the investigations of Schwarz, by whom the
+result is stated, <em>Ges. Werke</em>, t. ii, p. 183.</p>
+
+    </main>
+  </div>
+  <footer>
+    <p>Generated locally from the repository's canonical Markdown source. Page scans are authoritative for individual entries and mathematical notation.</p>
+  </footer>
+</body>
+</html>
