@@ -35,9 +35,11 @@ for (const chapter of detailedChapters) {
   }
 }
 
-const detailedSectionRows = [...source.matchAll(/^\| ((?:[0-9]+)(?:[–, ]+[0-9]+)*) \|/gm)];
+const detailedSectionRows = [...source.matchAll(/^\| ([^|]+) \|/gm)]
+  .map(([, row]) => row.replace(/\[([0-9]+)\]\([^)]*\)/g, "$1"))
+  .filter((row) => /^(?:[0-9]+)(?:[–, ]+[0-9]+)*$/.test(row));
 const detailedSections = new Set();
-for (const [, row] of detailedSectionRows) {
+for (const row of detailedSectionRows) {
   for (const part of row.split(", ")) {
     const [first, last = first] = part.split("–").map(Number);
     for (let section = first; section <= last; section += 1) {

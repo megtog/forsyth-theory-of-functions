@@ -47,7 +47,7 @@
 | 6, 7 | The idea of complex functionality adopted, with the conditions necessary and sufficient to ensure functional dependence | 6 |
 | 8 | Riemann's definition of functionality | 8 |
 | 9 | A functional relation between two complex variables establishes the geometrical property of conformal representation of their planes | 10 |
-| 10, 11 | Relations between the real and the imaginary parts of a function of $z$; [§10](./section-10.html) and [§11 examples](./section-11.html) | 12 |
+| [10](./section-10.html), [11](./section-11.html) | Relations between the real and the imaginary parts of a function of $z$; with examples | 12 |
 | 12, 13 | Definitions and illustrations of the terms monogenic, uniform, multiform, branch, branch-point, holomorphic, zero, pole, meromorphic | 15 |
 
 ### Chapter II
@@ -61,7 +61,7 @@
 | 20–22 | The integral $\frac{1}{2\pi i}\int \frac{f(z)}{z-a}\,dz$, round a curve enclosing $a$, is $f(a)$ when $f(z)$ is a holomorphic function within the curve; and the integral $\frac{1}{2\pi i}\int \frac{f(z)}{(z-a)^{n+1}}\,dz$ is $\frac{1}{n!}\frac{d^n f(a)}{da^n}$. Superior limit for the modulus of the $n$th derivative of $f(a)$ in terms of the modulus of $f(a)$ | 31 |
 | 23 | The path of integration of a meromorphic function cannot be deformed across a pole without changing the value of the integral | 39 |
 | 24 | The integral of any function (i) round a very small circle, (ii) round a very large circle, (iii) round a circle which encloses all its infinities and all its branch-points | 40 |
-| 25 | [Examples](./section-25.html) | 43 |
+| [25](./section-25.html) | Examples | 43 |
 
 ### Chapter III
 
