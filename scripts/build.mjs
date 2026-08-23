@@ -15,6 +15,12 @@ const pages = [
     description: "A reading guide to A. R. Forsyth's Theory of Functions of a Complex Variable",
   },
   {
+    source: "section-10.md",
+    output: "section-10.html",
+    title: "Forsyth — §10. Conditions of functionality",
+    description: "A transcription of §10 from A. R. Forsyth's Theory of Functions of a Complex Variable",
+  },
+  {
     source: "section-11.md",
     output: "section-11.html",
     title: "Forsyth — §11. Example of Riemann's definition",
