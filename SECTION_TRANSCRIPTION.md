@@ -50,8 +50,29 @@ Include every figure referenced by the transcribed text.
 - Insert each image near its original textual reference using Markdown image
   syntax and descriptive alt text. Do not add a duplicate visible caption when
   the printed caption is already present in the crop.
-- Inspect the final image at full size before adding it, since thin lines,
-  subscripts, primes, and arrowheads are easy to clip or misread.
+- Image-viewing and cropping utilities vary by environment. Use an available
+  tool, but always inspect the final crop at full size and preserve the full
+  drawing, labels, direction arrows, and printed caption.
+- Pay particular attention to thin lines, subscripts, primes, and arrowheads,
+  which are easy to clip or misread.
+
+### Optional ImageMagick commands
+
+When ImageMagick's `convert` command is available, make a temporary reduced
+copy for inspection, then crop the original-resolution scan. Replace the scan
+number, dimensions, offsets, and asset name for the particular figure.
+
+```sh
+convert ../theoryoffunction00forsrich_jpeg/theoryoffunction00forsrich_0041.jpg \
+  -resize 45% /tmp/section-preview.jpg
+
+convert ../theoryoffunction00forsrich_jpeg/theoryoffunction00forsrich_0041.jpg \
+  -crop WIDTHxHEIGHT+X+Y +repage assets/section-NN-fig-N.jpg
+```
+
+`WIDTH`, `HEIGHT`, `X`, and `Y` are scan-specific pixel values. Inspect the
+cropped asset before adding it; these commands are examples, not a substitute
+for visual verification.
 
 ## Site integration
 
