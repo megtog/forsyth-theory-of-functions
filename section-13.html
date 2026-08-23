@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="A transcription of §10 from A. R. Forsyth's Theory of Functions of a Complex Variable">
-  <title>Forsyth — §10. Conditions of functionality</title>
+  <meta name="description" content="A transcription of §13 from A. R. Forsyth's Theory of Functions of a Complex Variable">
+  <title>Forsyth — §13. Examples illustrating the definitions</title>
   <style>
 :root {
   color-scheme: light;
@@ -106,54 +106,65 @@ footer p { margin: 0 auto; max-width: 45rem; }
     <nav class="chapter-nav" aria-label="Page sections">
       <p>On this page</p>
       <ol>
-        
+        <li><a href="#a">(a)</a></li>
+<li><a href="#b">(b)</a></li>
+<li><a href="#c">(c)</a></li>
+<li><a href="#ex">Ex.</a></li>
       </ol>
     </nav>
     <main id="contents" class="content">
-<h1>§10. Conditions of functionality</h1>
-<p><em>Printed pages 12–13 (scans 0040–0041). Mathematical notation has been transcribed as TeX; the wording follows the scan, with line wrapping normalized.</em></p>
-<p>The analytical conditions of functionality, under either of the adopted definitions, are the equations (2). From them it at once follows that</p>
+<h1>§13. Examples illustrating the definitions</h1>
+<p><em>Printed pages 17–19 (scans 0045–0047). Mathematical notation has been transcribed as TeX; the wording follows the scan, with line wrapping normalized.</em></p>
+<p>The following functions give illustrations of some of the preceding definitions.</p>
+<h2 id="a">(a)</h2>
+<p>In the case of a meromorphic function</p>
 <div class="display-math">\[
-\frac{\partial^2u}{\partial x^2}+\frac{\partial^2u}{\partial y^2}=0,
+w=\frac{F(z)}{f(z)},
 \]</div>
+<p>where \(F\) and \(f\) are polynomials in \(z\) without a common factor, the roots are the roots of \(F(z)\) and the poles are the roots of \(f(z)\). Moreover, according as the degree of \(F\) is greater or is less than that of \(f\), \(z=\infty\) is a pole or a zero of \(w\).</p>
+<h2 id="b">(b)</h2>
+<p>If \(w\) be a polynomial of order \(n\), then each simple root of \(w\) is a branch-point and a zero of \(w^{1/m}\), where \(m\) is a positive integer; \(z=\infty\) is a pole of \(w\); and \(z=\infty\) is a pole but not a branch-point or is an infinity (though not a pole) and a branch-point of \(w^{1/2}\) according as \(n\) is even or odd.</p>
+<h2 id="c">(c)</h2>
+<p>In the case of the function</p>
 <div class="display-math">\[
-\frac{\partial^2v}{\partial x^2}+\frac{\partial^2v}{\partial y^2}=0;
+w=\frac{1}{\operatorname{sn}\dfrac1z}
 \]</div>
-<p>so that neither the real nor the imaginary part of a complex function can be arbitrarily assumed.</p>
-<p>If either part be given, the other can be deduced. For example, let \(u\) be given; then we have</p>
+<p>(the notation being that of Jacobian elliptic functions), the zeros are given by</p>
 <div class="display-math">\[
-\begin{aligned}
-dv&amp;=\frac{\partial v}{\partial x}\,dx+\frac{\partial v}{\partial y}\,dy\\
-  &amp;=-\frac{\partial u}{\partial y}\,dx+\frac{\partial u}{\partial x}\,dy,
-\end{aligned}
+\frac1z=iK'+2mK+2m'iK',
 \]</div>
-<p>and therefore, except as to an additive constant, the value of \(v\) is</p>
+<p>for all positive and negative integral values of \(m\) and of \(m'\). If we take</p>
 <div class="display-math">\[
-\int\left(-\frac{\partial u}{\partial y}\,dx+\frac{\partial u}{\partial x}\,dy\right).
+\frac1z=iK'+2mK+2m'iK'+\xi,
 \]</div>
-<p>In particular, when \(u\) is an integral function, it can be resolved into the sum of homogeneous parts</p>
+<p>where \(\xi\) may be restricted to values that are not large, then</p>
 <div class="display-math">\[
-u_1+u_2+u_3+\ldots;
+w=(-1)^m k\operatorname{sn}\xi,
 \]</div>
-<p>and then, again except as to an additive constant, \(v\) can similarly be expressed as a sum of homogeneous parts</p>
+<p>so that, in the neighbourhood of a zero, \(w\) behaves like a holomorphic function. There is evidently a doubly-infinite system of zeros; they are distinct from one another except at the origin, where an infinite number practically coincide.</p>
+<p>The infinities of \(w\) are given by</p>
 <div class="display-math">\[
-v_1+v_2+v_3+\ldots.
+\frac1z=2nK+2n'iK',
 \]</div>
-<p>It is easy to prove that</p>
+<p>for all positive and negative integral values of \(n\) and of \(n'\). If we take</p>
 <div class="display-math">\[
-mv_m=y\frac{\partial u_m}{\partial x}-x\frac{\partial u_m}{\partial y},
+\frac1z=2nK+2n'iK'+\xi,
 \]</div>
-<p>by means of which the value of \(v\) can be obtained.</p>
-<p>The case, when \(u\) is homogeneous of zero dimensions, presents no difficulty; for then we have</p>
+<p>then</p>
 <div class="display-math">\[
-u=b+a\theta,
+\frac1w=(-1)^n\operatorname{sn}\xi,
 \]</div>
+<p>so that, in the immediate vicinity of \(\xi=0\), \(1/w\) is a holomorphic function. Hence \(\xi=0\) is a pole of \(w\). There is thus evidently a doubly-infinite system of poles; they are distinct from one another except at the origin, where an infinite number practically coincide. But the origin is not a pole; the function, in fact, is there not determinate, for it has an infinite number of zeros and an infinite number of infinities, and the variations of value are not necessarily exhausted by zeros and infinities.</p>
+<p>For the function</p>
 <div class="display-math">\[
-v=c-a\log r,
+\frac{1}{\operatorname{sn}\dfrac1z},
 \]</div>
-<p>where \(a\), \(b\), \(c\) are constants.</p>
-<p>Similarly for other special cases: and, in the most general case, only a quadrature is necessary.</p>
-<p>The tests of functional dependence of one complex variable on another are of effective importance in the case when the supposed dependent variable arises in the form \(u+iv\), where \(u\) and \(v\) are real; the tests are, of course, superfluous when \(w\) is explicitly given as a function of \(z\). When \(w\) does arise in the form \(u+iv\) and satisfies the conditions of functionality, perhaps the simplest method (other than by inspection) of obtaining the explicit expression in terms of \(z\) is to substitute \(z-iy\) for \(x\) in \(u+iv\); the simplified result must be a function of \(z\) alone.</p>
+<p>the origin is a point which will hereafter be called an essential singularity.</p>
+<h2 id="ex">Ex.</h2>
+<p>Obtain essential singularities of the functions</p>
+<div class="display-math">\[
+e^z,\qquad \sinh\frac1z,\qquad \tanh z.
+\]</div>
 
     </main>
   </div>

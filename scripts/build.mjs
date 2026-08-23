@@ -27,6 +27,18 @@ const pages = [
     description: "A transcription of §11 from A. R. Forsyth's Theory of Functions of a Complex Variable",
   },
   {
+    source: "section-12.md",
+    output: "section-12.html",
+    title: "Forsyth — §12. Definitions",
+    description: "A transcription of §12 from A. R. Forsyth's Theory of Functions of a Complex Variable",
+  },
+  {
+    source: "section-13.md",
+    output: "section-13.html",
+    title: "Forsyth — §13. Examples illustrating the definitions",
+    description: "A transcription of §13 from A. R. Forsyth's Theory of Functions of a Complex Variable",
+  },
+  {
     source: "section-25.md",
     output: "section-25.html",
     title: "Forsyth — §25. Examples",
@@ -77,21 +89,65 @@ function protectMath(markdown) {
   return { expressions, protectedMarkdown };
 }
 
-function renderMarkdown(markdown) {
-  const { expressions, protectedMarkdown } = protectMath(markdown);
-  const renderer = new MarkdownIt({ html: false, linkify: false, typographer: false });
-  let html = renderer.render(protectedMarkdown);
-
-  html = html.replace(/<p>MATHDISPLAYPLACEHOLDER(\d+)END<\/p>/g, (_, index) => {
+function restoreMath(html, expressions) {
+  let restoredHtml = html.replace(/<p>MATHDISPLAYPLACEHOLDER(\d+)END<\/p>/g, (_, index) => {
     const expression = expressions[Number(index)];
     return `<div class="display-math">\\[\n${escapeHtml(expression.expression)}\n\\]</div>`;
   });
 
-  return html.replace(/MATH(?:DISPLAY|INLINE)PLACEHOLDER(\d+)END/g, (_, index) => {
+  return restoredHtml.replace(/MATH(?:DISPLAY|INLINE)PLACEHOLDER(\d+)END/g, (_, index) => {
     const expression = expressions[Number(index)];
     const delimiters = expression.display ? ["\\[", "\\]"] : ["\\(", "\\)"];
     return `${delimiters[0]}${escapeHtml(expression.expression)}${delimiters[1]}`;
   });
+}
+
+function footnoteId(label) {
+  return label.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/(^-|-$)/g, "") || "note";
+}
+
+function renderMarkdown(markdown) {
+  const footnotes = new Map();
+  let source = markdown.replace(/^\[\^([^\]]+)\]:\s*(.+(?:\n {2,}.*)*)$/gm, (_, label, definition) => {
+    footnotes.set(label, definition.replace(/\n {2,}/g, "\n"));
+    return "";
+  });
+
+  const references = [];
+  const referenceCounts = new Map();
+  source = source.replace(/\[\^([^\]]+)\]/g, (match, label) => {
+    if (!footnotes.has(label)) {
+      return match;
+    }
+    const count = (referenceCounts.get(label) ?? 0) + 1;
+    referenceCounts.set(label, count);
+    const index = references.push({ label, count }) - 1;
+    return `FOOTNOTEREFPLACEHOLDER${index}END`;
+  });
+
+  const renderer = new MarkdownIt({ html: false, linkify: false, typographer: false });
+  const { expressions, protectedMarkdown } = protectMath(source);
+  let html = restoreMath(renderer.render(protectedMarkdown), expressions);
+
+  html = html.replace(/FOOTNOTEREFPLACEHOLDER(\d+)END/g, (_, index) => {
+    const { label, count } = references[Number(index)];
+    const id = footnoteId(label);
+    return `<sup id="footnote-ref-${id}-${count}"><a href="#footnote-${id}" aria-label="Footnote ${escapeHtml(label)}">${escapeHtml(label)}</a></sup>`;
+  });
+
+  const labels = [...new Set(references.map(({ label }) => label))];
+  if (labels.length === 0) {
+    return html;
+  }
+
+  const footnotesHtml = labels.map((label) => {
+    const { expressions: noteExpressions, protectedMarkdown: noteMarkdown } = protectMath(footnotes.get(label));
+    const body = restoreMath(renderer.renderInline(noteMarkdown), noteExpressions);
+    const id = footnoteId(label);
+    return `<li id="footnote-${id}">${body} <a class="footnote-backref" href="#footnote-ref-${id}-1" aria-label="Back to footnote ${escapeHtml(label)} reference">↩</a></li>`;
+  }).join("\n");
+
+  return `${html}<section class="footnotes" aria-label="Footnotes"><ol>\n${footnotesHtml}\n</ol></section>\n`;
 }
 
 function addHeadingIds(html) {

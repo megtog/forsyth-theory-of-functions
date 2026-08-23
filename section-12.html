@@ -1,0 +1,185 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="A transcription of §12 from A. R. Forsyth's Theory of Functions of a Complex Variable">
+  <title>Forsyth — §12. Definitions</title>
+  <style>
+:root {
+  color-scheme: light;
+  --paper: #fffdf8;
+  --page: #f1eee5;
+  --ink: #1f2825;
+  --muted: #59645e;
+  --line: #d8d1c3;
+  --accent: #8b3930;
+  --accent-dark: #65271f;
+  --secondary: #1d625c;
+  --content-width: 52rem;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 18px;
+  line-height: 1.75;
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; scroll-padding-top: 1.5rem; }
+body { margin: 0; color: var(--ink); background: var(--page); }
+a { color: var(--secondary); text-underline-offset: 0.16em; }
+
+.skip-link {
+  position: fixed; top: 0.5rem; left: 0.5rem; z-index: 2; padding: 0.4rem 0.7rem;
+  color: white; background: var(--accent-dark); transform: translateY(-150%);
+}
+.skip-link:focus { transform: translateY(0); }
+
+.book-header { padding: 4rem max(2rem, calc((100vw - 72rem) / 2)); background: var(--paper); border-bottom: 1px solid var(--line); }
+.eyebrow { margin: 0 0 0.7rem; color: var(--secondary); font: 650 0.78rem/1.3 system-ui, sans-serif; letter-spacing: 0.05em; text-transform: uppercase; }
+h1 { max-width: 48rem; margin: 0; font-size: clamp(2.1rem, 5vw, 3.6rem); font-weight: 600; line-height: 1.15; }
+.subtitle { margin: 1rem 0 0; color: var(--accent); font-size: 1.1rem; }
+
+.reader-layout { display: grid; grid-template-columns: 11rem minmax(0, var(--content-width)); gap: 3rem; justify-content: center; align-items: start; padding: 2.5rem 2rem 5rem; }
+.chapter-nav { position: sticky; top: 1.5rem; color: var(--muted); font: 0.8rem/1.45 system-ui, sans-serif; }
+.chapter-nav p { margin: 0 0 0.75rem; color: var(--ink); font-weight: 700; }
+.chapter-nav ol { margin: 0; padding: 0; list-style: none; }
+.chapter-nav li + li { margin-top: 0.35rem; }
+.chapter-nav a { color: inherit; text-decoration: none; }
+.chapter-nav a:hover, .chapter-nav a:focus-visible { color: var(--accent); text-decoration: underline; }
+
+.content { min-width: 0; padding: 2.75rem clamp(1.5rem, 5vw, 4rem) 4rem; background: var(--paper); border-top: 3px solid var(--ink); box-shadow: 0 0.75rem 2.5rem rgb(34 34 29 / 9%); }
+.content > :first-child { margin-top: 0; }
+.content h1 { font-size: 2rem; }
+.content h2 { margin: 3rem 0 1rem; padding-top: 0.6rem; border-top: 1px solid var(--line); color: var(--accent-dark); font-size: 1.45rem; line-height: 1.25; }
+.content p, .content li { max-width: 44rem; }
+.content blockquote { margin: 1.5rem 0; padding: 0.8rem 1.1rem; border-left: 0.25rem solid var(--secondary); background: #f1f6f3; color: #3d4c46; }
+.content img { display: block; max-width: 100%; height: auto; margin: 1.5rem auto; }
+.content table { width: 100%; border-collapse: collapse; font-size: 0.9rem; line-height: 1.45; }
+.content th, .content td { padding: 0.65rem 0.7rem; border-bottom: 1px solid var(--line); text-align: left; vertical-align: top; }
+.content th { color: var(--accent-dark); font-family: system-ui, sans-serif; font-size: 0.75rem; letter-spacing: 0.03em; text-transform: uppercase; }
+.content td:nth-child(1), .content td:nth-child(3), .content td:nth-child(4) { white-space: nowrap; }
+.display-math { overflow-x: auto; margin: 1.25rem 0; text-align: center; }
+.footnotes { max-width: 44rem; margin-top: 3rem; padding-top: 1rem; border-top: 1px solid var(--line); font-size: 0.9rem; }
+.footnotes ol { padding-left: 1.4rem; }
+.footnotes li + li { margin-top: 0.65rem; }
+.footnote-backref { margin-left: 0.3rem; }
+footer { padding: 1.5rem 2rem 3rem; color: var(--muted); font: 0.78rem/1.5 system-ui, sans-serif; text-align: center; }
+footer p { margin: 0 auto; max-width: 45rem; }
+
+@media (max-width: 760px) {
+  :root { font-size: 17px; }
+  .book-header { padding: 2.5rem 1.25rem; }
+  .reader-layout { display: block; padding: 1.25rem 0 3rem; }
+  .chapter-nav { position: static; margin: 0 1.25rem 1.25rem; }
+  .chapter-nav ol { display: flex; flex-wrap: wrap; gap: 0.35rem 0.8rem; }
+  .chapter-nav li + li { margin-top: 0; }
+  .content { padding: 2rem 1.25rem 3rem; box-shadow: none; }
+  .content table { display: block; overflow-x: auto; }
+}
+
+@media print {
+  body { background: white; }
+  .skip-link, .chapter-nav { display: none; }
+  .reader-layout { display: block; padding: 0; }
+  .content { border-top: 1pt solid black; box-shadow: none; }
+}
+
+  </style>
+  <script>
+    window.MathJax = {
+      svg: { fontCache: "local" },
+      options: {
+        enableMenu: true,
+        menuOptions: { settings: { enrich: false, speech: false, braille: false, assistiveMml: true } }
+      }
+    };
+  </script>
+  <script defer src="./vendor/mathjax/tex-svg.js"></script>
+</head>
+<body>
+  <a class="skip-link" href="#contents">Skip to contents</a>
+  <header class="book-header">
+    <p class="eyebrow">A. R. Forsyth · Third edition · 1918</p>
+    <h1><em>Theory of Functions of a Complex Variable</em></h1>
+    <p class="subtitle">A working reading guide and transcription project</p>
+  </header>
+  <div class="reader-layout">
+    <nav class="chapter-nav" aria-label="Page sections">
+      <p>On this page</p>
+      <ol>
+        <li><a href="#i">(i)</a></li>
+<li><a href="#ii">(ii)</a></li>
+<li><a href="#iii">(iii)</a></li>
+<li><a href="#iv">(iv)</a></li>
+<li><a href="#v">(v)</a></li>
+<li><a href="#vi">(vi)</a></li>
+<li><a href="#vii">(vii)</a></li>
+<li><a href="#viii">(viii)</a></li>
+<li><a href="#ix">(ix)</a></li>
+      </ol>
+    </nav>
+    <main id="contents" class="content">
+<h1>§12. Definitions</h1>
+<p><em>Printed pages 15–17 (scans 0043–0045). Mathematical notation has been transcribed as TeX; the wording follows the scan, with line wrapping normalized.</em></p>
+<p>As the tests which are sufficient and necessary to ensure that a complex quantity is a function of \(z\) have been given, we shall assume that all complex quantities dealt with are functions of the complex variable (§§ 6, 7). Their characteristic properties, their classification, and some of the simpler applications will be considered in the succeeding chapters.</p>
+<p>Some initial definitions and explanations will now be given.</p>
+<h2 id="i">(i)</h2>
+<p>It has been assumed that the function considered has a differential coefficient, that is, that the rate of variation of the function in any direction is independent of that direction by being independent of the mode of change of the variable. We have already decided (§ 8) not to use the term analytic for such a function. It is often called monogenic, when it is necessary to assign a specific name; but for the most part we shall omit the name, the property being tacitly assumed<sup id="footnote-ref-1-1"><a href="#footnote-1" aria-label="Footnote 1">1</a></sup>.</p>
+<p>We can at once prove from the definition that, when the derivative</p>
+<div class="display-math">\[
+w_1\left(=\frac{dw}{dz}\right)
+\]</div>
+<p>exists, it is itself a function. For</p>
+<div class="display-math">\[
+w_1=\frac{\partial w}{\partial x}=\frac1i\frac{\partial w}{\partial y}
+\]</div>
+<p>are equations which, when satisfied, ensure the existence of \(w_1\); hence</p>
+<div class="display-math">\[
+\begin{aligned}
+\frac1i\frac{\partial w_1}{\partial y}
+&amp;=\frac1i\frac{\partial}{\partial y}\left(\frac{\partial w}{\partial x}\right)\\
+&amp;=\frac{\partial}{\partial x}\left(\frac1i\frac{\partial w}{\partial y}\right)\\
+&amp;=\frac{\partial w_1}{\partial x},
+\end{aligned}
+\]</div>
+<p>shewing, as in § 8, that the derivative \(dw_1/dz\) is independent of the direction in which \(dz\) vanishes. Hence \(w_1\) is a function of \(z\).</p>
+<p>Similarly for all the derivatives in succession.</p>
+<h2 id="ii">(ii)</h2>
+<p>Since the functional dependence of a complex is ensured only if the value of the derivative of that complex be independent of the manner in which the point \(z+dz\) approaches to coincidence with \(z\), a question naturally suggests itself as to the effect on the character of the function that may be caused by the manner in which the variable itself has come to the value of \(z\).</p>
+<p>If a function has only one value for each given value of the variable, whatever be the manner in which the variable has come to that value, the function is called uniform<sup id="footnote-ref-2-1"><a href="#footnote-2" aria-label="Footnote 2">2</a></sup>. Hence two different paths from a point \(a\) to a point \(z\) give at \(z\) the same value for any uniform function; and a closed curve, beginning at any point and completely described by the \(z\)-variable will lead to the initial value of \(w\), the corresponding \(w\)-curve being closed, if \(z\) has not passed through any point which makes \(w\) infinite.</p>
+<p>The simplest class of uniform functions is constituted by rational functions.</p>
+<h2 id="iii">(iii)</h2>
+<p>If a function has more than one value for any given value of the variable, or if its value can be changed by modifying the path in which the variable reaches that given value, the function is called multiform<sup id="footnote-ref-3-1"><a href="#footnote-3" aria-label="Footnote 3">3</a></sup>. Characteristics of curves, which are graphs of multiform functions corresponding to a \(z\)-curve, will hereafter be discussed.</p>
+<p>One of the simplest classes of multiform functions is constituted by algebraical irrational functions, that is, functions defined by an irresoluble algebraic equation \(f(w,z)=0\), where \(f\) is a polynomial in \(w\) and \(z\).</p>
+<p>The rational functions in (ii) occur when \(f\) is of only the first degree in \(w\).</p>
+<h2 id="iv">(iv)</h2>
+<p>A multiform function has a number of different values for the same value of \(z\), and these values vary with \(z\): the aggregate of the variations of any one of the values is called a branch of the function. Although the function is multiform for unrestricted variation of the variable, it often happens that a branch is uniform when the variable is restricted to particular regions in the plane.</p>
+<h2 id="v">(v)</h2>
+<p>A point in the plane, at which two or more branches of a multiform function assume the same value, and near which those branches are interchanged (§ 94, Note) by appropriate modification in the path of \(z\), is called a branch-point<sup id="footnote-ref-4-1"><a href="#footnote-4" aria-label="Footnote 4">4</a></sup> of the function. The relations of the branches in the immediate vicinity of a branch-point will be discussed hereafter.</p>
+<h2 id="vi">(vi)</h2>
+<p>A function, which is monogenic, uniform and continuous over any part of the \(z\)-plane, is called holomorphic<sup id="footnote-ref-5-1"><a href="#footnote-5" aria-label="Footnote 5">5</a></sup> over that part of the plane. When a function is called holomorphic without any limitation, the usual implication is that the character is preserved over the whole of the plane which is not at infinity.</p>
+<p>The simplest example of a holomorphic function is a polynomial in the variable.</p>
+<h2 id="vii">(vii)</h2>
+<p>A root (or a zero) of a function is a value of the variable for which the function vanishes.</p>
+<p>The simplest case of occurrence of roots is in a rational integral function, various theorems relating to which (e.g., the number of roots included within a given contour) will be found in treatises on the theory of equations.</p>
+<h2 id="viii">(viii)</h2>
+<p>The infinities of a function are the points at which the value of the function is infinite. Among them, the simplest are the poles<sup id="footnote-ref-6-1"><a href="#footnote-6" aria-label="Footnote 6">6</a></sup> of the function, a pole being an infinity such that in its immediate vicinity the reciprocal of the function is holomorphic.</p>
+<p>Infinities other than poles (and also the poles) are called the singular points, or the singularities, of the function: their classification must be deferred until after the discussion of properties of functions.</p>
+<h2 id="ix">(ix)</h2>
+<p>A function, which is monogenic, uniform and, except at poles, continuous, is called a meromorphic function<sup id="footnote-ref-7-1"><a href="#footnote-7" aria-label="Footnote 7">7</a></sup>. The simplest example is a rational fraction.</p>
+<section class="footnotes" aria-label="Footnotes"><ol>
+<li id="footnote-1">This is in fact done by Riemann, who calls such a dependent complex simply a <em>function</em>. Weierstrass, however, has proved (see § 85, <em>post</em>) that the idea of a monogenic function of a complex variable and the idea of dependence expressible by arithmetical operations are not coextensive. The definition is thus necessary; but the practice indicated in the text will be adopted, as non-monogenic functions will be of relatively rare occurrence. <a class="footnote-backref" href="#footnote-ref-1-1" aria-label="Back to footnote 1 reference">↩</a></li>
+<li id="footnote-2">Also monodromic, or monotropic; with German writers the title is <em>eindeutig</em>, occasionally, <em>einadrig</em>. <a class="footnote-backref" href="#footnote-ref-2-1" aria-label="Back to footnote 2 reference">↩</a></li>
+<li id="footnote-3">Also polytropic; with German writers the title is <em>mehrdeutig</em>. <a class="footnote-backref" href="#footnote-ref-3-1" aria-label="Back to footnote 3 reference">↩</a></li>
+<li id="footnote-4">Also critical point, which, however, is sometimes used to include all special points of a function; with German writers the title is <em>Verzweigungspunkt</em>, and sometimes <em>Windungspunkt</em>. French writers use <em>point de ramification</em>, and Italians <em>punto di giramento</em> and <em>punto di diramazione</em>. <a class="footnote-backref" href="#footnote-ref-4-1" aria-label="Back to footnote 4 reference">↩</a></li>
+<li id="footnote-5">Also synectic. <a class="footnote-backref" href="#footnote-ref-5-1" aria-label="Back to footnote 5 reference">↩</a></li>
+<li id="footnote-6">Also polar discontinuities; also (§ 32) accidental singularities. <a class="footnote-backref" href="#footnote-ref-6-1" aria-label="Back to footnote 6 reference">↩</a></li>
+<li id="footnote-7">Sometimes regular, but this term will be reserved for the description of another property of functions. <a class="footnote-backref" href="#footnote-ref-7-1" aria-label="Back to footnote 7 reference">↩</a></li>
+</ol></section>
+
+    </main>
+  </div>
+  <footer>
+    <p>Generated locally from the repository's canonical Markdown source. Page scans are authoritative for individual entries and mathematical notation.</p>
+  </footer>
+</body>
+</html>

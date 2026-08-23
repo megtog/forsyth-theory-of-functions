@@ -58,6 +58,10 @@ h1 { max-width: 48rem; margin: 0; font-size: clamp(2.1rem, 5vw, 3.6rem); font-we
 .content th { color: var(--accent-dark); font-family: system-ui, sans-serif; font-size: 0.75rem; letter-spacing: 0.03em; text-transform: uppercase; }
 .content td:nth-child(1), .content td:nth-child(3), .content td:nth-child(4) { white-space: nowrap; }
 .display-math { overflow-x: auto; margin: 1.25rem 0; text-align: center; }
+.footnotes { max-width: 44rem; margin-top: 3rem; padding-top: 1rem; border-top: 1px solid var(--line); font-size: 0.9rem; }
+.footnotes ol { padding-left: 1.4rem; }
+.footnotes li + li { margin-top: 0.65rem; }
+.footnote-backref { margin-left: 0.3rem; }
 footer { padding: 1.5rem 2rem 3rem; color: var(--muted); font: 0.78rem/1.5 system-ui, sans-serif; text-align: center; }
 footer p { margin: 0 auto; max-width: 45rem; }
 
@@ -131,7 +135,7 @@ usual form of \(\phi\) being \(\tan^{-1}\{(y-y_0)/(x-x_0)\}\), where
 \(a=x_0+iy_0\). Again, if a point \(z\) be distant \(r\) from \(a\) and \(r'\) from \(b\),
 then \(\log(r/r')\), being the real part of \(\log\{(z-a)/(z-b)\}\), is a solution
 of the same equation.</p>
-<p>The following example, the result of which will be useful subsequently[^1],
+<p>The following example, the result of which will be useful subsequently<sup id="footnote-ref-1-1"><a href="#footnote-1" aria-label="Footnote 1">1</a></sup>,
 uses the property that the value of the derivative is independent of the
 differential element.</p>
 <p>Consider a function</p>
@@ -306,8 +310,10 @@ the real part of a function of \(z\) if the quantity</p>
 <p>Verify that the condition is satisfied when
 \(\lambda=x+(x^2+y^2)^{1/2}\); and obtain the function of \(z\) which has
 \(\phi(\lambda)\) for its real part.</p>
-<p>[^1]: In §217, in connection with the investigations of Schwarz, by whom the
-result is stated, <em>Ges. Werke</em>, t. ii, p. 183.</p>
+<section class="footnotes" aria-label="Footnotes"><ol>
+<li id="footnote-1">In §217, in connection with the investigations of Schwarz, by whom the
+result is stated, <em>Ges. Werke</em>, t. ii, p. 183. <a class="footnote-backref" href="#footnote-ref-1-1" aria-label="Back to footnote 1 reference">↩</a></li>
+</ol></section>
 
     </main>
   </div>

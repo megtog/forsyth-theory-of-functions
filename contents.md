@@ -48,7 +48,7 @@
 | 8 | Riemann's definition of functionality | 8 |
 | 9 | A functional relation between two complex variables establishes the geometrical property of conformal representation of their planes | 10 |
 | [10](./section-10.html), [11](./section-11.html) | Relations between the real and the imaginary parts of a function of $z$; with examples | 12 |
-| 12, 13 | Definitions and illustrations of the terms monogenic, uniform, multiform, branch, branch-point, holomorphic, zero, pole, meromorphic | 15 |
+| [12](./section-12.html), [13](./section-13.html) | Definitions and illustrations of the terms monogenic, uniform, multiform, branch, branch-point, holomorphic, zero, pole, meromorphic | 15 |
 
 ### Chapter II
 
