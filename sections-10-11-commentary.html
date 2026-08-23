@@ -1,0 +1,321 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="A modern commentary on §§10–11 of A. R. Forsyth's Theory of Functions of a Complex Variable">
+  <title>Forsyth — Modern commentary on §§10–11</title>
+  <style>
+:root {
+  color-scheme: light;
+  --paper: #fffdf8;
+  --page: #f1eee5;
+  --ink: #1f2825;
+  --muted: #59645e;
+  --line: #d8d1c3;
+  --accent: #8b3930;
+  --accent-dark: #65271f;
+  --secondary: #1d625c;
+  --content-width: 52rem;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 18px;
+  line-height: 1.75;
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; scroll-padding-top: 1.5rem; }
+body { margin: 0; color: var(--ink); background: var(--page); }
+a { color: var(--secondary); text-underline-offset: 0.16em; }
+
+.skip-link {
+  position: fixed; top: 0.5rem; left: 0.5rem; z-index: 2; padding: 0.4rem 0.7rem;
+  color: white; background: var(--accent-dark); transform: translateY(-150%);
+}
+.skip-link:focus { transform: translateY(0); }
+
+.book-header { padding: 4rem max(2rem, calc((100vw - 72rem) / 2)); background: var(--paper); border-bottom: 1px solid var(--line); }
+.eyebrow { margin: 0 0 0.7rem; color: var(--secondary); font: 650 0.78rem/1.3 system-ui, sans-serif; letter-spacing: 0.05em; text-transform: uppercase; }
+h1 { max-width: 48rem; margin: 0; font-size: clamp(2.1rem, 5vw, 3.6rem); font-weight: 600; line-height: 1.15; }
+.subtitle { margin: 1rem 0 0; color: var(--accent); font-size: 1.1rem; }
+
+.reader-layout { display: grid; grid-template-columns: 11rem minmax(0, var(--content-width)); gap: 3rem; justify-content: center; align-items: start; padding: 2.5rem 2rem 5rem; }
+.chapter-nav { position: sticky; top: 1.5rem; color: var(--muted); font: 0.8rem/1.45 system-ui, sans-serif; }
+.chapter-nav p { margin: 0 0 0.75rem; color: var(--ink); font-weight: 700; }
+.chapter-nav ol { margin: 0; padding: 0; list-style: none; }
+.chapter-nav li + li { margin-top: 0.35rem; }
+.chapter-nav a { color: inherit; text-decoration: none; }
+.chapter-nav a:hover, .chapter-nav a:focus-visible { color: var(--accent); text-decoration: underline; }
+
+.content { min-width: 0; padding: 2.75rem clamp(1.5rem, 5vw, 4rem) 4rem; background: var(--paper); border-top: 3px solid var(--ink); box-shadow: 0 0.75rem 2.5rem rgb(34 34 29 / 9%); }
+.content > :first-child { margin-top: 0; }
+.content h1 { font-size: 2rem; }
+.content h2 { margin: 3rem 0 1rem; padding-top: 0.6rem; border-top: 1px solid var(--line); color: var(--accent-dark); font-size: 1.45rem; line-height: 1.25; }
+.content p, .content li { max-width: 44rem; }
+.content blockquote { margin: 1.5rem 0; padding: 0.8rem 1.1rem; border-left: 0.25rem solid var(--secondary); background: #f1f6f3; color: #3d4c46; }
+.content img { display: block; max-width: 100%; height: auto; margin: 1.5rem auto; }
+.content table { width: 100%; border-collapse: collapse; font-size: 0.9rem; line-height: 1.45; }
+.content th, .content td { padding: 0.65rem 0.7rem; border-bottom: 1px solid var(--line); text-align: left; vertical-align: top; }
+.content th { color: var(--accent-dark); font-family: system-ui, sans-serif; font-size: 0.75rem; letter-spacing: 0.03em; text-transform: uppercase; }
+.content td:nth-child(1), .content td:nth-child(3), .content td:nth-child(4) { white-space: nowrap; }
+.display-math { overflow-x: auto; margin: 1.25rem 0; text-align: center; }
+footer { padding: 1.5rem 2rem 3rem; color: var(--muted); font: 0.78rem/1.5 system-ui, sans-serif; text-align: center; }
+footer p { margin: 0 auto; max-width: 45rem; }
+
+@media (max-width: 760px) {
+  :root { font-size: 17px; }
+  .book-header { padding: 2.5rem 1.25rem; }
+  .reader-layout { display: block; padding: 1.25rem 0 3rem; }
+  .chapter-nav { position: static; margin: 0 1.25rem 1.25rem; }
+  .chapter-nav ol { display: flex; flex-wrap: wrap; gap: 0.35rem 0.8rem; }
+  .chapter-nav li + li { margin-top: 0; }
+  .content { padding: 2rem 1.25rem 3rem; box-shadow: none; }
+  .content table { display: block; overflow-x: auto; }
+}
+
+@media print {
+  body { background: white; }
+  .skip-link, .chapter-nav { display: none; }
+  .reader-layout { display: block; padding: 0; }
+  .content { border-top: 1pt solid black; box-shadow: none; }
+}
+
+  </style>
+  <script>
+    window.MathJax = {
+      svg: { fontCache: "local" },
+      options: {
+        enableMenu: true,
+        menuOptions: { settings: { enrich: false, speech: false, braille: false, assistiveMml: true } }
+      }
+    };
+  </script>
+  <script defer src="./vendor/mathjax/tex-svg.js"></script>
+</head>
+<body>
+  <a class="skip-link" href="#contents">Skip to contents</a>
+  <header class="book-header">
+    <p class="eyebrow">A. R. Forsyth · Third edition · 1918</p>
+    <h1><em>Theory of Functions of a Complex Variable</em></h1>
+    <p class="subtitle">A working reading guide and transcription project</p>
+  </header>
+  <div class="reader-layout">
+    <nav class="chapter-nav" aria-label="Page sections">
+      <p>On this page</p>
+      <ol>
+        <li><a href="#the-modern-setting">The modern setting</a></li>
+<li><a href="#section-10-harmonic-conjugates">Section 10: harmonic conjugates</a></li>
+<li><a href="#section-11-harmonic-functions-from-holomorphic-functions">Section 11: harmonic functions from holomorphic functions</a></li>
+<li><a href="#the-circle-example-in-modern-form">The circle example in modern form</a></li>
+<li><a href="#how-a-modern-text-would-classify-the-exercises">How a modern text would classify the exercises</a></li>
+<li><a href="#what-has-changed-since-forsyth">What has changed since Forsyth</a></li>
+      </ol>
+    </nav>
+    <main id="contents" class="content">
+<h1>Modern commentary on §§10–11</h1>
+<p><em>This is a modern mathematical commentary on Forsyth's presentation, not a
+replacement transcription. See <code>section-10.md</code> and <code>section-11.md</code> for the
+scan-verified text.</em></p>
+<h2 id="the-modern-setting">The modern setting</h2>
+<p>A current textbook would write</p>
+<div class="display-math">\[
+f(z)=u(x,y)+iv(x,y),\qquad z=x+iy,
+\]</div>
+<p>and use <strong>holomorphic</strong> where Forsyth speaks of “functionality” or functional
+dependence on \(z\). Assuming the relevant partial derivatives are continuous,
+\(f\) is holomorphic precisely when its real and imaginary parts satisfy the
+Cauchy–Riemann equations</p>
+<div class="display-math">\[
+u_x=v_y,\qquad u_y=-v_x.
+\]</div>
+<p>Sections 10 and 11 develop two sides of this fact:</p>
+<ul>
+<li>§10 starts with \(u\) or \(v\) and asks whether the other component can be
+reconstructed.</li>
+<li>§11 starts with a holomorphic expression \(f(z)\) and studies the harmonic
+functions obtained by taking its real and imaginary parts.</li>
+</ul>
+<p>The modern organizing concepts are <strong>harmonic functions</strong>, <strong>harmonic
+conjugates</strong>, <strong>analytic logarithms</strong>, and, in the circle example, the
+<strong>Green function and Poisson kernel of a disk</strong>.</p>
+<h2 id="section-10-harmonic-conjugates">Section 10: harmonic conjugates</h2>
+<p>Differentiating the Cauchy–Riemann equations gives</p>
+<div class="display-math">\[
+\Delta u=u_{xx}+u_{yy}=0,
+\qquad
+\Delta v=v_{xx}+v_{yy}=0.
+\]</div>
+<p>Thus the real and imaginary parts of a holomorphic function are harmonic. This
+is the modern meaning of Forsyth's observation that neither part can be chosen
+arbitrarily.</p>
+<p>The converse needs a qualification that is mostly implicit in the historical
+text. If \(u\) is harmonic, a harmonic conjugate \(v\) is determined locally by</p>
+<div class="display-math">\[
+dv=-u_y\,dx+u_x\,dy.
+\]</div>
+<p>The form on the right is closed because</p>
+<div class="display-math">\[
+\frac{\partial}{\partial y}(-u_y)
+=\frac{\partial}{\partial x}(u_x)
+\quad\Longleftrightarrow\quad
+\Delta u=0.
+\]</div>
+<p>Consequently, on a simply connected domain one may define</p>
+<div class="display-math">\[
+v(z)=v(z_0)+\int_{z_0}^{z}(-u_y\,dx+u_x\,dy),
+\]</div>
+<p>and the integral is independent of the path. On a domain with holes, a
+harmonic conjugate can exist locally without existing as a single-valued
+function globally. Saying only that \(v\) is determined “except as to an
+additive constant” is therefore globally valid when the domain has the needed
+topology.</p>
+<h3>Homogeneous polynomials</h3>
+<p>Forsyth's “integral function” in this passage is what a modern algebra text
+would call a polynomial. Decomposing a harmonic polynomial into homogeneous
+parts lets one find the conjugate degree by degree. If \(u_m\) and \(v_m\) are the
+degree-\(m\) real and imaginary parts, Euler's identity and the Cauchy–Riemann
+equations give</p>
+<div class="display-math">\[
+mv_m=x(v_m)_x+y(v_m)_y
+=-x(u_m)_y+y(u_m)_x.
+\]</div>
+<p>Hence</p>
+<div class="display-math">\[
+v_m=\frac1m\left(y(u_m)_x-x(u_m)_y\right),
+\]</div>
+<p>which is Forsyth's formula in current notation.</p>
+<h3>The degree-zero case and topology</h3>
+<p>In polar coordinates, Forsyth writes</p>
+<div class="display-math">\[
+u=b+a\theta,\qquad v=c-a\log r.
+\]</div>
+<p>This is best understood through a branch of the logarithm:</p>
+<div class="display-math">\[
+u+iv=(b+ic)-ia\operatorname{Log}z.
+\]</div>
+<p>The angle \(\theta=\arg z\) is not globally single-valued around the origin.
+A modern textbook would therefore specify a slit domain, or another simply
+connected region avoiding \(0\), on which a branch of \(\operatorname{Log}z\) has
+been chosen. This is a concrete example of the global qualification above.</p>
+<h3>Forsyth's substitution trick</h3>
+<p>Since \(z=x+iy\), one has \(x=z-iy\). Substituting \(z-iy\) for \(x\) in an expression
+\(u(x,y)+iv(x,y)\) is an algebraic way to test whether all dependence on \(y\)
+cancels, leaving an expression in \(z\) alone. A modern text might present this
+as a useful recognition trick after checking the Cauchy–Riemann equations,
+rather than as the general construction of a holomorphic function.</p>
+<h2 id="section-11-harmonic-functions-from-holomorphic-functions">Section 11: harmonic functions from holomorphic functions</h2>
+<p>The first examples are standard consequences of the complex logarithm. On a
+domain where a branch is defined,</p>
+<div class="display-math">\[
+\operatorname{Log}(z-a)=\log|z-a|+i\arg(z-a).
+\]</div>
+<p>It follows that both \(\log|z-a|\) and \(\arg(z-a)\) are harmonic away from \(a\).
+Likewise,</p>
+<div class="display-math">\[
+\log\left|\frac{z-a}{z-b}\right|
+=\log|z-a|-\log|z-b|
+\]</div>
+<p>is harmonic away from \(a\) and \(b\). In potential-theory language, it is the
+potential produced by a source and a sink of equal strength.</p>
+<p>The logarithm itself requires a branch, but its real part \(\log|z-a|\) is
+single-valued. The angular part is only locally single-valued unless the domain
+prevents loops around \(a\).</p>
+<h2 id="the-circle-example-in-modern-form">The circle example in modern form</h2>
+<p>Let</p>
+<div class="display-math">\[
+D_R=\{z:|z|&lt;R\},\qquad c=re^{ia}\in D_R,
+\]</div>
+<p>and let</p>
+<div class="display-math">\[
+c^*=\frac{R^2}{\overline c}=\frac{R^2}{r}e^{ia}
+\]</div>
+<p>be the inversion of \(c\) in the circle \(|z|=R\). Forsyth's \(c'\) is this point
+\(c^*\). The function</p>
+<div class="display-math">\[
+G(z,c)=\log\left|\frac{R(z-c)}{R^2-\overline c z}\right|
+\]</div>
+<p>is harmonic in \(D_R\setminus\{c\}\), tends to \(-\infty\) at \(c\), and is zero on
+\(|z|=R\). Up to the choice of sign used by different authors, this is the Green
+function of the disk with pole at \(c\).</p>
+<p>Forsyth uses</p>
+<div class="display-math">\[
+u(z)=\log\left|\frac{z-c}{z-c^*}\right|.
+\]</div>
+<p>Because</p>
+<div class="display-math">\[
+|z-c^*|=\frac{|R^2-\overline c z|}{r},
+\]</div>
+<p>the two normalizations differ only by a constant:</p>
+<div class="display-math">\[
+G(z,c)=u(z)+\log\frac Rr.
+\]</div>
+<p>Thus they have the same derivatives and the same level curves. The sets</p>
+<div class="display-math">\[
+\left|\frac{z-c}{z-c^*}\right|=\text{constant}
+\]</div>
+<p>are Apollonius circles. Forsyth computes their centers, radii, and the inward
+normal derivative of \(u\) directly. A modern treatment would often obtain the
+same geometry from a Möbius transformation that sends the disk to the unit
+disk and sends \(c\) to \(0\).</p>
+<p>On the boundary, Forsyth's normal-derivative formula reduces to</p>
+<div class="display-math">\[
+\frac{\partial G}{\partial n_{\mathrm{in}}}
+=-\frac1R\,
+\frac{R^2-r^2}{R^2-2Rr\cos(\psi-a)+r^2}.
+\]</div>
+<p>Apart from the normal orientation and normalization convention, the fraction
+is the Poisson kernel for the disk. It gives the density with which boundary
+values contribute to a harmonic function at the interior point \(c\).</p>
+<h2 id="how-a-modern-text-would-classify-the-exercises">How a modern text would classify the exercises</h2>
+<ul>
+<li>
+<p><strong>Exercise 1:</strong> the triangle inequality and reverse triangle inequality for
+the complex modulus.</p>
+</li>
+<li>
+<p><strong>Exercise 2:</strong> extracting real and imaginary coordinates from holomorphic
+or inverse functions, with attention to branches, and drawing the two
+orthogonal families \(u=\text{constant}\) and \(v=\text{constant}\).</p>
+</li>
+<li>
+<p><strong>Exercises 3–5:</strong> testing the Cauchy–Riemann equations and constructing
+harmonic conjugates.</p>
+</li>
+<li>
+<p><strong>Exercise 6:</strong> the Cauchy–Riemann equations for a local inverse. A modern
+statement would assume \(f'(z)\ne0\), so that the inverse exists locally.</p>
+</li>
+<li>
+<p><strong>Exercise 7:</strong> expressing an angle as a difference of arguments and hence
+as the real or imaginary part of a logarithmic function.</p>
+</li>
+<li>
+<p><strong>Exercise 8:</strong> deciding when a composite \(\phi(\lambda(x,y))\) is harmonic.
+The chain rule gives</p>
+<div class="display-math">\[
+\Delta(\phi\circ\lambda)
+  =\phi''(\lambda)|\nabla\lambda|^2+\phi'(\lambda)\Delta\lambda.
+\]</div>
+<p>Therefore the problem reduces to an ordinary differential equation for
+\(\phi\) precisely when</p>
+<div class="display-math">\[
+\frac{\Delta\lambda}{|\nabla\lambda|^2}
+\]</div>
+<p>depends only on \(\lambda\).</p>
+</li>
+</ul>
+<h2 id="what-has-changed-since-forsyth">What has changed since Forsyth</h2>
+<p>The mathematical core is still standard. The largest difference is one of
+organization and precision. A modern textbook would make domains and
+regularity assumptions explicit, distinguish local from global harmonic
+conjugates, introduce branches of the logarithm before using arguments, and
+recognize the circle calculation as part of potential theory. Forsyth instead
+develops these ideas computationally, with the geometry and formulas appearing
+before the modern conceptual labels that now tie them together.</p>
+
+    </main>
+  </div>
+  <footer>
+    <p>Generated locally from the repository's canonical Markdown source. Page scans are authoritative for individual entries and mathematical notation.</p>
+  </footer>
+</body>
+</html>

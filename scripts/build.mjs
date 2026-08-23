@@ -26,6 +26,12 @@ const pages = [
     title: "Forsyth — §25. Examples",
     description: "A transcription of §25 from A. R. Forsyth's Theory of Functions of a Complex Variable",
   },
+  {
+    source: "sections-10-11-commentary.md",
+    output: "sections-10-11-commentary.html",
+    title: "Forsyth — Modern commentary on §§10–11",
+    description: "A modern commentary on §§10–11 of A. R. Forsyth's Theory of Functions of a Complex Variable",
+  },
 ];
 
 function escapeHtml(value) {
