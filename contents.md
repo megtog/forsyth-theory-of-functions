@@ -37,7 +37,7 @@
 
 ## Detailed contents
 
-### Chapter I
+### Chapter I — General Introduction
 
 | Sections | Description | Page |
 | --- | --- | ---: |
@@ -50,7 +50,7 @@
 | [10](./section-10.html), [11](./section-11.html) | Relations between the real and the imaginary parts of a function of $z$; with examples | 12 |
 | [12](./section-12.html), [13](./section-13.html) | Definitions and illustrations of the terms monogenic, uniform, multiform, branch, branch-point, holomorphic, zero, pole, meromorphic | 15 |
 
-### Chapter II
+### Chapter II — Integration of Uniform Functions
 
 | Sections | Description | Page |
 | --- | --- | ---: |
@@ -63,7 +63,7 @@
 | 24 | The integral of any function (i) round a very small circle, (ii) round a very large circle, (iii) round a circle which encloses all its infinities and all its branch-points | 40 |
 | [25](./section-25.html) | Examples | 43 |
 
-### Chapter III
+### Chapter III — Expansion of Functions in Series of Powers
 
 | Sections | Description | Page |
 | --- | --- | ---: |
@@ -75,7 +75,7 @@
 | 34, 35 | Continuation of a function by means of elements over its region of continuity | 66 |
 | 36 | Schwarz's theorem on symmetric continuation across the axis of real quantities | 70 |
 
-### Chapter IV
+### Chapter IV — Uniform Functions, Particularly Those without Essential Singularities
 
 | Sections | Description | Page |
 | --- | --- | ---: |
@@ -89,7 +89,7 @@
 | 47 | A function, all the singularities of which are accidental, is a rational meromorphic function | 85 |
 | 48 | Some properties of polynomials and rational functions | 87 |
 
-### Chapter V
+### Chapter V — Transcendental Integral Functions
 
 | Sections | Description | Page |
 | --- | --- | ---: |
@@ -102,7 +102,7 @@
 | 59, 60 | Class (genre) of a function | 109 |
 | 61 | Laguerre's criterion of the class of a function; with examples | 111 |
 
-### Chapter VI
+### Chapter VI — Functions with a Limited Number of Essential Singularities
 
 | Sections | Description | Page |
 | --- | --- | ---: |
@@ -112,7 +112,7 @@
 | 66, 67 | Product-expression of a function with $n$ essential singularities and no zeros or accidental singularities | 122 |
 | 68–71 | Product-expression of a function with $n$ essential singularities and with assigned zeros and assigned accidental singularities; with a note on the region of continuity of such a function | 126 |
 
-### Chapter VII
+### Chapter VII — Functions with Unlimited Essential Singularities, and Expansion in Series of Functions
 
 | Sections | Description | Page |
 | --- | --- | ---: |
@@ -131,7 +131,7 @@
 | 87 | Functions with an area of essential singularity or lacunary spaces; with examples | 166 |
 | 88 | Arrangement of singularities of functions into classes and species | 175 |
 
-### Chapter VIII
+### Chapter VIII — Multiform Functions
 
 | Sections | Description | Page |
 | --- | --- | ---: |
@@ -147,7 +147,7 @@
 | 98 | Special case, when the branch-points are simple: their number | 208 |
 | 99 | A function, with $n$ branches and a limited number of branch-points and singularities, is a root of an algebraic equation of degree $n$ | 210 |
 
-### Chapter IX
+### Chapter IX — Periods of Definite Integrals, and Periodic Functions in General
 
 | Sections | Description | Page |
 | --- | --- | ---: |
@@ -162,7 +162,7 @@
 | 109 | Construction of a fundamental parallelogram for a uniform doubly-periodic function | 243 |
 | 110 | An integral, with more periods than two, can be made to assume any value by a modification of the path of integration between the limits | 246 |
 
-### Chapter X
+### Chapter X — Uniform Simply-Periodic and Doubly-Periodic Functions
 
 | Sections | Description | Page |
 | --- | --- | ---: |

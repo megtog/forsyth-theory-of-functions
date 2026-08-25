@@ -27,11 +27,11 @@ boundaries before transcribing.
 ## Format
 
 Keep the existing `## Chapters` table as the short navigation layer. Add later
-transcriptions below `## Detailed contents`, one `### Chapter ...` heading and
-one table per chapter:
+transcriptions below `## Detailed contents`, one `### Chapter ... — ...`
+heading that repeats the full printed chapter title, and one table per chapter:
 
 ```markdown
-### Chapter VI
+### Chapter VI — Functions with a Limited Number of Essential Singularities
 
 | Sections | Description | Page |
 | --- | --- | ---: |
