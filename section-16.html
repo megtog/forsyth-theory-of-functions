@@ -1,0 +1,198 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="A transcription of §16 from A. R. Forsyth's Theory of Functions of a Complex Variable">
+  <title>Forsyth — §16. Fundamental lemma in integration</title>
+  <style>
+:root {
+  color-scheme: light;
+  --paper: #fffdf8;
+  --page: #f1eee5;
+  --ink: #1f2825;
+  --muted: #59645e;
+  --line: #d8d1c3;
+  --accent: #8b3930;
+  --accent-dark: #65271f;
+  --secondary: #1d625c;
+  --content-width: 52rem;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 18px;
+  line-height: 1.75;
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; scroll-padding-top: 1.5rem; }
+body { margin: 0; color: var(--ink); background: var(--page); }
+a { color: var(--secondary); text-underline-offset: 0.16em; }
+
+.skip-link {
+  position: fixed; top: 0.5rem; left: 0.5rem; z-index: 2; padding: 0.4rem 0.7rem;
+  color: white; background: var(--accent-dark); transform: translateY(-150%);
+}
+.skip-link:focus { transform: translateY(0); }
+
+.book-header { padding: 4rem max(2rem, calc((100vw - 72rem) / 2)); background: var(--paper); border-bottom: 1px solid var(--line); }
+.eyebrow { margin: 0 0 0.7rem; color: var(--secondary); font: 650 0.78rem/1.3 system-ui, sans-serif; letter-spacing: 0.05em; text-transform: uppercase; }
+h1 { max-width: 48rem; margin: 0; font-size: clamp(2.1rem, 5vw, 3.6rem); font-weight: 600; line-height: 1.15; }
+.subtitle { margin: 1rem 0 0; color: var(--accent); font-size: 1.1rem; }
+
+.reader-layout { display: grid; grid-template-columns: 11rem minmax(0, var(--content-width)); gap: 3rem; justify-content: center; align-items: start; padding: 2.5rem 2rem 5rem; }
+.chapter-nav { position: sticky; top: 1.5rem; color: var(--muted); font: 0.8rem/1.45 system-ui, sans-serif; }
+.chapter-nav p { margin: 0 0 0.75rem; color: var(--ink); font-weight: 700; }
+.chapter-nav ol { margin: 0; padding: 0; list-style: none; }
+.chapter-nav li + li { margin-top: 0.35rem; }
+.chapter-nav a { color: inherit; text-decoration: none; }
+.chapter-nav a:hover, .chapter-nav a:focus-visible { color: var(--accent); text-decoration: underline; }
+
+.content { min-width: 0; padding: 2.75rem clamp(1.5rem, 5vw, 4rem) 4rem; background: var(--paper); border-top: 3px solid var(--ink); box-shadow: 0 0.75rem 2.5rem rgb(34 34 29 / 9%); }
+.content > :first-child { margin-top: 0; }
+.content h1 { font-size: 2rem; }
+.content h2 { margin: 3rem 0 1rem; padding-top: 0.6rem; border-top: 1px solid var(--line); color: var(--accent-dark); font-size: 1.45rem; line-height: 1.25; }
+.content p, .content li { max-width: 44rem; }
+.content blockquote { margin: 1.5rem 0; padding: 0.8rem 1.1rem; border-left: 0.25rem solid var(--secondary); background: #f1f6f3; color: #3d4c46; }
+.content img { display: block; max-width: 100%; height: auto; margin: 1.5rem auto; }
+.content table { width: 100%; border-collapse: collapse; font-size: 0.9rem; line-height: 1.45; }
+.content th, .content td { padding: 0.65rem 0.7rem; border-bottom: 1px solid var(--line); text-align: left; vertical-align: top; }
+.content th { color: var(--accent-dark); font-family: system-ui, sans-serif; font-size: 0.75rem; letter-spacing: 0.03em; text-transform: uppercase; }
+.content td:nth-child(1), .content td:nth-child(3), .content td:nth-child(4) { white-space: nowrap; }
+.display-math { overflow-x: auto; margin: 1.25rem 0; text-align: center; }
+.footnotes { max-width: 44rem; margin-top: 3rem; padding-top: 1rem; border-top: 1px solid var(--line); font-size: 0.9rem; }
+.footnotes ol { padding-left: 1.4rem; }
+.footnotes li + li { margin-top: 0.65rem; }
+.footnote-backref { margin-left: 0.3rem; }
+footer { padding: 1.5rem 2rem 3rem; color: var(--muted); font: 0.78rem/1.5 system-ui, sans-serif; text-align: center; }
+footer p { margin: 0 auto; max-width: 45rem; }
+
+@media (max-width: 760px) {
+  :root { font-size: 17px; }
+  .book-header { padding: 2.5rem 1.25rem; }
+  .reader-layout { display: block; padding: 1.25rem 0 3rem; }
+  .chapter-nav { position: static; margin: 0 1.25rem 1.25rem; }
+  .chapter-nav ol { display: flex; flex-wrap: wrap; gap: 0.35rem 0.8rem; }
+  .chapter-nav li + li { margin-top: 0; }
+  .content { padding: 2rem 1.25rem 3rem; box-shadow: none; }
+  .content table { display: block; overflow-x: auto; }
+}
+
+@media print {
+  body { background: white; }
+  .skip-link, .chapter-nav { display: none; }
+  .reader-layout { display: block; padding: 0; }
+  .content { border-top: 1pt solid black; box-shadow: none; }
+}
+
+  </style>
+  <script>
+    window.MathJax = {
+      svg: { fontCache: "local" },
+      options: {
+        enableMenu: true,
+        menuOptions: { settings: { enrich: false, speech: false, braille: false, assistiveMml: true } }
+      }
+    };
+  </script>
+  <script defer src="./vendor/mathjax/tex-svg.js"></script>
+</head>
+<body>
+  <a class="skip-link" href="#contents">Skip to contents</a>
+  <header class="book-header">
+    <p class="eyebrow">A. R. Forsyth · Third edition · 1918</p>
+    <h1><em>Theory of Functions of a Complex Variable</em></h1>
+    <p class="subtitle">A working reading guide and transcription project</p>
+  </header>
+  <div class="reader-layout">
+    <nav class="chapter-nav" aria-label="Page sections">
+      <p>On this page</p>
+      <ol>
+        
+      </ol>
+    </nav>
+    <main id="contents" class="content">
+<h1>§16. Fundamental lemma in integration</h1>
+<p><em>Printed pages 24–27 (scans 0052–0055). Mathematical notation has been transcribed as TeX; Fig. 5 is a faithful crop from scan 0053. The wording follows the scans, with line wrapping normalized.</em></p>
+<p>The following lemma<sup id="footnote-ref-riemann-1"><a href="#footnote-riemann" aria-label="Footnote riemann">riemann</a></sup> is of fundamental importance.</p>
+<p>Let any region of the plane, on which the \(z\)-variable is represented, be bounded by one or more simple<sup id="footnote-ref-simple-1"><a href="#footnote-simple" aria-label="Footnote simple">simple</a></sup> curves which do not meet one another: each curve that lies entirely in the finite part of the plane will be considered to be a closed curve.</p>
+<p><em>If \(p\) and \(q\) be any two functions of \(x\) and \(y\), which, for all points within the region or along its boundary, are uniform, finite and continuous, then the integral</em></p>
+<div class="display-math">\[
+\iint\left(\frac{\partial q}{\partial x}-\frac{\partial p}{\partial y}\right)dx\,dy,
+\]</div>
+<p><em>extended over the whole area of the region, is equal to the integral</em></p>
+<div class="display-math">\[
+\int(p\,dx+q\,dy),
+\]</div>
+<p><em>taken in a positive direction round the whole boundary of the region.</em></p>
+<p>(As the proof of the proposition does not depend on any special form of region, we shall take the area to be (fig. 5) that which is included by the curve \(Q_1P_1Q'_3P'_3\) and excluded by \(P'_2Q'_2P_3Q_3\) and excluded by \(P'_1P_2\). The positive directions of description of the curves are indicated by the arrows; and for integration in the area the positive directions are those of increasing \(x\) and increasing \(y\).)</p>
+<p><img src="./assets/section-16-fig-5.jpg" alt="Fig. 5. A multiply bounded region crossed by horizontal and vertical strips, with positively directed boundary curves and labelled intersection points."></p>
+<p>First, suppose that both \(p\) and \(q\) are real. Then, integrating with regard to \(x\), we have<sup id="footnote-ref-integration-1"><a href="#footnote-integration" aria-label="Footnote integration">integration</a></sup></p>
+<div class="display-math">\[
+\iint\frac{\partial q}{\partial x}\,dx\,dy=\int[q\,dy],
+\]</div>
+<p>where the brackets imply that the limits are to be introduced. When the limits are introduced along a line \(CQ_1Q'_1\dots\) parallel to the axis of \(x\), then, since \(CQ_1Q'_1\dots\) gives the direction of integration, we have</p>
+<div class="display-math">\[
+[q\,dy]
+=-q_1\,dy_1+q'_1\,dy'_1-q_2\,dy_2+q'_2\,dy'_2-q_3\,dy_3+q'_3\,dy'_3,
+\]</div>
+<p>where the various differential elements are the projections on the axis of \(y\) of the various elements of the boundary at points along \(CQ_1Q'_1\dots\).</p>
+<p>Now when integration is taken in the positive direction round the whole boundary, the part of \(\int q\,dy\) arising from the elements of the boundary at the points on \(CQ_1Q'_1\dots\) is the foregoing sum. For at \(Q'_3\) it is \(q'_3dy'_3\) because the positive element \(dy'_3\), which is equal to \(CD\), is in the positive direction of boundary integration; at \(Q_3\) it is \(-q_3dy_3\) because the positive element \(dy_3\), also equal to \(CD\), is in the negative direction of boundary integration; at \(Q'_2\) it is \(q'_2dy'_2\), for similar reasons; at \(Q_2\) it is \(-q_2dy_2\), for similar reasons; and so on. Hence</p>
+<div class="display-math">\[
+[q\,dy],
+\]</div>
+<p>corresponding to parallels through \(C\) and \(D\) to the axis of \(x\), is equal to the part of \(\int q\,dy\) taken along the boundary in the positive direction for all the elements of the boundary that lie between those parallels. Then when we integrate for all the elements \(CD\) by forming \(\int[q\,dy]\), an equivalent is given by the aggregate of all the parts of \(\int q\,dy\) taken in the positive direction round the whole boundary; and therefore</p>
+<div class="display-math">\[
+\iint\frac{\partial q}{\partial x}\,dx\,dy=\int q\,dy,
+\]</div>
+<p>on the suppositions stated in the enunciation.</p>
+<p>Again, integrating with regard to \(y\), we have</p>
+<div class="display-math">\[
+\begin{aligned}
+\iint\frac{\partial p}{\partial y}\,dx\,dy
+&amp;=\int[p\,dx]\\
+&amp;=-p_1\,dx_1+p'_1\,dx'_1-p_2\,dx_2+p'_2\,dx'_2-p_3\,dx_3+p'_3\,dx'_3,
+\end{aligned}
+\]</div>
+<p>when the limits are introduced along a line \(BP_1P'_1\dots\) parallel to the axis of \(y\): the various differential elements are the projections on the axis of \(x\) of the various elements of the boundary at points along \(BP_1P'_1\dots\).</p>
+<p>It is proved, in the same way as before, that the part of \(-\int p\,dx\) arising from the positively-described elements of the boundary at the points on \(BP_1P'_1\dots\) is the foregoing sum. At \(P'_3\) the part of \(\int p\,dx\) is \(-p'_3dx'_3\), because the positive element \(dx'_3\), which is equal to \(AB\), is in the negative direction of boundary integration; at \(P_3\) it is \(p_3dx_3\), because the positive element \(dx_3\), also equal to \(AB\), is in the positive direction of boundary integration; and so on for the other terms. Consequently</p>
+<div class="display-math">\[
+-[p\,dx],
+\]</div>
+<p>corresponding to parallels through \(A\) and \(B\) to the axis of \(y\), is equal to the part of \(\int p\,dx\) taken along the boundary in the positive direction for all the elements of the boundary that lie between those parallels. Hence integrating for all the elements \(AB\), we have as before</p>
+<div class="display-math">\[
+\iint\frac{\partial p}{\partial y}\,dx\,dy=-\int p\,dx;
+\]</div>
+<p>and therefore</p>
+<div class="display-math">\[
+\iint\left(\frac{\partial q}{\partial x}-\frac{\partial p}{\partial y}\right)dx\,dy
+=\int(p\,dx+q\,dy).
+\]</div>
+<p>Secondly, suppose that \(p\) and \(q\) are complex. When they are resolved into real and imaginary parts, in the forms \(p'+ip''\) and \(q'+iq''\) respectively, then the conditions as to uniformity, finiteness and continuity, which apply to \(p\) and \(q\), apply also to \(p'\), \(q'\), \(p''\), \(q''\). Hence</p>
+<div class="display-math">\[
+\iint\left(\frac{\partial q'}{\partial x}-\frac{\partial p'}{\partial y}\right)dx\,dy
+=\int(p'\,dx+q'\,dy),
+\]</div>
+<p>and</p>
+<div class="display-math">\[
+\iint\left(\frac{\partial q''}{\partial x}-\frac{\partial p''}{\partial y}\right)dx\,dy
+=\int(p''\,dx+q''\,dy),
+\]</div>
+<p>and therefore</p>
+<div class="display-math">\[
+\iint\left(\frac{\partial q}{\partial x}-\frac{\partial p}{\partial y}\right)dx\,dy
+=\int(p\,dx+q\,dy):
+\]</div>
+<p>which proves the proposition.</p>
+<p>No restriction on the properties of the functions \(p\) and \(q\) at points that lie without the region is imposed by the proposition. They may have infinities outside, they may cease to be continuous at outside points, or they may have branch-points outside; but so long as they are finite and continuous everywhere inside, and in passing from any one point to any other point always acquire at that other the same value whatever be the path of passage in the region, that is, so long as they are uniform in the region, the lemma is valid.</p>
+<section class="footnotes" aria-label="Footnotes"><ol>
+<li id="footnote-riemann">It is proved by Riemann, <em>Ges. Werke</em>, p. 12, and is made by him (as also by Cauchy) the basis of certain theorems relating to functions of complex variables. <a class="footnote-backref" href="#footnote-ref-riemann-1" aria-label="Back to footnote riemann reference">↩</a></li>
+<li id="footnote-simple">For the immediate purpose, a curve is called simple, if it have no multiple points. The aim, in constituting the boundary from such curves, is to prevent the superfluous complexity that arises from duplication of area on the plane. If, in any particular case, multiple points existed, a method of meeting the difficulty would be to take each simple loop as a boundary. <a class="footnote-backref" href="#footnote-ref-simple-1" aria-label="Back to footnote simple reference">↩</a></li>
+<li id="footnote-integration">It is in this integration, and in the corresponding integration for \(p\), that the properties of the function \(q\) are assumed. Any deviation from uniformity, finiteness or continuity within the region of integration would render necessary some equation different from the one given in the text. <a class="footnote-backref" href="#footnote-ref-integration-1" aria-label="Back to footnote integration reference">↩</a></li>
+</ol></section>
+
+    </main>
+  </div>
+  <footer>
+    <p>Generated locally from the repository's canonical Markdown source. Page scans are authoritative for individual entries and mathematical notation.</p>
+  </footer>
+</body>
+</html>

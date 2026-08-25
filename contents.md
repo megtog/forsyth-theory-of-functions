@@ -55,8 +55,8 @@
 | Sections | Description | Page |
 | --- | --- | ---: |
 | [14](./section-14.html), [15](./section-15.html) | Definition of an integral with complex variables; inferences. Definitions as to convergence of series | 20 |
-| 16 | Proof of the lemma $\iint \left(\frac{\partial q}{\partial x} - \frac{\partial p}{\partial y}\right) dx\,dy = \int (p\,dx + q\,dy)$, under assigned conditions | 24 |
-| 17, 18 | The integral $\int f(z)\,dz$ round any simple curve is zero, when $f(z)$ is holomorphic within the curve; and $\int_a^z f(z)\,dz$ is a holomorphic function when the path of integration lies within the curve | 27 |
+| [16](./section-16.html) | Proof of the lemma $\iint \left(\frac{\partial q}{\partial x} - \frac{\partial p}{\partial y}\right) dx\,dy = \int (p\,dx + q\,dy)$, under assigned conditions | 24 |
+| [17](./section-17.html), [18](./section-18.html) | The integral $\int f(z)\,dz$ round any simple curve is zero, when $f(z)$ is holomorphic within the curve; and $\int_a^z f(z)\,dz$ is a holomorphic function when the path of integration lies within the curve | 27 |
 | 19 | The path of integration of a holomorphic function can be deformed without changing the value of the integral | 30 |
 | 20–22 | The integral $\frac{1}{2\pi i}\int \frac{f(z)}{z-a}\,dz$, round a curve enclosing $a$, is $f(a)$ when $f(z)$ is a holomorphic function within the curve; and the integral $\frac{1}{2\pi i}\int \frac{f(z)}{(z-a)^{n+1}}\,dz$ is $\frac{1}{n!}\frac{d^n f(a)}{da^n}$. Superior limit for the modulus of the $n$th derivative of $f(a)$ in terms of the modulus of $f(a)$ | 31 |
 | 23 | The path of integration of a meromorphic function cannot be deformed across a pole without changing the value of the integral | 39 |

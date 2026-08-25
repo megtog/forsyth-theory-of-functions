@@ -51,6 +51,24 @@ const pages = [
     description: "A transcription of §15 from A. R. Forsyth's Theory of Functions of a Complex Variable",
   },
   {
+    source: "section-16.md",
+    output: "section-16.html",
+    title: "Forsyth — §16. Fundamental lemma in integration",
+    description: "A transcription of §16 from A. R. Forsyth's Theory of Functions of a Complex Variable",
+  },
+  {
+    source: "section-17.md",
+    output: "section-17.html",
+    title: "Forsyth — §17. Cauchy's theorem",
+    description: "A transcription of §17 from A. R. Forsyth's Theory of Functions of a Complex Variable",
+  },
+  {
+    source: "section-18.md",
+    output: "section-18.html",
+    title: "Forsyth — §18. Integration of holomorphic functions",
+    description: "A transcription of §18 from A. R. Forsyth's Theory of Functions of a Complex Variable",
+  },
+  {
     source: "section-25.md",
     output: "section-25.html",
     title: "Forsyth — §25. Examples",

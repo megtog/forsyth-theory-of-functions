@@ -1,0 +1,180 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="A transcription of §18 from A. R. Forsyth's Theory of Functions of a Complex Variable">
+  <title>Forsyth — §18. Integration of holomorphic functions</title>
+  <style>
+:root {
+  color-scheme: light;
+  --paper: #fffdf8;
+  --page: #f1eee5;
+  --ink: #1f2825;
+  --muted: #59645e;
+  --line: #d8d1c3;
+  --accent: #8b3930;
+  --accent-dark: #65271f;
+  --secondary: #1d625c;
+  --content-width: 52rem;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 18px;
+  line-height: 1.75;
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; scroll-padding-top: 1.5rem; }
+body { margin: 0; color: var(--ink); background: var(--page); }
+a { color: var(--secondary); text-underline-offset: 0.16em; }
+
+.skip-link {
+  position: fixed; top: 0.5rem; left: 0.5rem; z-index: 2; padding: 0.4rem 0.7rem;
+  color: white; background: var(--accent-dark); transform: translateY(-150%);
+}
+.skip-link:focus { transform: translateY(0); }
+
+.book-header { padding: 4rem max(2rem, calc((100vw - 72rem) / 2)); background: var(--paper); border-bottom: 1px solid var(--line); }
+.eyebrow { margin: 0 0 0.7rem; color: var(--secondary); font: 650 0.78rem/1.3 system-ui, sans-serif; letter-spacing: 0.05em; text-transform: uppercase; }
+h1 { max-width: 48rem; margin: 0; font-size: clamp(2.1rem, 5vw, 3.6rem); font-weight: 600; line-height: 1.15; }
+.subtitle { margin: 1rem 0 0; color: var(--accent); font-size: 1.1rem; }
+
+.reader-layout { display: grid; grid-template-columns: 11rem minmax(0, var(--content-width)); gap: 3rem; justify-content: center; align-items: start; padding: 2.5rem 2rem 5rem; }
+.chapter-nav { position: sticky; top: 1.5rem; color: var(--muted); font: 0.8rem/1.45 system-ui, sans-serif; }
+.chapter-nav p { margin: 0 0 0.75rem; color: var(--ink); font-weight: 700; }
+.chapter-nav ol { margin: 0; padding: 0; list-style: none; }
+.chapter-nav li + li { margin-top: 0.35rem; }
+.chapter-nav a { color: inherit; text-decoration: none; }
+.chapter-nav a:hover, .chapter-nav a:focus-visible { color: var(--accent); text-decoration: underline; }
+
+.content { min-width: 0; padding: 2.75rem clamp(1.5rem, 5vw, 4rem) 4rem; background: var(--paper); border-top: 3px solid var(--ink); box-shadow: 0 0.75rem 2.5rem rgb(34 34 29 / 9%); }
+.content > :first-child { margin-top: 0; }
+.content h1 { font-size: 2rem; }
+.content h2 { margin: 3rem 0 1rem; padding-top: 0.6rem; border-top: 1px solid var(--line); color: var(--accent-dark); font-size: 1.45rem; line-height: 1.25; }
+.content p, .content li { max-width: 44rem; }
+.content blockquote { margin: 1.5rem 0; padding: 0.8rem 1.1rem; border-left: 0.25rem solid var(--secondary); background: #f1f6f3; color: #3d4c46; }
+.content img { display: block; max-width: 100%; height: auto; margin: 1.5rem auto; }
+.content table { width: 100%; border-collapse: collapse; font-size: 0.9rem; line-height: 1.45; }
+.content th, .content td { padding: 0.65rem 0.7rem; border-bottom: 1px solid var(--line); text-align: left; vertical-align: top; }
+.content th { color: var(--accent-dark); font-family: system-ui, sans-serif; font-size: 0.75rem; letter-spacing: 0.03em; text-transform: uppercase; }
+.content td:nth-child(1), .content td:nth-child(3), .content td:nth-child(4) { white-space: nowrap; }
+.display-math { overflow-x: auto; margin: 1.25rem 0; text-align: center; }
+.footnotes { max-width: 44rem; margin-top: 3rem; padding-top: 1rem; border-top: 1px solid var(--line); font-size: 0.9rem; }
+.footnotes ol { padding-left: 1.4rem; }
+.footnotes li + li { margin-top: 0.65rem; }
+.footnote-backref { margin-left: 0.3rem; }
+footer { padding: 1.5rem 2rem 3rem; color: var(--muted); font: 0.78rem/1.5 system-ui, sans-serif; text-align: center; }
+footer p { margin: 0 auto; max-width: 45rem; }
+
+@media (max-width: 760px) {
+  :root { font-size: 17px; }
+  .book-header { padding: 2.5rem 1.25rem; }
+  .reader-layout { display: block; padding: 1.25rem 0 3rem; }
+  .chapter-nav { position: static; margin: 0 1.25rem 1.25rem; }
+  .chapter-nav ol { display: flex; flex-wrap: wrap; gap: 0.35rem 0.8rem; }
+  .chapter-nav li + li { margin-top: 0; }
+  .content { padding: 2rem 1.25rem 3rem; box-shadow: none; }
+  .content table { display: block; overflow-x: auto; }
+}
+
+@media print {
+  body { background: white; }
+  .skip-link, .chapter-nav { display: none; }
+  .reader-layout { display: block; padding: 0; }
+  .content { border-top: 1pt solid black; box-shadow: none; }
+}
+
+  </style>
+  <script>
+    window.MathJax = {
+      svg: { fontCache: "local" },
+      options: {
+        enableMenu: true,
+        menuOptions: { settings: { enrich: false, speech: false, braille: false, assistiveMml: true } }
+      }
+    };
+  </script>
+  <script defer src="./vendor/mathjax/tex-svg.js"></script>
+</head>
+<body>
+  <a class="skip-link" href="#contents">Skip to contents</a>
+  <header class="book-header">
+    <p class="eyebrow">A. R. Forsyth · Third edition · 1918</p>
+    <h1><em>Theory of Functions of a Complex Variable</em></h1>
+    <p class="subtitle">A working reading guide and transcription project</p>
+  </header>
+  <div class="reader-layout">
+    <nav class="chapter-nav" aria-label="Page sections">
+      <p>On this page</p>
+      <ol>
+        <li><a href="#corollary">Corollary</a></li>
+      </ol>
+    </nav>
+    <main id="contents" class="content">
+<h1>§18. Integration of holomorphic functions</h1>
+<p><em>Printed pages 29–30 (scans 0057–0058). Mathematical notation has been transcribed as TeX; Fig. 6 is a faithful crop from scan 0057. The wording follows the scans, with line wrapping normalized.</em></p>
+<p><em>When a function \(f(z)\) is holomorphic over any continuous region of the plane, the integral \(\int_a^z f(z)\,dz\) is a holomorphic function of \(z\), provided the points \(z\) and \(a\) as well as the whole path of integration lie within that region.</em></p>
+<p>The general definition (§14) of an integral is associated with a specified path of integration. In order to prove that the integral is a holomorphic function of \(z\), it will be necessary to prove (i) that the integral acquires the same value in whatever way the point \(z\) is attained, that is, that the value is independent of the path of integration, (ii) that it is finite, (iii) that it is continuous, and (iv) that it is monogenic.</p>
+<p>Let two paths \(a\gamma z\) and \(a\beta z\) between \(a\) and \(z\) be drawn (fig. 6) in the continuous region of the plane within which \(f(z)\) is holomorphic. The line \(a\gamma z\beta a\) is a contour over the area of which \(f(z)\) is holomorphic; and therefore \(\int f(z)\,dz\) vanishes when the integral is taken along \(a\gamma z\beta a\). Dividing the integral into two parts and implying by \(z_\gamma\), \(z_\beta\) that the point \(z\) has been reached by the paths \(a\gamma z\), \(a\beta z\) respectively, we have</p>
+<p><img src="./assets/section-18-fig-6.jpg" alt="Fig. 6. Two paths, labelled beta and gamma, from a to z, with a short continuation from z to z prime."></p>
+<div class="display-math">\[
+\int_a^{z_\gamma}f(z)\,dz+\int_{z_\beta}^{a}f(z)\,dz=0,
+\]</div>
+<p>and therefore</p>
+<div class="display-math">\[
+\begin{aligned}
+\int_a^{z_\gamma}f(z)\,dz
+&amp;=-\int_{z_\beta}^{a}f(z)\,dz\\
+&amp;=\int_a^{z_\beta}f(z)\,dz.
+\end{aligned}
+\]</div>
+<p>Thus the value of the integral is independent of the way in which \(z\) has acquired its value; and therefore \(\int_a^z f(z)\,dz\) is uniform in the region. Denote it by \(F(z)\).</p>
+<p>Secondly, \(f(z)\) is finite for all points in the region. After the result of §17, we naturally consider only such paths between \(a\) and \(z\) as are finite in length, the distance between \(a\) and \(z\) being finite. Hence (§15, IV.) the integral \(F(z)\) is finite for all points \(z\) in the region.</p>
+<p>Thirdly, let \(z'\) \((=z+\delta z)\) be a point infinitesimally near to \(z\); and consider \(\int_a^{z'}f(z)\,dz\). By what has just been proved, the path from \(a\) to \(z'\) can be taken \(a\beta zz'\); therefore</p>
+<div class="display-math">\[
+\int_a^{z'}f(z)\,dz
+=\int_a^z f(z)\,dz+\int_z^{z'}f(z)\,dz
+\]</div>
+<p>or</p>
+<div class="display-math">\[
+\int_a^{z+\delta z}f(z)\,dz-\int_a^z f(z)\,dz
+=\int_z^{z+\delta z}f(z)\,dz,
+\]</div>
+<p>so that</p>
+<div class="display-math">\[
+F(z+\delta z)-F(z)=\int_z^{z+\delta z}f(z)\,dz.
+\]</div>
+<p>Now at points in the infinitesimal line from \(z\) to \(z'\), the value of the continuous function \(f(z)\) differs only by an infinitesimal quantity from its value at \(z\); hence the right-hand side is</p>
+<div class="display-math">\[
+\{f(z)+\epsilon\}\delta z,
+\]</div>
+<p>where \(|\epsilon|\) is an infinitesimal quantity vanishing with \(\delta z\). It therefore follows that</p>
+<div class="display-math">\[
+F(z+\delta z)-F(z)
+\]</div>
+<p>is an infinitesimal quantity with a modulus of the same order of small quantities as \(|\delta z|\). Hence \(F(z)\) is continuous for points \(z\) in the region.</p>
+<p>Lastly, we have</p>
+<div class="display-math">\[
+\frac{F(z+\delta z)-F(z)}{\delta z}=f(z)+\epsilon;
+\]</div>
+<p>and therefore</p>
+<div class="display-math">\[
+\frac{F(z+\delta z)-F(z)}{\delta z}
+\]</div>
+<p>has a limit when \(\delta z\) vanishes; and this limit, \(f(z)\), is independent of the way in which \(\delta z\) vanishes. Hence \(F(z)\) has a differential coefficient; the integral is monogenic for points \(z\) in the region.</p>
+<p>Thus \(F(z)\), which is equal to</p>
+<div class="display-math">\[
+\int_a^z f(z)\,dz,
+\]</div>
+<p>is uniform, finite, continuous, and monogenic; it is therefore a holomorphic function of \(z\).</p>
+<p>As in §16 for the functions \(p\) and \(q\), so here for \(f(z)\), no restriction is placed on properties of \(f(z)\) at points that do not lie within the region; so that elsewhere it may have infinities, or discontinuities, or branch-points. The properties, essential to secure the validity of the proposition, are (i) that no infinities or discontinuities lie within the region, and (ii) that the same value of \(f(z)\) is acquired by whatever path in the continuous region the variable reaches its position \(z\).</p>
+<h2 id="corollary">Corollary</h2>
+<p><em>No change is caused in the value of the integral of a holomorphic function between two points when the path of integration between the points is deformed in any manner, provided only that, during the deformation, no part of the path passes outside the boundary of the region within which the function is holomorphic.</em></p>
+<p>This result is of importance, because it permits the adoption of special forms of the path of integration without affecting the value of the integral.</p>
+
+    </main>
+  </div>
+  <footer>
+    <p>Generated locally from the repository's canonical Markdown source. Page scans are authoritative for individual entries and mathematical notation.</p>
+  </footer>
+</body>
+</html>

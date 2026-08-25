@@ -12,10 +12,10 @@ site.
 ## Working files
 
 - `contents.md` is the canonical chapter-level transcription and page source.
-- `section-10.md` through `section-15.md`, and `section-25.md`, are the canonical transcriptions of §§10–15 and 25.
+- `section-10.md` through `section-18.md`, and `section-25.md`, are the canonical transcriptions of §§10–18 and 25.
 - `commentary-section-10-11.md` and `commentary-section-14-15.md` are modern mathematical commentaries on §§10–11 and §§14–15.
 - `assets/` contains figures used by the transcriptions.
-- `index.html`, `section-10.html` through `section-15.html`, `section-25.html`,
+- `index.html`, `section-10.html` through `section-18.html`, `section-25.html`,
   `commentary-section-10-11.html`, and `commentary-section-14-15.html` are generated pages; do not edit them directly.
 - `styles.css` controls the generated reading page.
 - `vendor/mathjax/` contains a fixed local MathJax runtime, allowing the page
