@@ -1,0 +1,194 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="A transcription of §14 from A. R. Forsyth's Theory of Functions of a Complex Variable">
+  <title>Forsyth — §14. Definition of an integral; definitions as to convergence</title>
+  <style>
+:root {
+  color-scheme: light;
+  --paper: #fffdf8;
+  --page: #f1eee5;
+  --ink: #1f2825;
+  --muted: #59645e;
+  --line: #d8d1c3;
+  --accent: #8b3930;
+  --accent-dark: #65271f;
+  --secondary: #1d625c;
+  --content-width: 52rem;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 18px;
+  line-height: 1.75;
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; scroll-padding-top: 1.5rem; }
+body { margin: 0; color: var(--ink); background: var(--page); }
+a { color: var(--secondary); text-underline-offset: 0.16em; }
+
+.skip-link {
+  position: fixed; top: 0.5rem; left: 0.5rem; z-index: 2; padding: 0.4rem 0.7rem;
+  color: white; background: var(--accent-dark); transform: translateY(-150%);
+}
+.skip-link:focus { transform: translateY(0); }
+
+.book-header { padding: 4rem max(2rem, calc((100vw - 72rem) / 2)); background: var(--paper); border-bottom: 1px solid var(--line); }
+.eyebrow { margin: 0 0 0.7rem; color: var(--secondary); font: 650 0.78rem/1.3 system-ui, sans-serif; letter-spacing: 0.05em; text-transform: uppercase; }
+h1 { max-width: 48rem; margin: 0; font-size: clamp(2.1rem, 5vw, 3.6rem); font-weight: 600; line-height: 1.15; }
+.subtitle { margin: 1rem 0 0; color: var(--accent); font-size: 1.1rem; }
+
+.reader-layout { display: grid; grid-template-columns: 11rem minmax(0, var(--content-width)); gap: 3rem; justify-content: center; align-items: start; padding: 2.5rem 2rem 5rem; }
+.chapter-nav { position: sticky; top: 1.5rem; color: var(--muted); font: 0.8rem/1.45 system-ui, sans-serif; }
+.chapter-nav p { margin: 0 0 0.75rem; color: var(--ink); font-weight: 700; }
+.chapter-nav ol { margin: 0; padding: 0; list-style: none; }
+.chapter-nav li + li { margin-top: 0.35rem; }
+.chapter-nav a { color: inherit; text-decoration: none; }
+.chapter-nav a:hover, .chapter-nav a:focus-visible { color: var(--accent); text-decoration: underline; }
+
+.content { min-width: 0; padding: 2.75rem clamp(1.5rem, 5vw, 4rem) 4rem; background: var(--paper); border-top: 3px solid var(--ink); box-shadow: 0 0.75rem 2.5rem rgb(34 34 29 / 9%); }
+.content > :first-child { margin-top: 0; }
+.content h1 { font-size: 2rem; }
+.content h2 { margin: 3rem 0 1rem; padding-top: 0.6rem; border-top: 1px solid var(--line); color: var(--accent-dark); font-size: 1.45rem; line-height: 1.25; }
+.content p, .content li { max-width: 44rem; }
+.content blockquote { margin: 1.5rem 0; padding: 0.8rem 1.1rem; border-left: 0.25rem solid var(--secondary); background: #f1f6f3; color: #3d4c46; }
+.content img { display: block; max-width: 100%; height: auto; margin: 1.5rem auto; }
+.content table { width: 100%; border-collapse: collapse; font-size: 0.9rem; line-height: 1.45; }
+.content th, .content td { padding: 0.65rem 0.7rem; border-bottom: 1px solid var(--line); text-align: left; vertical-align: top; }
+.content th { color: var(--accent-dark); font-family: system-ui, sans-serif; font-size: 0.75rem; letter-spacing: 0.03em; text-transform: uppercase; }
+.content td:nth-child(1), .content td:nth-child(3), .content td:nth-child(4) { white-space: nowrap; }
+.display-math { overflow-x: auto; margin: 1.25rem 0; text-align: center; }
+.footnotes { max-width: 44rem; margin-top: 3rem; padding-top: 1rem; border-top: 1px solid var(--line); font-size: 0.9rem; }
+.footnotes ol { padding-left: 1.4rem; }
+.footnotes li + li { margin-top: 0.65rem; }
+.footnote-backref { margin-left: 0.3rem; }
+footer { padding: 1.5rem 2rem 3rem; color: var(--muted); font: 0.78rem/1.5 system-ui, sans-serif; text-align: center; }
+footer p { margin: 0 auto; max-width: 45rem; }
+
+@media (max-width: 760px) {
+  :root { font-size: 17px; }
+  .book-header { padding: 2.5rem 1.25rem; }
+  .reader-layout { display: block; padding: 1.25rem 0 3rem; }
+  .chapter-nav { position: static; margin: 0 1.25rem 1.25rem; }
+  .chapter-nav ol { display: flex; flex-wrap: wrap; gap: 0.35rem 0.8rem; }
+  .chapter-nav li + li { margin-top: 0; }
+  .content { padding: 2rem 1.25rem 3rem; box-shadow: none; }
+  .content table { display: block; overflow-x: auto; }
+}
+
+@media print {
+  body { background: white; }
+  .skip-link, .chapter-nav { display: none; }
+  .reader-layout { display: block; padding: 0; }
+  .content { border-top: 1pt solid black; box-shadow: none; }
+}
+
+  </style>
+  <script>
+    window.MathJax = {
+      svg: { fontCache: "local" },
+      options: {
+        enableMenu: true,
+        menuOptions: { settings: { enrich: false, speech: false, braille: false, assistiveMml: true } }
+      }
+    };
+  </script>
+  <script defer src="./vendor/mathjax/tex-svg.js"></script>
+</head>
+<body>
+  <a class="skip-link" href="#contents">Skip to contents</a>
+  <header class="book-header">
+    <p class="eyebrow">A. R. Forsyth · Third edition · 1918</p>
+    <h1><em>Theory of Functions of a Complex Variable</em></h1>
+    <p class="subtitle">A working reading guide and transcription project</p>
+  </header>
+  <div class="reader-layout">
+    <nav class="chapter-nav" aria-label="Page sections">
+      <p>On this page</p>
+      <ol>
+        
+      </ol>
+    </nav>
+    <main id="contents" class="content">
+<h1>§14. Definition of an integral; definitions as to convergence</h1>
+<p><em>Printed pages 20–22 (scans 0048–0050). Mathematical notation has been transcribed as TeX; the wording follows the scans, with line wrapping normalized.</em></p>
+<p>The definition of an integral, that is adopted when the variables are complex, is the natural generalisation of that definition for real variables in which it is regarded as the limit of the sum of an infinite number of infinitesimally small terms. It is as follows:—</p>
+<p>Let \(a\) and \(z\) be any two points in the plane; and let them be connected by a curve of specified form, which is to be the path of variation of the independent variable. Let \(f(z)\) denote any function of \(z\); if any infinity of \(f(z)\) lie in the vicinity of the curve, the line of the curve will be chosen so as not to pass through that infinity. On the curve, let any number of points \(z_1\), \(z_2\), ..., \(z_n\) in succession be taken between \(a\) and \(z\); then, if the sum</p>
+<div class="display-math">\[
+(z_1-a)f(a)+(z_2-z_1)f(z_1)+\dots+(z-z_n)f(z_n)
+\]</div>
+<p>have a limit, when \(n\) is indefinitely increased so that the infinitely numerous points are in indefinitely close succession along the whole of the curve from \(a\) to \(z\), that limit is called the integral of \(f(z)\) between \(a\) and \(z\). It is denoted, as in the case of real variables, by</p>
+<div class="display-math">\[
+\int_a^z f(z)\,dz.
+\]</div>
+<p>It is known<sup id="footnote-ref-harnack-1"><a href="#footnote-harnack" aria-label="Footnote harnack">harnack</a></sup> that the value of the integral of a function of a real variable between limits \(a\) and \(b\) is independent of the manner in which, under the customary definition, the interval between \(a\) and \(b\) is divided up. Assuming this result, we infer at once that the same property holds for the complex integral</p>
+<div class="display-math">\[
+\int_a^z f(z)\,dz;
+\]</div>
+<p>for, if \(f(z)=u+iv\), where \(u\) and \(v\) are real,</p>
+<div class="display-math">\[
+f(z)\,dz=u\,dx-v\,dy+iu\,dy+iv\,dx,
+\]</div>
+<p>and each of the integrals</p>
+<div class="display-math">\[
+\int u\,dx,\qquad \int v\,dy,\qquad \int u\,dy,\qquad \int v\,dx,
+\]</div>
+<p>taken between limits corresponding to the extremities of the curve, is independent of the way in which the range is divided up.</p>
+<p>The limit, as the value of the integral, is associated with a particular curve: in order that the integral may have a definite value, the curve (called the <em>path of integration</em>) must, in the first instance, be specified.<sup id="footnote-ref-path-1"><a href="#footnote-path" aria-label="Footnote path">path</a></sup> The integral of any function whatever may not be assumed to depend in general only upon the limits.</p>
+<p>We have to deal with converging series; it is therefore convenient to state the definitions of the terms used. For proofs of the statements, developments, and applications in the theory of convergence, as well as the various tests of convergence, see Bromwich's <em>Theory of infinite series</em>, Carslaw's <em>Fourier's series and integrals</em>, Hobson's <em>Functions of a real variable</em>, and Pringsheim's article in the <em>Encyclopädie der mathematischen Wissenschaften</em>, t. i, pp. 49–146, where full references are given.</p>
+<p>A series, represented by</p>
+<div class="display-math">\[
+a_1,\quad a_2,\quad a_3,\quad \dots\ \text{ad inf.},
+\]</div>
+<p>is said to <em>converge</em>, when the limit of \(S_n\), where</p>
+<div class="display-math">\[
+S_n=a_1+a_2+\dots+a_n,
+\]</div>
+<p>as \(n\) increases indefinitely, is a unique finite quantity, say \(S\). When, in the same circumstances, the limit of \(S_n\) either is infinite or, if finite, is not unique (that is, may be one of several quantities), the series is said<sup id="footnote-ref-oscillating-1"><a href="#footnote-oscillating" aria-label="Footnote oscillating">oscillating</a></sup> to <em>diverge</em>.</p>
+<p>The necessary and sufficient condition that the series</p>
+<div class="display-math">\[
+a_1,\quad a_2,\quad a_3,\quad \dots
+\]</div>
+<p>should converge is that, corresponding to every finite positive quantity \(\epsilon\) taken as small as we please, an integer \(m\) can be found such that</p>
+<div class="display-math">\[
+\left|a_{n+1}+a_{n+2}+\dots+a_{n+r}\right|&lt;\epsilon,
+\]</div>
+<p>for all integers \(n\) such that \(n\geq m\), and for every positive integer \(r\).</p>
+<p>When the series</p>
+<div class="display-math">\[
+|a_1|,\quad |a_2|,\quad |a_3|,\quad \dots
+\]</div>
+<p>converges, the series</p>
+<div class="display-math">\[
+a_1,\quad a_2,\quad a_3,\quad \dots
+\]</div>
+<p>converges; and it is said to converge <em>absolutely</em>. When the series of moduli \(|a_1|\), \(|a_2|\), \(|a_3|\), ... does not converge, though the series \(a_1\), \(a_2\), \(a_3\), ... converges, the convergence of the latter is said to be <em>conditional</em>. In a conditionally converging series, the order of the terms must be kept: derangement of the order can lead to different limits; and any assigned sum, as a limit, can be obtained by appropriate derangement. In an absolutely converging series, the order of the terms can be deranged without affecting the limit to which the series converges; the convergence is sometimes called <em>unconditional</em>.</p>
+<p>These definitions apply to all infinite series, whatever be the source of their terms. When the terms depend upon a variable quantity \(z\), and the convergence of the series is considered as \(z\) varies, we have further classifications. Denote the series by</p>
+<div class="display-math">\[
+f_1(z),\quad f_2(z),\quad f_3(z),\quad \dots\ \text{ad inf.},
+\]</div>
+<p>and suppose that it converges for all values of \(z\) within a definite region. When any small quantity \(\delta\) has been chosen, and a positive integer \(m\) can be determined, such that</p>
+<div class="display-math">\[
+\left|\sum_{\nu=n}^{\infty} f_\nu(z)\right|&lt;\delta
+\]</div>
+<p>for every value of \(n\geq m\) and for all values of \(z\) in the region, the convergence is said to be <em>uniform</em> (sometimes <em>continuous</em>).</p>
+<p>Convergence may be uniform without being absolute; it can be absolute without being uniform.</p>
+<p>When a series converges for all values of \(z\) such that \(|z|&lt;r\), but not for \(|z|&gt;r\), then the circle, centre the origin of the variable \(z\) and radius equal to \(r\), is called the <em>circle of convergence</em>: and the radius is sometimes called the <em>radius of convergence</em>. A series such as</p>
+<div class="display-math">\[
+a_0,\quad a_1z,\quad a_2z^2,\quad \dots\ \text{ad inf.},
+\]</div>
+<p>converges absolutely within its circle of convergence, though not necessarily on its circumference. It does not necessarily converge uniformly within its circle of convergence; but if \(r'\) is a positive quantity, less than the radius of convergence by a finite quantity which can be taken small, the series converges uniformly within the circle of radius \(r'\) concentric with its circle of convergence.</p>
+<p>Again, when a uniformly converging series is integrated term by term over a finite range, the resulting series also converges uniformly. But a uniformly converging series can be differentiated term by term only if the series of derivatives converges.</p>
+<section class="footnotes" aria-label="Footnotes"><ol>
+<li id="footnote-harnack">Harnack's <em>Introduction to the Calculus</em>, (Cathcart's translation), §§ 103, 142. <a class="footnote-backref" href="#footnote-ref-harnack-1" aria-label="Back to footnote harnack reference">↩</a></li>
+<li id="footnote-path">This specification is tacitly supplied when the variables are real: the variable point moves along the axis of \(x\). <a class="footnote-backref" href="#footnote-ref-path-1" aria-label="Back to footnote path reference">↩</a></li>
+<li id="footnote-oscillating">Sometimes the series, such that the limit of \(S_n\) when \(n\) is infinitely large is one of a number of finite quantities (depending upon the way in which \(S_n\) is formed), are called oscillating. <a class="footnote-backref" href="#footnote-ref-oscillating-1" aria-label="Back to footnote oscillating reference">↩</a></li>
+</ol></section>
+
+    </main>
+  </div>
+  <footer>
+    <p>Generated locally from the repository's canonical Markdown source. Page scans are authoritative for individual entries and mathematical notation.</p>
+  </footer>
+</body>
+</html>

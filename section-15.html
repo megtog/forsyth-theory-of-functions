@@ -1,0 +1,227 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="A transcription of §15 from A. R. Forsyth's Theory of Functions of a Complex Variable">
+  <title>Forsyth — §15. Inferences from the definition of an integral</title>
+  <style>
+:root {
+  color-scheme: light;
+  --paper: #fffdf8;
+  --page: #f1eee5;
+  --ink: #1f2825;
+  --muted: #59645e;
+  --line: #d8d1c3;
+  --accent: #8b3930;
+  --accent-dark: #65271f;
+  --secondary: #1d625c;
+  --content-width: 52rem;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 18px;
+  line-height: 1.75;
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; scroll-padding-top: 1.5rem; }
+body { margin: 0; color: var(--ink); background: var(--page); }
+a { color: var(--secondary); text-underline-offset: 0.16em; }
+
+.skip-link {
+  position: fixed; top: 0.5rem; left: 0.5rem; z-index: 2; padding: 0.4rem 0.7rem;
+  color: white; background: var(--accent-dark); transform: translateY(-150%);
+}
+.skip-link:focus { transform: translateY(0); }
+
+.book-header { padding: 4rem max(2rem, calc((100vw - 72rem) / 2)); background: var(--paper); border-bottom: 1px solid var(--line); }
+.eyebrow { margin: 0 0 0.7rem; color: var(--secondary); font: 650 0.78rem/1.3 system-ui, sans-serif; letter-spacing: 0.05em; text-transform: uppercase; }
+h1 { max-width: 48rem; margin: 0; font-size: clamp(2.1rem, 5vw, 3.6rem); font-weight: 600; line-height: 1.15; }
+.subtitle { margin: 1rem 0 0; color: var(--accent); font-size: 1.1rem; }
+
+.reader-layout { display: grid; grid-template-columns: 11rem minmax(0, var(--content-width)); gap: 3rem; justify-content: center; align-items: start; padding: 2.5rem 2rem 5rem; }
+.chapter-nav { position: sticky; top: 1.5rem; color: var(--muted); font: 0.8rem/1.45 system-ui, sans-serif; }
+.chapter-nav p { margin: 0 0 0.75rem; color: var(--ink); font-weight: 700; }
+.chapter-nav ol { margin: 0; padding: 0; list-style: none; }
+.chapter-nav li + li { margin-top: 0.35rem; }
+.chapter-nav a { color: inherit; text-decoration: none; }
+.chapter-nav a:hover, .chapter-nav a:focus-visible { color: var(--accent); text-decoration: underline; }
+
+.content { min-width: 0; padding: 2.75rem clamp(1.5rem, 5vw, 4rem) 4rem; background: var(--paper); border-top: 3px solid var(--ink); box-shadow: 0 0.75rem 2.5rem rgb(34 34 29 / 9%); }
+.content > :first-child { margin-top: 0; }
+.content h1 { font-size: 2rem; }
+.content h2 { margin: 3rem 0 1rem; padding-top: 0.6rem; border-top: 1px solid var(--line); color: var(--accent-dark); font-size: 1.45rem; line-height: 1.25; }
+.content p, .content li { max-width: 44rem; }
+.content blockquote { margin: 1.5rem 0; padding: 0.8rem 1.1rem; border-left: 0.25rem solid var(--secondary); background: #f1f6f3; color: #3d4c46; }
+.content img { display: block; max-width: 100%; height: auto; margin: 1.5rem auto; }
+.content table { width: 100%; border-collapse: collapse; font-size: 0.9rem; line-height: 1.45; }
+.content th, .content td { padding: 0.65rem 0.7rem; border-bottom: 1px solid var(--line); text-align: left; vertical-align: top; }
+.content th { color: var(--accent-dark); font-family: system-ui, sans-serif; font-size: 0.75rem; letter-spacing: 0.03em; text-transform: uppercase; }
+.content td:nth-child(1), .content td:nth-child(3), .content td:nth-child(4) { white-space: nowrap; }
+.display-math { overflow-x: auto; margin: 1.25rem 0; text-align: center; }
+.footnotes { max-width: 44rem; margin-top: 3rem; padding-top: 1rem; border-top: 1px solid var(--line); font-size: 0.9rem; }
+.footnotes ol { padding-left: 1.4rem; }
+.footnotes li + li { margin-top: 0.65rem; }
+.footnote-backref { margin-left: 0.3rem; }
+footer { padding: 1.5rem 2rem 3rem; color: var(--muted); font: 0.78rem/1.5 system-ui, sans-serif; text-align: center; }
+footer p { margin: 0 auto; max-width: 45rem; }
+
+@media (max-width: 760px) {
+  :root { font-size: 17px; }
+  .book-header { padding: 2.5rem 1.25rem; }
+  .reader-layout { display: block; padding: 1.25rem 0 3rem; }
+  .chapter-nav { position: static; margin: 0 1.25rem 1.25rem; }
+  .chapter-nav ol { display: flex; flex-wrap: wrap; gap: 0.35rem 0.8rem; }
+  .chapter-nav li + li { margin-top: 0; }
+  .content { padding: 2rem 1.25rem 3rem; box-shadow: none; }
+  .content table { display: block; overflow-x: auto; }
+}
+
+@media print {
+  body { background: white; }
+  .skip-link, .chapter-nav { display: none; }
+  .reader-layout { display: block; padding: 0; }
+  .content { border-top: 1pt solid black; box-shadow: none; }
+}
+
+  </style>
+  <script>
+    window.MathJax = {
+      svg: { fontCache: "local" },
+      options: {
+        enableMenu: true,
+        menuOptions: { settings: { enrich: false, speech: false, braille: false, assistiveMml: true } }
+      }
+    };
+  </script>
+  <script defer src="./vendor/mathjax/tex-svg.js"></script>
+</head>
+<body>
+  <a class="skip-link" href="#contents">Skip to contents</a>
+  <header class="book-header">
+    <p class="eyebrow">A. R. Forsyth · Third edition · 1918</p>
+    <h1><em>Theory of Functions of a Complex Variable</em></h1>
+    <p class="subtitle">A working reading guide and transcription project</p>
+  </header>
+  <div class="reader-layout">
+    <nav class="chapter-nav" aria-label="Page sections">
+      <p>On this page</p>
+      <ol>
+        <li><a href="#i">(I.)</a></li>
+<li><a href="#ii">(II.)</a></li>
+<li><a href="#iii">(III.)</a></li>
+<li><a href="#iv">(IV.)</a></li>
+<li><a href="#v">(V.)</a></li>
+      </ol>
+    </nav>
+    <main id="contents" class="content">
+<h1>§15. Inferences from the definition of an integral</h1>
+<p><em>Printed pages 22–24 (scans 0050–0052). Mathematical notation has been transcribed as TeX; the wording follows the scans, with line wrapping normalized.</em></p>
+<p>Some inferences can be made from the definition of an integral.</p>
+<h2 id="i">(I.)</h2>
+<p><em>The integral along any path from \(a\) to \(z\) passing through a point \(\zeta\) is the sum of the integrals from \(a\) to \(\zeta\) and from \(\zeta\) to \(z\) along the same path.</em> Analytically, this is expressed by the equation</p>
+<div class="display-math">\[
+\int_a^z f(z)\,dz=\int_a^\zeta f(z)\,dz+\int_\zeta^z f(z)\,dz,
+\]</div>
+<p>the paths on the right-hand side combining to form the path on the left.</p>
+<h2 id="ii">(II.)</h2>
+<p><em>When the path is described in the reverse direction, the sign of the integral is changed</em>: that is,</p>
+<div class="display-math">\[
+\int_a^z f(z)\,dz=-\int_z^a f(z)\,dz,
+\]</div>
+<p>the curve of variation between \(a\) and \(z\) being the same.</p>
+<h2 id="iii">(III.)</h2>
+<p><em>The integral of the sum of a finite number of terms is equal to the sum of the integrals of the separate terms, the path of integration being the same for all.</em></p>
+<h2 id="iv">(IV.)</h2>
+<p><em>If a function \(f(z)\) be finite and continuous along any finite line between two points \(a\) and \(z\), the integral \(\int_a^z f(z)\,dz\) is finite.</em></p>
+<p>Let \(I\) denote the integral, so that we have \(I\) as the limit of</p>
+<div class="display-math">\[
+\sum_{r=0}^n (z_{r+1}-z_r)f(z_r);
+\]</div>
+<p>hence</p>
+<div class="display-math">\[
+\begin{aligned}
+|I|
+&amp;=\text{limit of }\left|\sum_{r=0}^n(z_{r+1}-z_r)f(z_r)\right|\\
+&amp;&lt;\text{limit of }\sum_{r=0}^n|z_{r+1}-z_r|\,|f(z_r)|.
+\end{aligned}
+\]</div>
+<p>Because \(f(z)\) is finite and continuous, its modulus is finite and therefore must have a superior limit, say \(M\), for points on the line. Thus</p>
+<div class="display-math">\[
+|f(z_r)|\leq M,
+\]</div>
+<p>so that</p>
+<div class="display-math">\[
+\begin{aligned}
+|I|&amp;&lt;\text{limit of }M\sum_{r=0}^n|z_{r+1}-z_r|\\
+&amp;&lt;MS,
+\end{aligned}
+\]</div>
+<p>where \(S\) is the finite length of the path of integration. Hence the modulus of the integral is finite; the integral itself is therefore finite.</p>
+<p>No limitation has been assigned to the path, except finiteness in length; the proposition is still true when the curve is a closed curve of finite length.</p>
+<p>Hermite and Darboux have given an expression for the integral which leads to the same result. We have as above</p>
+<div class="display-math">\[
+I=\int_a^z f(z)\,dz,
+\]</div>
+<p>and</p>
+<div class="display-math">\[
+\begin{aligned}
+|I|&amp;&lt;\left|\int_a^z |f(z)|\,|dz|\right|\\
+&amp;=\theta\int_a^z |f(z)|\,|dz|,
+\end{aligned}
+\]</div>
+<p>where \(\theta\) is a real positive quantity less than unity. The last integral involves only real variables; hence<sup id="footnote-ref-mean-value-1"><a href="#footnote-mean-value" aria-label="Footnote mean-value">mean-value</a></sup> for some point \(\xi\) lying between \(a\) and \(z\), we have</p>
+<div class="display-math">\[
+\begin{aligned}
+\int_a^z |f(z)|\,|dz|&amp;=|f(\xi)|\int_a^z|dz|\\
+&amp;=S|f(\xi)|,
+\end{aligned}
+\]</div>
+<p>so that</p>
+<div class="display-math">\[
+|I|=\theta S|f(\xi)|.
+\]</div>
+<p>It therefore follows that there is some argument \(\alpha\) such that, if \(\lambda=\theta e^{i\alpha}\),</p>
+<div class="display-math">\[
+I=\lambda Sf(\xi).
+\]</div>
+<p>This form proves the finiteness of the integral; and the result is the generalisation<sup id="footnote-ref-hermite-1"><a href="#footnote-hermite" aria-label="Footnote hermite">hermite</a></sup> to complex variables of the theorem of mean value just quoted for real variables.</p>
+<h2 id="v">(V.)</h2>
+<p><em>When a function is expressed as a uniformly converging series, the integral of the function along any path of finite length is the sum of the integrals of the terms of the series along the same path, provided that path lies within the circle of convergence of the series</em>:—a result, which is an extension of (III.) above.</p>
+<p>Let \(u_0+u_1+u_2+\dots\) be the converging series; take</p>
+<div class="display-math">\[
+f(z)=u_0+u_1+\dots+u_n+R,
+\]</div>
+<p>where \(|R|\) can be made infinitesimally small with indefinite increase of \(n\), because the series converges uniformly. Then by (III.), or immediately from the definition of the integral, we have</p>
+<div class="display-math">\[
+\int_a^z f(z)\,dz
+=\int_a^z u_0\,dz+\int_a^z u_1\,dz+\dots+\int_a^z u_n\,dz+\int_a^z R\,dz,
+\]</div>
+<p>the path of integration being the same for all the integrals. Hence, if</p>
+<div class="display-math">\[
+\Theta=\int_a^z f(z)\,dz-\sum_{m=0}^n\int_a^z u_m\,dz,
+\]</div>
+<p>we have</p>
+<div class="display-math">\[
+\Theta=\int_a^z R\,dz.
+\]</div>
+<p>Let \(R'\) be the greatest value of \(|R|\) for points in the path of integration from \(a\) to \(z\), and let \(S\) be the length of this path, so that \(S\) is finite; then, by (IV.),</p>
+<div class="display-math">\[
+|\Theta|&lt;SR'.
+\]</div>
+<p>Now \(S\) is finite; and, as \(n\) is increased indefinitely, the quantity \(R'\) tends towards zero as a limit for all points within the circle of convergence and therefore for all points on the path of integration provided that the path lie within the circle of convergence. When this proviso is satisfied, \(|\Theta|\) becomes infinitesimally small and therefore also \(\Theta\) becomes infinitesimally small, with indefinite increase of \(n\). Hence, under the conditions stated in the enunciation, we have</p>
+<div class="display-math">\[
+\int_a^z f(z)\,dz-\sum_{m=0}^{\infty}\int_a^z u_m\,dz=0,
+\]</div>
+<p>which proves the proposition.</p>
+<section class="footnotes" aria-label="Footnotes"><ol>
+<li id="footnote-mean-value">By what is usually called the “First theorem of mean value,” in the integral calculus; for a proof, see Carslaw's <em>Fourier's series and integrals</em>, § 39. <a class="footnote-backref" href="#footnote-ref-mean-value-1" aria-label="Back to footnote mean-value reference">↩</a></li>
+<li id="footnote-hermite">Hermite, <em>Cours à la faculté des sciences de Paris</em> (4ème éd., 1891), p. 59, where the reference to Darboux is given. <a class="footnote-backref" href="#footnote-ref-hermite-1" aria-label="Back to footnote hermite reference">↩</a></li>
+</ol></section>
+
+    </main>
+  </div>
+  <footer>
+    <p>Generated locally from the repository's canonical Markdown source. Page scans are authoritative for individual entries and mathematical notation.</p>
+  </footer>
+</body>
+</html>

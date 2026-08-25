@@ -54,7 +54,7 @@
 
 | Sections | Description | Page |
 | --- | --- | ---: |
-| 14, 15 | Definition of an integral with complex variables; inferences. Definitions as to convergence of series | 20 |
+| [14](./section-14.html), [15](./section-15.html) | Definition of an integral with complex variables; inferences. Definitions as to convergence of series | 20 |
 | 16 | Proof of the lemma $\iint \left(\frac{\partial q}{\partial x} - \frac{\partial p}{\partial y}\right) dx\,dy = \int (p\,dx + q\,dy)$, under assigned conditions | 24 |
 | 17, 18 | The integral $\int f(z)\,dz$ round any simple curve is zero, when $f(z)$ is holomorphic within the curve; and $\int_a^z f(z)\,dz$ is a holomorphic function when the path of integration lies within the curve | 27 |
 | 19 | The path of integration of a holomorphic function can be deformed without changing the value of the integral | 30 |

@@ -39,6 +39,18 @@ const pages = [
     description: "A transcription of §13 from A. R. Forsyth's Theory of Functions of a Complex Variable",
   },
   {
+    source: "section-14.md",
+    output: "section-14.html",
+    title: "Forsyth — §14. Definition of an integral; definitions as to convergence",
+    description: "A transcription of §14 from A. R. Forsyth's Theory of Functions of a Complex Variable",
+  },
+  {
+    source: "section-15.md",
+    output: "section-15.html",
+    title: "Forsyth — §15. Inferences from the definition of an integral",
+    description: "A transcription of §15 from A. R. Forsyth's Theory of Functions of a Complex Variable",
+  },
+  {
     source: "section-25.md",
     output: "section-25.html",
     title: "Forsyth — §25. Examples",
