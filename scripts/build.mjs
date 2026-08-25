@@ -62,6 +62,12 @@ const pages = [
     title: "Forsyth — Modern commentary on §§10–11",
     description: "A modern commentary on §§10–11 of A. R. Forsyth's Theory of Functions of a Complex Variable",
   },
+  {
+    source: "sections-14-15-commentary.md",
+    output: "sections-14-15-commentary.html",
+    title: "Forsyth — Modern commentary on §§14–15",
+    description: "A modern commentary on §§14–15 of A. R. Forsyth's Theory of Functions of a Complex Variable",
+  },
 ];
 
 function escapeHtml(value) {
