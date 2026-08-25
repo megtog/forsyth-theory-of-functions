@@ -28,14 +28,14 @@ await Promise.all([
   cp(path.join(projectDirectory, "section-14.html"), path.join(outputDirectory, "section-14.html")),
   cp(path.join(projectDirectory, "section-15.html"), path.join(outputDirectory, "section-15.html")),
   cp(path.join(projectDirectory, "section-25.html"), path.join(outputDirectory, "section-25.html")),
-  cp(path.join(projectDirectory, "sections-10-11-commentary.html"), path.join(outputDirectory, "sections-10-11-commentary.html")),
-  cp(path.join(projectDirectory, "sections-14-15-commentary.html"), path.join(outputDirectory, "sections-14-15-commentary.html")),
+  cp(path.join(projectDirectory, "commentary-section-10-11.html"), path.join(outputDirectory, "commentary-section-10-11.html")),
+  cp(path.join(projectDirectory, "commentary-section-14-15.html"), path.join(outputDirectory, "commentary-section-14-15.html")),
   cp(path.join(projectDirectory, "assets"), path.join(outputDirectory, "assets"), { recursive: true }),
   cp(path.join(projectDirectory, "vendor", "mathjax"), path.join(outputDirectory, "vendor", "mathjax"), { recursive: true }),
   writeFile(path.join(outputDirectory, "_headers"), "/\n  X-Content-Type-Options: nosniff\n", "utf8"),
 ]);
 
-for (const page of ["index.html", "section-10.html", "section-11.html", "section-12.html", "section-13.html", "section-14.html", "section-15.html", "section-25.html", "sections-10-11-commentary.html", "sections-14-15-commentary.html"]) {
+for (const page of ["index.html", "section-10.html", "section-11.html", "section-12.html", "section-13.html", "section-14.html", "section-15.html", "section-25.html", "commentary-section-10-11.html", "commentary-section-14-15.html"]) {
   const html = await readFile(path.join(outputDirectory, page), "utf8");
   if (!html.includes("./vendor/mathjax/tex-svg.js")) {
     throw new Error(`Published ${page} is missing its local MathJax reference.`);
