@@ -1,8 +1,9 @@
 # Exercise index
 
 This index lists exercises in the sections that have currently been
-transcribed and published. Each entry links to the complete exercise or worked
-example; it is not yet an index of every exercise in the book.
+transcribed. A linked exercise label opens its published section page; an
+unlinked label means that the transcription exists but its HTML page has not
+yet been generated. It is not yet an index of every exercise in the book.
 
 ## §11. Example of Riemann's definition
 
@@ -22,6 +23,19 @@ example; it is not yet an index of every exercise in the book.
 | Exercise | Topic |
 | --- | --- |
 | [Ex.](./section-13.html#ex) | Essential singularities of $e^z$, $\sinh(1/z)$, and $\tanh z$ |
+
+## §20. Cauchy's integral formula and simple poles
+
+| Exercise | Topic |
+| --- | --- |
+| [Ex. 1](./section-20.html#ex-1) | Cauchy's formula for three poles and the limiting cases when poles coincide |
+| [Ex. 2](./section-20.html#ex-2) | Selecting prescribed terms of a power series by contour integration |
+
+## §21. Holomorphicity of derivatives
+
+| Exercise | Topic |
+| --- | --- |
+| [Ex.](./section-21.html#ex) | Contour integrals arising from simple and double zeros of a holomorphic denominator |
 
 ## §25. Examples
 

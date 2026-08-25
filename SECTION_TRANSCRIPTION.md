@@ -37,6 +37,26 @@ source.
 - Check that the transcription includes every item up to the next numbered
   section, including material that continues across a page boundary.
 
+## Exercise index
+
+Whenever a transcribed section contains exercises or worked examples, update
+`exercises.md` in the same change.
+
+- Add a section heading and table if the section is not already represented.
+- Include every printed exercise, preserving its printed label (`Ex.`,
+  `Ex. 1`, and so on) in the exercise column.
+- Give each exercise a short topic description. This description is editorial
+  index material and need not reproduce the exercise wording.
+- For an already published section, link the label to the generated heading,
+  such as `./section-20.html#ex-1`; an unnumbered `## Ex.` heading has the
+  anchor `#ex`.
+- For a source-only transcription whose HTML page does not yet exist, leave
+  the exercise label unlinked. Add the link when the section is published.
+- Sections without exercises need no entry in the index.
+
+Before finishing, compare the index with every `## Ex.` heading in the new
+Markdown source so that no exercise is omitted.
+
 ## Figures
 
 Include every figure referenced by the transcribed text.
@@ -101,6 +121,8 @@ Then open the generated page locally and confirm:
 - every figure loads from both the project and `dist/`;
 - prose, formulas, example numbering, and figure placement agree with the
   scans;
+- every exercise in the transcribed sections appears in `exercises.md`, and
+  links for published sections reach the corresponding exercise heading;
 - display mathematics and figures do not overflow at desktop or mobile widths;
 - navigation from `index.html` reaches the new section page.
 
