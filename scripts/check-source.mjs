@@ -19,7 +19,7 @@ if (!source.includes("## Detailed contents")) {
   throw new Error("contents.md is missing its detailed contents section.");
 }
 
-const detailedChapters = ["I", "II", "III", "IV", "V"];
+const detailedChapters = ["I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX", "X"];
 for (const chapter of detailedChapters) {
   const heading = `### Chapter ${chapter}`;
   const chapterStart = source.indexOf(heading);
@@ -49,7 +49,7 @@ for (const row of detailedSectionRows) {
 }
 
 const missingDetailedSections = [];
-for (let section = 1; section <= 61; section += 1) {
+for (let section = 1; section <= 119; section += 1) {
   if (!detailedSections.has(section)) {
     missingDetailedSections.push(section);
   }
@@ -62,4 +62,4 @@ if (!source.includes("## Forsyth's suggested first course")) {
   throw new Error("contents.md is missing Forsyth's reading recommendation.");
 }
 
-console.log("Contents source has all 22 chapters, detailed coverage through §61, and reading guidance.");
+console.log("Contents source has all 22 chapters, detailed coverage through §119, and reading guidance.");

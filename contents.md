@@ -102,6 +102,79 @@
 | 59, 60 | Class (genre) of a function | 109 |
 | 61 | Laguerre's criterion of the class of a function; with examples | 111 |
 
+### Chapter VI
+
+| Sections | Description | Page |
+| --- | --- | ---: |
+| 62 | Indefiniteness of value of a function at and near an essential singularity | 115 |
+| 63 | A function is of the form $G\left(\frac{1}{z-b}\right) + P(z-b)$ in the vicinity of an essential singularity at $b$, a point in the finite part of the plane | 117 |
+| 64, 65 | Expression of a function with $n$ essential singularities as a sum of $n$ functions, each with only one essential singularity | 120 |
+| 66, 67 | Product-expression of a function with $n$ essential singularities and no zeros or accidental singularities | 122 |
+| 68–71 | Product-expression of a function with $n$ essential singularities and with assigned zeros and assigned accidental singularities; with a note on the region of continuity of such a function | 126 |
+
+### Chapter VII
+
+| Sections | Description | Page |
+| --- | --- | ---: |
+| 72 | Mittag-Leffler's theorem on functions with unlimited essential singularities, distributed over the whole plane | 134 |
+| 73 | Construction of subsidiary functions, to be terms of an infinite sum | 135 |
+| 74–76 | Weierstrass's proof of Mittag-Leffler's theorem, with the generalisation of the form of the theorem | 136 |
+| 77, 78 | Mittag-Leffler's theorem on functions with unlimited essential singularities, distributed over a finite circle | 140 |
+| 79 | Expression of a given function in Mittag-Leffler's form | 146 |
+| 80 | General remarks on infinite series, whether of powers or of functions | 150 |
+| 81 | A series of powers, in a region of continuity, represents one and only one function; it cannot be continued beyond a natural limit | 152 |
+| 82 | Also a series of functions: but its region of continuity may consist of distinct parts | 153 |
+| 83 | A series of functions does not necessarily possess a derivative at points on the boundary of any one of the distinct portions of its region of continuity | 155 |
+| 84 | A series of functions may represent different functions in distinct parts of its region of continuity; Tannery's series | 161 |
+| 85 | Construction of a function which represents different assigned functions in distinct assigned parts of the plane | 163 |
+| 86 | Functions with a line of essential singularity | 164 |
+| 87 | Functions with an area of essential singularity or lacunary spaces; with examples | 166 |
+| 88 | Arrangement of singularities of functions into classes and species | 175 |
+
+### Chapter VIII
+
+| Sections | Description | Page |
+| --- | --- | ---: |
+| 89 | Branch-points and branches of functions | 178 |
+| 90 | Branches obtained by continuation: path of variation of independent variable between two points can be deformed without affecting a branch of a function if it be not made to cross a branch-point | 179 |
+| 91 | If the path be deformed across a branch-point which affects the branch, then the branch is changed | 184 |
+| 92 | The interchange of branches for circuits round a branch-point is cyclical | 185 |
+| 93 | Analytical form of a function near a branch-point | 186 |
+| 94 | Branch-points of a function defined by an algebraic equation in their relation to the branches: definition of algebraic function | 190 |
+| 95 | Infinities of an algebraic function | 192 |
+| 96 | Determination of the branch-points of an algebraic function, and of the cyclical systems of the branches of the function | 197 |
+| 97 | The analytic character of a function defined by an algebraic equation | 203 |
+| 98 | Special case, when the branch-points are simple: their number | 208 |
+| 99 | A function, with $n$ branches and a limited number of branch-points and singularities, is a root of an algebraic equation of degree $n$ | 210 |
+
+### Chapter IX
+
+| Sections | Description | Page |
+| --- | --- | ---: |
+| 100 | Conditions under which the path of variation of the integral of a multiform function can be deformed without changing the value of the integral | 214 |
+| 101 | Integral of a multiform function round a small curve enclosing a branch-point | 217 |
+| 102 | Indefinite integrals of uniform functions with accidental singularities; $\int \frac{dz}{z}$, $\int \frac{dz}{1+z^2}$ | 218 |
+| 103 | Hermite's method of obtaining the multiplicity in value of an integral; sections in the plane, made to avoid the multiplicity | 219 |
+| 104 | Examples of indefinite integrals of multiform functions; $\int w\,dz$ round any loop, the general value of $\int (1-z^2)^{-\frac12}\,dz$, of $\int \{(1-z^2)(1-k^2z^2)\}^{-\frac12}\,dz$, and of $\int \{(z-e_1)(z-e_2)(z-e_3)\}^{-\frac12}\,dz$ | 224 |
+| 105 | Graphical representation of simply-periodic and of doubly-periodic functions | 235 |
+| 106 | The ratio of the periods of a uniform doubly-periodic function is not real | 238 |
+| 107, 108 | Triply-periodic uniform functions of a single variable do not exist | 239 |
+| 109 | Construction of a fundamental parallelogram for a uniform doubly-periodic function | 243 |
+| 110 | An integral, with more periods than two, can be made to assume any value by a modification of the path of integration between the limits | 246 |
+
+### Chapter X
+
+| Sections | Description | Page |
+| --- | --- | ---: |
+| 111 | Simply-periodic functions, and the transformation $Z=e^{\frac{2\pi zi}{\omega}}$ | 250 |
+| 112 | Fourier's series and simply-periodic functions | 252 |
+| 113, 114 | Properties of simply-periodic functions without essential singularities in the finite part of the plane | 253 |
+| 115 | Uniform doubly-periodic functions, without essential singularities in the finite part of the plane | 257 |
+| 116 | Properties of uniform doubly-periodic functions | 258 |
+| 117 | The zeros and the singularities of the derivative of a doubly-periodic function of the second order | 271 |
+| 118, 119 | Relations between homoperiodic functions | 273 |
+| Note | Note on differential equations of the first order having uniform integrals | 283 |
+
 ## Supplementary material
 
 - **Supplementary Notes: Abel's Theorem**

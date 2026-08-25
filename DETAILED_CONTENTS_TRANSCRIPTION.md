@@ -1,4 +1,4 @@
-# Contents transcription guide
+# Detailed contents transcription guide
 
 `contents.md` is the canonical editable source for the reading page. The
 generated `index.html` must always be rebuilt from it; do not edit the HTML by
@@ -7,15 +7,22 @@ hand.
 ## Source material
 
 The book scans are authoritative whenever OCR and the scan disagree, especially
-for mathematical notation. For the detailed contents of Chapters I–V, use:
+for mathematical notation. The detailed contents of Chapters I–X use:
 
 - `../theoryoffunction00forsrich_jpeg/theoryoffunction00forsrich_0017.jpg`
 - `../theoryoffunction00forsrich_jpeg/theoryoffunction00forsrich_0018.jpg`
 - `../theoryoffunction00forsrich_jpeg/theoryoffunction00forsrich_0019.jpg`
+- `../theoryoffunction00forsrich_jpeg/theoryoffunction00forsrich_0020.jpg`
+- `../theoryoffunction00forsrich_jpeg/theoryoffunction00forsrich_0021.jpg`
+- `../theoryoffunction00forsrich_jpeg/theoryoffunction00forsrich_0022.jpg`
 
-These pages cover the printed contents through §61. The adjacent scan pages are
-the starting point for later chapters; confirm the exact range against the
-printed chapter boundaries before transcribing.
+Scans 0017–0019 cover Chapters I–V; scan 0019 also contains Chapter VI. Scan
+0020 contains Chapter VII and the beginning of Chapter VIII; scan 0021 finishes
+Chapter VIII and contains Chapters IX and most of X; scan 0022 finishes Chapter
+X. Together these pages cover the printed contents through §119 and the
+unnumbered note following it. The adjacent scan pages are the starting point
+for later chapters; confirm the exact range against the printed chapter
+boundaries before transcribing.
 
 ## Format
 
@@ -53,6 +60,6 @@ npm run check
 
 `npm run build` regenerates `index.html`; commit it with `contents.md`.
 `scripts/check-source.mjs` currently verifies the detailed tables and full
-section coverage for Chapters I–V (§§1–61). Extend that check when adding the
+section coverage for Chapters I–X (§§1–119). Extend that check when adding the
 next chapter range. For formula-heavy changes, open the generated page locally
 and confirm MathJax typesets each expression rather than displaying TeX source.
