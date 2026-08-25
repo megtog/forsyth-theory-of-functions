@@ -69,6 +69,30 @@ const pages = [
     description: "A transcription of §18 from A. R. Forsyth's Theory of Functions of a Complex Variable",
   },
   {
+    source: "section-19.md",
+    output: "section-19.html",
+    title: "Forsyth — §19. Deformation of paths of integration",
+    description: "A transcription of §19 from A. R. Forsyth's Theory of Functions of a Complex Variable",
+  },
+  {
+    source: "section-20.md",
+    output: "section-20.html",
+    title: "Forsyth — §20. Cauchy's integral formula and simple poles",
+    description: "A transcription of §20 from A. R. Forsyth's Theory of Functions of a Complex Variable",
+  },
+  {
+    source: "section-21.md",
+    output: "section-21.html",
+    title: "Forsyth — §21. Holomorphicity of derivatives",
+    description: "A transcription of §21 from A. R. Forsyth's Theory of Functions of a Complex Variable",
+  },
+  {
+    source: "section-22.md",
+    output: "section-22.html",
+    title: "Forsyth — §22. Higher derivatives and dominant functions",
+    description: "A transcription of §22 from A. R. Forsyth's Theory of Functions of a Complex Variable",
+  },
+  {
     source: "section-25.md",
     output: "section-25.html",
     title: "Forsyth — §25. Examples",

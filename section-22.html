@@ -1,0 +1,192 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="A transcription of §22 from A. R. Forsyth's Theory of Functions of a Complex Variable">
+  <title>Forsyth — §22. Higher derivatives and dominant functions</title>
+  <style>
+:root {
+  color-scheme: light;
+  --paper: #fffdf8;
+  --page: #f1eee5;
+  --ink: #1f2825;
+  --muted: #59645e;
+  --line: #d8d1c3;
+  --accent: #8b3930;
+  --accent-dark: #65271f;
+  --secondary: #1d625c;
+  --content-width: 52rem;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 18px;
+  line-height: 1.75;
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; scroll-padding-top: 1.5rem; }
+body { margin: 0; color: var(--ink); background: var(--page); }
+a { color: var(--secondary); text-underline-offset: 0.16em; }
+
+.skip-link {
+  position: fixed; top: 0.5rem; left: 0.5rem; z-index: 2; padding: 0.4rem 0.7rem;
+  color: white; background: var(--accent-dark); transform: translateY(-150%);
+}
+.skip-link:focus { transform: translateY(0); }
+
+.book-header { padding: 4rem max(2rem, calc((100vw - 72rem) / 2)); background: var(--paper); border-bottom: 1px solid var(--line); }
+.eyebrow { margin: 0 0 0.7rem; color: var(--secondary); font: 650 0.78rem/1.3 system-ui, sans-serif; letter-spacing: 0.05em; text-transform: uppercase; }
+h1 { max-width: 48rem; margin: 0; font-size: clamp(2.1rem, 5vw, 3.6rem); font-weight: 600; line-height: 1.15; }
+.subtitle { margin: 1rem 0 0; color: var(--accent); font-size: 1.1rem; }
+
+.reader-layout { display: grid; grid-template-columns: 11rem minmax(0, var(--content-width)); gap: 3rem; justify-content: center; align-items: start; padding: 2.5rem 2rem 5rem; }
+.chapter-nav { position: sticky; top: 1.5rem; color: var(--muted); font: 0.8rem/1.45 system-ui, sans-serif; }
+.chapter-nav p { margin: 0 0 0.75rem; color: var(--ink); font-weight: 700; }
+.chapter-nav ol { margin: 0; padding: 0; list-style: none; }
+.chapter-nav li + li { margin-top: 0.35rem; }
+.chapter-nav a { color: inherit; text-decoration: none; }
+.chapter-nav a:hover, .chapter-nav a:focus-visible { color: var(--accent); text-decoration: underline; }
+
+.content { min-width: 0; padding: 2.75rem clamp(1.5rem, 5vw, 4rem) 4rem; background: var(--paper); border-top: 3px solid var(--ink); box-shadow: 0 0.75rem 2.5rem rgb(34 34 29 / 9%); }
+.content > :first-child { margin-top: 0; }
+.content h1 { font-size: 2rem; }
+.content h2 { margin: 3rem 0 1rem; padding-top: 0.6rem; border-top: 1px solid var(--line); color: var(--accent-dark); font-size: 1.45rem; line-height: 1.25; }
+.content p, .content li { max-width: 44rem; }
+.content blockquote { margin: 1.5rem 0; padding: 0.8rem 1.1rem; border-left: 0.25rem solid var(--secondary); background: #f1f6f3; color: #3d4c46; }
+.content img { display: block; max-width: 100%; height: auto; margin: 1.5rem auto; }
+.content table { width: 100%; border-collapse: collapse; font-size: 0.9rem; line-height: 1.45; }
+.content th, .content td { padding: 0.65rem 0.7rem; border-bottom: 1px solid var(--line); text-align: left; vertical-align: top; }
+.content th { color: var(--accent-dark); font-family: system-ui, sans-serif; font-size: 0.75rem; letter-spacing: 0.03em; text-transform: uppercase; }
+.content td:nth-child(1), .content td:nth-child(3), .content td:nth-child(4) { white-space: nowrap; }
+.display-math { overflow-x: auto; margin: 1.25rem 0; text-align: center; }
+.footnotes { max-width: 44rem; margin-top: 3rem; padding-top: 1rem; border-top: 1px solid var(--line); font-size: 0.9rem; }
+.footnotes ol { padding-left: 1.4rem; }
+.footnotes li + li { margin-top: 0.65rem; }
+.footnote-backref { margin-left: 0.3rem; }
+footer { padding: 1.5rem 2rem 3rem; color: var(--muted); font: 0.78rem/1.5 system-ui, sans-serif; text-align: center; }
+footer p { margin: 0 auto; max-width: 45rem; }
+
+@media (max-width: 760px) {
+  :root { font-size: 17px; }
+  .book-header { padding: 2.5rem 1.25rem; }
+  .reader-layout { display: block; padding: 1.25rem 0 3rem; }
+  .chapter-nav { position: static; margin: 0 1.25rem 1.25rem; }
+  .chapter-nav ol { display: flex; flex-wrap: wrap; gap: 0.35rem 0.8rem; }
+  .chapter-nav li + li { margin-top: 0; }
+  .content { padding: 2rem 1.25rem 3rem; box-shadow: none; }
+  .content table { display: block; overflow-x: auto; }
+}
+
+@media print {
+  body { background: white; }
+  .skip-link, .chapter-nav { display: none; }
+  .reader-layout { display: block; padding: 0; }
+  .content { border-top: 1pt solid black; box-shadow: none; }
+}
+
+  </style>
+  <script>
+    window.MathJax = {
+      svg: { fontCache: "local" },
+      options: {
+        enableMenu: true,
+        menuOptions: { settings: { enrich: false, speech: false, braille: false, assistiveMml: true } }
+      }
+    };
+  </script>
+  <script defer src="./vendor/mathjax/tex-svg.js"></script>
+</head>
+<body>
+  <a class="skip-link" href="#contents">Skip to contents</a>
+  <header class="book-header">
+    <p class="eyebrow">A. R. Forsyth · Third edition · 1918</p>
+    <h1><em>Theory of Functions of a Complex Variable</em></h1>
+    <p class="subtitle">A working reading guide and transcription project</p>
+  </header>
+  <div class="reader-layout">
+    <nav class="chapter-nav" aria-label="Page sections">
+      <p>On this page</p>
+      <ol>
+        
+      </ol>
+    </nav>
+    <main id="contents" class="content">
+<h1>§22. Higher derivatives and dominant functions</h1>
+<p><em>Printed pages 37–39 (scans 0065–0067). Mathematical notation has been transcribed as TeX; the wording follows the scans, with line wrapping normalized.</em></p>
+<p>Expressions for the first and the second derivatives have been obtained.</p>
+<p>By a process similar to that which gives the value of \(f'(a)\), the derivative of order \(n\) is obtainable in the form</p>
+<div class="display-math">\[
+f^{(n)}(a)=\frac{n!}{2\pi i}\int\frac{f(z)}{(z-a)^{n+1}}\,dz,
+\]</div>
+<p>the integral being taken round the whole boundary of the region or round any curves which arise from deformation of the boundary, provided that no point of the curves in the final form of the boundary or in any intermediate form of the boundary is indefinitely near to \(a\).</p>
+<p>In the case when the curve of integration is a circle, no point of which circle may lie outside the boundary of the region, we have a modified form for \(f^{(n)}(a)\).</p>
+<p>For points along the circumference of the circle with centre \(a\) and radius \(r\), let \(z-a=re^{\theta i}\), so that, as before,</p>
+<div class="display-math">\[
+\frac{dz}{z-a}=i\,d\theta;
+\]</div>
+<p>then \(0\) and \(2\pi\) being taken as the limits of \(\theta\), we have</p>
+<div class="display-math">\[
+f^{(n)}(a)=\frac{n!}{2\pi r^n}\int_0^{2\pi}e^{-n\theta i}f(a+re^{\theta i})\,d\theta.
+\]</div>
+<p>Let \(M\) be the greatest value of the modulus of \(f(z)\) for points on the circumference (or, as it may be convenient to consider, for points on or within the circumference): then</p>
+<div class="display-math">\[
+\begin{aligned}
+|f^{(n)}(a)|
+&amp;&lt;\frac{n!}{2\pi r^n}\int_0^{2\pi}|e^{-n\theta i}|\,|f(a+re^{\theta i})|\,d\theta\\
+&amp;&lt;\frac{n!}{2\pi r^n}\int_0^{2\pi}M\,d\theta\\
+&amp;&lt;n!\frac{M}{r^n}.
+\end{aligned}
+\]</div>
+<p>Now, let a function \(\phi(z)\) be defined by the equation</p>
+<div class="display-math">\[
+\phi(z)=\frac{M}{1-\dfrac{z-a}{r}};
+\]</div>
+<p>evidently it can be expanded in a series of ascending powers of \(z-a\) which converges within the circle. The series is</p>
+<div class="display-math">\[
+\phi(z)=M\left\{1+\frac{z-a}{r}+\frac{(z-a)^2}{r^2}+\ldots\right\},
+\]</div>
+<p>so that</p>
+<div class="display-math">\[
+\frac{d^n\phi(z)}{dz^n}
+=n!\frac{M}{r^n}\left\{1+(n+1)\frac{z-a}{r}+\ldots\right\}.
+\]</div>
+<p>Hence</p>
+<div class="display-math">\[
+\left[\frac{d^n\phi(z)}{dz^n}\right]_{z=a}=n!\frac{M}{r^n};
+\]</div>
+<p>so that, if the value of the \(n\)th derivative of \(\phi(z)\), when \(z=a\), be denoted by \(\phi^{(n)}(a)\), we have \(|f^{(n)}(a)|&lt;\phi^{(n)}(a)\).</p>
+<p>These results can be extended to functions of more than one variable: the proof is similar to the foregoing proof. When there are two variables, say \(z\) and \(z'\), the results may be stated as follows:—</p>
+<p>For all points \(z\) within a given simple curve \(C\) in the \(z\)-plane and all points \(z'\) within a given simple curve \(C'\) in the \(z'\)-plane, let \(f(z,z')\) be a holomorphic function; then, if \(a\) be any point within \(C\) and \(a'\) any point within \(C'\),</p>
+<div class="display-math">\[
+\frac{n!\,n'!}{(2\pi i)^2}
+\iint\frac{f(z,z')}{(z-a)^{n+1}(z'-a')^{n'+1}}\,dz\,dz'
+=\frac{\partial^{n+n'}f(a,a')}{\partial a^n\partial a'^{n'}},
+\]</div>
+<p>where \(n\) and \(n'\) are any integers and the integral is taken positively round the two curves \(C\) and \(C'\).</p>
+<p>If \(M\) be the greatest value of \(|f(z,z')|\) for points \(z\) and \(z'\) within their respective regions when the curves \(C\) and \(C'\) are circles of radii \(r,r'\) and centres \(a,a'\), then</p>
+<div class="display-math">\[
+\left|\frac{\partial^{n+n'}f(a,a')}{\partial a^n\partial a'^{n'}}\right|
+&lt;n!\,n'!\frac{M}{r^n r'^{n'}},
+\]</div>
+<p>and if</p>
+<div class="display-math">\[
+\phi(z,z')
+=\frac{M}{\left(1-\dfrac{z-a}{r}\right)\left(1-\dfrac{z'-a'}{r'}\right)},
+\]</div>
+<p>then</p>
+<div class="display-math">\[
+\left|\frac{\partial^{n+n'}f(a,a')}{\partial a^n\partial a'^{n'}}\right|
+&lt;\frac{\partial^{n+n'}\phi(z,z')}{\partial z^n\partial z'^{n'}},
+\]</div>
+<p>when \(z=a\) and \(z'=a'\) in the derivative of \(\phi(z,z')\).</p>
+<p>A function \(\phi\), related in this manner to a function \(f\) in association with which it is constructed, is sometimes called<sup id="footnote-ref-1-1"><a href="#footnote-1" aria-label="Footnote 1">1</a></sup> a <em>dominant function</em>.</p>
+<section class="footnotes" aria-label="Footnotes"><ol>
+<li id="footnote-1">Poincaré uses the term <em>majorante</em>. <a class="footnote-backref" href="#footnote-ref-1-1" aria-label="Back to footnote 1 reference">↩</a></li>
+</ol></section>
+
+    </main>
+  </div>
+  <footer>
+    <p>Generated locally from the repository's canonical Markdown source. Page scans are authoritative for individual entries and mathematical notation.</p>
+  </footer>
+</body>
+</html>

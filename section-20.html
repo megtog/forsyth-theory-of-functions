@@ -1,0 +1,221 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="A transcription of §20 from A. R. Forsyth's Theory of Functions of a Complex Variable">
+  <title>Forsyth — §20. Cauchy's integral formula and simple poles</title>
+  <style>
+:root {
+  color-scheme: light;
+  --paper: #fffdf8;
+  --page: #f1eee5;
+  --ink: #1f2825;
+  --muted: #59645e;
+  --line: #d8d1c3;
+  --accent: #8b3930;
+  --accent-dark: #65271f;
+  --secondary: #1d625c;
+  --content-width: 52rem;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 18px;
+  line-height: 1.75;
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; scroll-padding-top: 1.5rem; }
+body { margin: 0; color: var(--ink); background: var(--page); }
+a { color: var(--secondary); text-underline-offset: 0.16em; }
+
+.skip-link {
+  position: fixed; top: 0.5rem; left: 0.5rem; z-index: 2; padding: 0.4rem 0.7rem;
+  color: white; background: var(--accent-dark); transform: translateY(-150%);
+}
+.skip-link:focus { transform: translateY(0); }
+
+.book-header { padding: 4rem max(2rem, calc((100vw - 72rem) / 2)); background: var(--paper); border-bottom: 1px solid var(--line); }
+.eyebrow { margin: 0 0 0.7rem; color: var(--secondary); font: 650 0.78rem/1.3 system-ui, sans-serif; letter-spacing: 0.05em; text-transform: uppercase; }
+h1 { max-width: 48rem; margin: 0; font-size: clamp(2.1rem, 5vw, 3.6rem); font-weight: 600; line-height: 1.15; }
+.subtitle { margin: 1rem 0 0; color: var(--accent); font-size: 1.1rem; }
+
+.reader-layout { display: grid; grid-template-columns: 11rem minmax(0, var(--content-width)); gap: 3rem; justify-content: center; align-items: start; padding: 2.5rem 2rem 5rem; }
+.chapter-nav { position: sticky; top: 1.5rem; color: var(--muted); font: 0.8rem/1.45 system-ui, sans-serif; }
+.chapter-nav p { margin: 0 0 0.75rem; color: var(--ink); font-weight: 700; }
+.chapter-nav ol { margin: 0; padding: 0; list-style: none; }
+.chapter-nav li + li { margin-top: 0.35rem; }
+.chapter-nav a { color: inherit; text-decoration: none; }
+.chapter-nav a:hover, .chapter-nav a:focus-visible { color: var(--accent); text-decoration: underline; }
+
+.content { min-width: 0; padding: 2.75rem clamp(1.5rem, 5vw, 4rem) 4rem; background: var(--paper); border-top: 3px solid var(--ink); box-shadow: 0 0.75rem 2.5rem rgb(34 34 29 / 9%); }
+.content > :first-child { margin-top: 0; }
+.content h1 { font-size: 2rem; }
+.content h2 { margin: 3rem 0 1rem; padding-top: 0.6rem; border-top: 1px solid var(--line); color: var(--accent-dark); font-size: 1.45rem; line-height: 1.25; }
+.content p, .content li { max-width: 44rem; }
+.content blockquote { margin: 1.5rem 0; padding: 0.8rem 1.1rem; border-left: 0.25rem solid var(--secondary); background: #f1f6f3; color: #3d4c46; }
+.content img { display: block; max-width: 100%; height: auto; margin: 1.5rem auto; }
+.content table { width: 100%; border-collapse: collapse; font-size: 0.9rem; line-height: 1.45; }
+.content th, .content td { padding: 0.65rem 0.7rem; border-bottom: 1px solid var(--line); text-align: left; vertical-align: top; }
+.content th { color: var(--accent-dark); font-family: system-ui, sans-serif; font-size: 0.75rem; letter-spacing: 0.03em; text-transform: uppercase; }
+.content td:nth-child(1), .content td:nth-child(3), .content td:nth-child(4) { white-space: nowrap; }
+.display-math { overflow-x: auto; margin: 1.25rem 0; text-align: center; }
+.footnotes { max-width: 44rem; margin-top: 3rem; padding-top: 1rem; border-top: 1px solid var(--line); font-size: 0.9rem; }
+.footnotes ol { padding-left: 1.4rem; }
+.footnotes li + li { margin-top: 0.65rem; }
+.footnote-backref { margin-left: 0.3rem; }
+footer { padding: 1.5rem 2rem 3rem; color: var(--muted); font: 0.78rem/1.5 system-ui, sans-serif; text-align: center; }
+footer p { margin: 0 auto; max-width: 45rem; }
+
+@media (max-width: 760px) {
+  :root { font-size: 17px; }
+  .book-header { padding: 2.5rem 1.25rem; }
+  .reader-layout { display: block; padding: 1.25rem 0 3rem; }
+  .chapter-nav { position: static; margin: 0 1.25rem 1.25rem; }
+  .chapter-nav ol { display: flex; flex-wrap: wrap; gap: 0.35rem 0.8rem; }
+  .chapter-nav li + li { margin-top: 0; }
+  .content { padding: 2rem 1.25rem 3rem; box-shadow: none; }
+  .content table { display: block; overflow-x: auto; }
+}
+
+@media print {
+  body { background: white; }
+  .skip-link, .chapter-nav { display: none; }
+  .reader-layout { display: block; padding: 0; }
+  .content { border-top: 1pt solid black; box-shadow: none; }
+}
+
+  </style>
+  <script>
+    window.MathJax = {
+      svg: { fontCache: "local" },
+      options: {
+        enableMenu: true,
+        menuOptions: { settings: { enrich: false, speech: false, braille: false, assistiveMml: true } }
+      }
+    };
+  </script>
+  <script defer src="./vendor/mathjax/tex-svg.js"></script>
+</head>
+<body>
+  <a class="skip-link" href="#contents">Skip to contents</a>
+  <header class="book-header">
+    <p class="eyebrow">A. R. Forsyth · Third edition · 1918</p>
+    <h1><em>Theory of Functions of a Complex Variable</em></h1>
+    <p class="subtitle">A working reading guide and transcription project</p>
+  </header>
+  <div class="reader-layout">
+    <nav class="chapter-nav" aria-label="Page sections">
+      <p>On this page</p>
+      <ol>
+        <li><a href="#corollary">Corollary</a></li>
+<li><a href="#ex-1">Ex. 1</a></li>
+<li><a href="#ex-2">Ex. 2</a></li>
+      </ol>
+    </nav>
+    <main id="contents" class="content">
+<h1>§20. Cauchy's integral formula and simple poles</h1>
+<p><em>Printed pages 31–34 (scans 0059–0062). Mathematical notation has been transcribed as TeX; the wording follows the scans, with line wrapping normalized.</em></p>
+<p><em>Let \(f(z)\) denote a function which is holomorphic over any region in the \(z\)-plane, and let \(a\) denote any point within that region; then</em></p>
+<div class="display-math">\[
+\frac{1}{2\pi i}\int\frac{f(z)}{z-a}\,dz=f(a),
+\]</div>
+<p><em>the integral being taken positively round the whole boundary of the region.</em></p>
+<p>With \(a\) as centre and a very small radius \(\rho\), describe a circle \(C\), which will be assumed to lie wholly within the region; this assumption is justifiable because the point \(a\) lies within the region. Because \(f(z)\) is holomorphic over the assigned region, the function \(f(z)/(z-a)\) is holomorphic over the whole of the region excluded by the small circle \(C\). Hence, by Corollary II. of §19, we have</p>
+<div class="display-math">\[
+\int_B\frac{f(z)}{z-a}\,dz=\int_C\frac{f(z)}{z-a}\,dz,
+\]</div>
+<p>the notation implying that the integrations are taken positively round the whole boundary \(B\) and round the circumference of \(C\) respectively.</p>
+<p>For points on the circle \(C\), let \(z-a=\rho e^{\theta i}\), so that \(\theta\) is the variable for the circumference and its range is from \(0\) to \(2\pi\); then we have</p>
+<div class="display-math">\[
+\frac{dz}{z-a}=i\,d\theta.
+\]</div>
+<p>Along the circle \(f(z)=f(a+\rho e^{\theta i})\); the quantity \(\rho\) is very small and \(f(z)\) is finite and continuous over the whole of the region, so that \(f(a+\rho e^{\theta i})\) differs from \(f(a)\) only by a quantity which vanishes with \(\rho\). Let this difference be \(\epsilon\), which is a continuous small quantity; thus \(|\epsilon|\) is a small quantity which, for every point on the circumference of \(C\), vanishes with \(\rho\). Then</p>
+<div class="display-math">\[
+\begin{aligned}
+\int_C\frac{f(z)}{z-a}\,dz
+&amp;=i\int_0^{2\pi}\{f(a)+\epsilon\}\,d\theta\\
+&amp;=2\pi i f(a)+i\int_0^{2\pi}\epsilon\,d\theta.
+\end{aligned}
+\]</div>
+<p>If \(E\) denote the value of the integral on the right-hand side, and \(\eta\) the greatest value of the modulus of \(\epsilon\) along the circle, we have, as in §15,</p>
+<div class="display-math">\[
+\begin{aligned}
+|E|&amp;&lt;\int_0^{2\pi}|\epsilon|\,d\theta\\
+&amp;&lt;\int_0^{2\pi}\eta\,d\theta\\
+&amp;&lt;2\pi\eta.
+\end{aligned}
+\]</div>
+<p>Now let the radius of the circle diminish to zero. Then \(\eta\) also diminishes to zero and therefore \(|E|\), necessarily positive, becomes less than any finite quantity however small, that is, \(E\) is itself zero; and thus we have</p>
+<div class="display-math">\[
+\int_C\frac{f(z)}{z-a}\,dz=2\pi i f(a),
+\]</div>
+<p>which proves the theorem.</p>
+<p>When \(a\) is not a zero of \(f(z)\), this result is the simplest case of the integral of a meromorphic function. The subject of integration is \(f(z)/(z-a)\), a function which is monogenic and uniform throughout the region and which, everywhere except at \(z=a\), is finite and continuous; moreover, \(z=a\) is a pole, because in the immediate vicinity of \(a\) the reciprocal of the subject of integration, viz. \((z-a)/f(z)\), is holomorphic.</p>
+<p>The theorem may therefore be expressed as follows:—</p>
+<p><em>If \(g(z)\) be a meromorphic function, which in the vicinity of \(a\) can be expressed in the form \(f(z)/(z-a)\) where \(f(a)\) is not zero, and which at all other points in a region enclosing \(a\) is holomorphic, then</em></p>
+<div class="display-math">\[
+\frac{1}{2\pi i}\int g(z)\,dz
+=\text{limit of }(z-a)g(z)\text{ when }z=a,
+\]</div>
+<p><em>the integral being taken round a curve in the region enclosing the point \(a\).</em></p>
+<p>The pole \(a\) of the function \(g(z)\) is said to be simple, or of the first order, or of multiplicity unity.</p>
+<h2 id="corollary">Corollary</h2>
+<p>The more general case of a meromorphic function with a finite number of poles can easily be deduced. Let these be \(a_1,\ldots,a_n\), each assumed to be simple; and let</p>
+<div class="display-math">\[
+G(z)=(z-a_1)(z-a_2)\ldots(z-a_n).
+\]</div>
+<p>Let \(f(z)\) be a holomorphic function within a region of the \(z\)-plane bounded by a simple contour enclosing the \(n\) points \(a_1,a_2,\ldots,a_n\), no one of which is a zero of \(f(z)\). Then since</p>
+<div class="display-math">\[
+\frac{1}{G(z)}=\sum_{r=1}^n\frac{1}{G'(a_r)}\frac{1}{z-a_r},
+\]</div>
+<p>we have</p>
+<div class="display-math">\[
+\frac{f(z)}{G(z)}=\sum_{r=1}^n\frac{1}{G'(a_r)}\frac{f(z)}{z-a_r}.
+\]</div>
+<p>We therefore have</p>
+<div class="display-math">\[
+\int\frac{f(z)}{G(z)}\,dz
+=\sum_{r=1}^n\frac{1}{G'(a_r)}\int\frac{f(z)}{z-a_r}\,dz,
+\]</div>
+<p>each integral being taken round the boundary. But the preceding proposition gives</p>
+<div class="display-math">\[
+\int\frac{f(z)}{z-a_r}\,dz=2\pi i f(a_r),
+\]</div>
+<p>because \(f(z)\) is holomorphic over the whole region included in the contour; and therefore</p>
+<div class="display-math">\[
+\int\frac{f(z)}{G(z)}\,dz
+=2\pi i\sum_{r=1}^n\frac{f(a_r)}{G'(a_r)},
+\]</div>
+<p>the integral on the left-hand side being taken in the positive direction.<sup id="footnote-ref-1-1"><a href="#footnote-1" aria-label="Footnote 1">1</a></sup></p>
+<p>The result just obtained expresses the integral of the meromorphic function round a contour which includes a finite number of its simple poles. It can be obtained otherwise from Corollary II. of §19, by adopting a process similar to that adopted above, viz., by making each of the curves in that Corollary circles round the points \(a_1,\ldots,a_n\) with radii sufficiently small to secure that each circle is outside all the others.</p>
+<h2 id="ex-1">Ex. 1</h2>
+<p>A function \(f(z)\) is holomorphic over an area bounded by a simple closed curve; and \(a,b,c\) are three points within the area. Find the value of the integral</p>
+<div class="display-math">\[
+\frac{1}{2\pi i}\int\frac{f(z)\,dz}{(z-a)(z-b)(z-c)}
+\]</div>
+<p>taken round the curve; and shew what it becomes</p>
+<p>(i) when \(a\) and \(b\) coincide,</p>
+<p>(ii) when \(a,b,c\) coincide.</p>
+<h2 id="ex-2">Ex. 2</h2>
+<p>Let \(S(\zeta/z)\) denote the sum of any set of selected terms of the series</p>
+<div class="display-math">\[
+1+\frac{\zeta}{z}+\frac{\zeta^2}{z^2}+\ldots,\qquad |\zeta|&lt;|z|,
+\]</div>
+<p>and let</p>
+<div class="display-math">\[
+f(\zeta)=a_0+a_1\zeta+a_2\zeta^2+\ldots,
+\]</div>
+<p>where \(f(\zeta)\) is a holomorphic function of \(\zeta\) within the range; shew that the sum of the same set of terms selected from \(f(\zeta)\) can be expressed in the form</p>
+<div class="display-math">\[
+\frac{1}{2\pi i}\int\frac{f(z)}{z}S\left(\frac{\zeta}{z}\right)\,dz.
+\]</div>
+<section class="footnotes" aria-label="Footnotes"><ol>
+<li id="footnote-1">We shall for the future assume that, if no direction for a complete integral be specified, the positive direction is taken. <a class="footnote-backref" href="#footnote-ref-1-1" aria-label="Back to footnote 1 reference">↩</a></li>
+</ol></section>
+
+    </main>
+  </div>
+  <footer>
+    <p>Generated locally from the repository's canonical Markdown source. Page scans are authoritative for individual entries and mathematical notation.</p>
+  </footer>
+</body>
+</html>
